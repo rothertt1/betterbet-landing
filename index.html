@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BetterBet — Stay in the game. Stay in control.</title>
-  <meta name="description" content="BetterBet helps you enjoy the game without losing yourself — AI-powered awareness, nudges, and streaks that make control feel like a flex." />
+  <meta name="description" content="BetterBet helps you enjoy the rush without the spiral — awareness streaks, smart nudges, and an AI coach that talks like you. Control actually feels good." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
@@ -14,7 +14,9 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; background: radial-gradient(1200px 700px at 75% 10%, rgba(0,226,138,.18), transparent 60%) , var(--midnight);
+      margin:0; background:
+        radial-gradient(1200px 700px at 75% 10%, rgba(0,226,138,.18), transparent 60%),
+        var(--midnight);
       color:var(--text); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height:1.5;
     }
     .wrap{max-width:1120px; margin:0 auto; padding:0 20px}
@@ -28,11 +30,12 @@
     .tag{display:inline-flex; align-items:center; gap:8px; background:rgba(30,38,54,.7); border:1px solid #2a3550; color:#aab6ca; padding:8px 12px; border-radius:999px; font-size:13px}
     .pulse{display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--mint); box-shadow:0 0 16px rgba(0,226,138,.9)}
     h1{font-family:"Bebas Neue"; font-size:80px; line-height:.95; margin:18px 0 10px; letter-spacing:.5px}
-    .sub{font-size:18px; color:#cfd6e5; max-width:650px}
-    .hero-form{margin-top:26px; display:flex; gap:10px; flex-wrap:wrap}
+    .sub{font-size:18px; color:#cfd6e5; max-width:700px}
+    .microstat{font-size:14px; color:#9fb0c8; margin-top:6px}
+    .hero-form{margin-top:22px; display:flex; gap:10px; flex-wrap:wrap}
     input[type=email]{flex:1; min-width:260px; background:rgba(30,38,54,.75); border:1px solid #2e3b5a; color:var(--text); padding:14px 14px; border-radius:12px; outline:0}
     .ghost{background:transparent; border:1px solid #2e3b5a; color:#cfd6e5}
-    .hero-media{margin:36px 0 0; background:linear-gradient(180deg, rgba(0,226,138,.12), transparent 60%), rgba(30,38,54,.6); border:1px solid #2a3550; border-radius:20px; padding:22px}
+    .hero-media{margin:26px 0 0; background:linear-gradient(180deg, rgba(0,226,138,.12), transparent 60%), rgba(30,38,54,.6); border:1px solid #2a3550; border-radius:20px; padding:22px}
     .media-grid{display:grid; grid-template-columns: 1fr 1fr; gap:18px}
     .card{background:rgba(11,13,23,.55); border:1px solid #22304c; border-radius:16px; padding:18px}
     .kicker{font-size:12px; color:#9fb0c8; letter-spacing:.2px; text-transform:uppercase}
@@ -72,16 +75,34 @@
   </header>
 
   <main class="wrap hero">
-    <span class="tag"><span class="pulse"></span> AI coach for control — not picks</span>
+    <span class="tag"><span class="pulse"></span> AI coach for control — not picks.</span>
     <h1>Stay in the game.<br/>Stay in control.</h1>
-    <p class="sub">BetterBet helps you enjoy the rush without losing yourself — <b>awareness streaks</b>, <b>smart nudges</b>, and a <b>coach that talks like you</b>. Control becomes a flex.</p>
+
+    <!-- NEW: subtle, human-relevant data line -->
+    <p class="microstat">Nearly 1 in 2 men aged 18–49 have a sportsbook account. We’re building BetterBet for all of us.</p>
+
+    <p class="sub">
+      Enjoy the rush without the spiral.<br/>
+      BetterBet gives you awareness streaks, smart nudges, and an AI coach that talks like you — so control actually feels good.
+    </p>
 
     <form id="waitlist" class="hero-form" action="https://formspree.io/f/your-endpoint" method="POST">
       <input id="email" name="email" type="email" placeholder="Enter your email for early access" required />
-      <button class="cta-btn" type="submit">Get early access</button>
-      <button class="cta-btn ghost" type="button" onclick="scrollToId('how')">How it works</button>
+      <button class="cta-btn" type="submit">Start your control streak</button>
+      <button class="cta-btn ghost" type="button" onclick="scrollToId('how')">See how it works</button>
     </form>
+    <p style="font-size:13px; color:#9fb0c8; margin-top:6px;">🔒 No spam. Just first access when we launch.</p>
 
+    <!-- AI Chat Mock — visualizes the differentiator -->
+    <div class="hero-media" style="margin-top:26px;">
+      <div style="background:rgba(30,38,54,.7); border-radius:16px; padding:16px; max-width:520px;">
+        <p style="color:var(--mint); margin:0;">🧠 BetterBet AI: Late-night streak again? You’ve hit 5 days in control.</p>
+        <p style="margin:6px 0 0;">👤 You: Appreciate the check-in. Locking it in tonight.</p>
+      </div>
+      <p class="hint" style="margin-top:10px;">Our AI coach talks like you — not at you.</p>
+    </div>
+
+    <!-- Product concept visuals -->
     <div class="hero-media">
       <div class="media-grid">
         <div class="card">
@@ -112,17 +133,19 @@
 
   <section id="how" class="wrap section">
     <h2>How BetterBet works</h2>
-    <p class="sub" style="margin:6px 0 18px; max-width:760px">We don’t judge. We help you notice the moment before impulse, with tools that make control feel natural.</p>
+    <p class="sub" style="margin:6px 0 18px; max-width:760px">
+      We don’t tell you to stop betting. We teach you to stay in control.
+    </p>
     <div class="three">
       <div class="tile">
         <div class="badge"><span class="pulse"></span> Awareness Engine</div>
         <h3>See your patterns</h3>
-        <p class="hint">Trends you can act on: when you chase, when you cool off, what triggers tilt.</p>
+        <p class="hint">Track when you chase, cool off, or tilt — awareness that wins long-term.</p>
       </div>
       <div class="tile">
         <div class="badge"><span class="pulse"></span> AI Coach</div>
         <h3>Talks like you</h3>
-        <p class="hint">Street-smart friend. Locker-room coach. Big-brother calm. The right nudge at the right time.</p>
+        <p class="hint">Locker-room coach. Street-smart friend. Big-brother calm. The right nudge at the right time.</p>
       </div>
       <div class="tile">
         <div class="badge"><span class="pulse"></span> Gamified Wellness</div>
@@ -135,20 +158,28 @@
   <section id="mission" class="wrap section">
     <div class="grid-2">
       <div>
-        <h2>Our promise</h2>
+        <h2>Why we’re different</h2>
         <ul class="list">
           <li><b>We profit from control, not compulsion.</b> Subscription, not volume.</li>
-          <li><b>Privacy is product.</b> Your data is yours. Anonymized by default.</li>
+          <li><b>Privacy is product.</b> Your data stays yours. Anonymized by default.</li>
           <li><b>No shame, no preach.</b> Humor when you’re fine. Calm when you’re spiraling.</li>
         </ul>
         <div class="cta">
-          <button class="cta-btn" onclick="document.getElementById('email').focus()">Join the waitlist</button>
+          <button class="cta-btn" onclick="document.getElementById('email').focus()">Start your control streak</button>
           <a class="badge" href="#">Read the Vision Framework (PDF)</a>
         </div>
       </div>
       <div class="tile">
         <div class="kicker">Why we exist</div>
-        <p class="hint">Sportsbooks spend billions on acquisition, pennies on safety. Young bettors are spiraling in silence. BetterBet is the AI that helps you <b>enjoy the game without losing yourself</b>.</p>
+        <p class="hint">
+          Sportsbooks spend billions on acquisition, pennies on safety. Young bettors are spiraling in silence.
+          BetterBet is the AI that helps you <b>enjoy the game without losing yourself</b>.
+        </p>
+        <div class="divider"></div>
+        <!-- NEW: subtle industry-size purpose note -->
+        <p class="hint" style="font-style:italic; opacity:.85;">
+          U.S. sportsbooks pulled in an estimated <b>$13.7B</b> last year. It’s time someone built a product that gives bettors something back — control.
+        </p>
         <div class="divider"></div>
         <div class="kicker">Tagline</div>
         <p class="hint"><i>“Better mind. Better moments. BetterBet.”</i></p>
@@ -156,15 +187,11 @@
     </div>
   </section>
 
-  <section class="wrap section" style="padding-top:0">
-    <div class="tile">
-      <h2>Questions, edge cases, partnerships?</h2>
-      <p class="hint">We’re building with founders, therapists, and responsible gambling teams. If you want to help shape this, drop your email above and add a note.</p>
-      <div class="cta">
-        <button class="cta-btn" onclick="document.getElementById('email').focus()">Get early access</button>
-        <button class="cta-btn ghost" onclick="window.scrollTo({top:0, behavior:'smooth'})">Back to top</button>
-      </div>
-    </div>
+  <!-- Trust tagline -->
+  <section class="wrap section" style="text-align:center; padding-top:0;">
+    <p style="font-family:'Bebas Neue'; font-size:26px; color:var(--mint); letter-spacing:0.5px;">
+      Built by bettors. Backed by behavioral science.
+    </p>
   </section>
 
   <footer class="wrap footer">
@@ -190,7 +217,6 @@
       // Swap the action with your Formspree or backend endpoint:
       // 1) Create a form at https://formspree.io
       // 2) Replace the action attribute above with your endpoint
-      // Basic UX polish:
       const btn = form.querySelector('button[type=submit]');
       btn.disabled = true; btn.textContent = 'Joining…';
     });
