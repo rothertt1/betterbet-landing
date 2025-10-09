@@ -12,13 +12,14 @@
   <meta property="og:title" content="BetterBet — Stay in the game. Stay in control." />
   <meta property="og:description" content="AI coach for control — not picks. Awareness streaks, smart nudges, and a coach that talks like you." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://betterbet-landing.vercel.app/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --midnight:#0B0D17; --slate:#1E2636; --mint:#00E28A; --amber:#FFC400; --cloud:#E6E9EF; --text:#F5F7FB;
+      --midnight:#0B0D17; --slate:#1E2636; --mint:#00E28A; --amber:#FFC400; --text:#F5F7FB;
+      --muted:#9fb0c8;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -34,9 +35,9 @@
     .wrap{max-width:1120px; margin:0 auto; padding:0 20px}
     .nav{display:flex; align-items:center; justify-content:space-between; padding:20px 0}
 
-    /* Logo + subtle pulse (premium, not flashy) */
+    /* Logo + subtle pulse */
     .logo{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text)}
-    .logo-word{font-family:"Bebas Neue", system-ui; letter-spacing:.5px; font-size:28px}
+    .logo-word{font-family:"Bebas Neue"; letter-spacing:.5px; font-size:28px}
     .logo-dot{
       width:10px; height:10px; border-radius:50%;
       background:var(--mint);
@@ -55,7 +56,7 @@
     .cta-btn:hover{ transform:translateY(-1px); box-shadow:0 0 10px rgba(0,226,138,.35); }
     .badge{display:inline-flex; align-items:center; gap:8px; border:1px solid #2a3550; border-radius:999px; padding:6px 10px; font-size:12px; color:#aab6ca}
 
-    .hero{padding:84px 0 64px; position:relative}
+    .hero{padding:84px 0 84px; position:relative}
     .tag{display:inline-flex; align-items:center; gap:8px; background:rgba(30,38,54,.7); border:1px solid #2a3550; color:#aab6ca; padding:8px 12px; border-radius:999px; font-size:13px}
     .pulse{display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--mint); box-shadow:0 0 16px rgba(0,226,138,.9)}
 
@@ -72,27 +73,70 @@
       padding:14px 14px; border-radius:12px; outline:0;
       transition:border-color .15s ease, box-shadow .15s ease;
     }
-    /* Subtle premium focus glow */
     input[type=email]:focus{ border-color:var(--mint); box-shadow:0 0 8px rgba(0,226,138,.35); }
     .ghost{background:transparent; border:1px solid #2e3b5a; color:#cfd6e5}
 
-    /* Subtle app preview behind the form (non-distracting) */
-    .app-preview{
-      position:absolute; inset:auto 0 -10px 0; pointer-events:none;
-      display:flex; justify-content:center; margin-top:18px;
-      filter:blur(0.2px);
+    /* Control Hub hero mock */
+    .hero-visual{
+      position:relative; margin-top:36px;
+      display:flex; justify-content:center;
     }
-    .preview-frame{
-      width:880px; max-width:92%; height:120px;
-      border-radius:18px; backdrop-filter:blur(4px);
-      background:linear-gradient(180deg, rgba(0,226,138,.08), rgba(18,24,36,.75));
-      border:1px solid #2a3550; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:14px; padding:14px; opacity:.45;
+    .hero-visual::before{
+      content:"";
+      position:absolute; width:900px; max-width:95%; height:520px;
+      background:radial-gradient(800px at 50% 30%, rgba(0,226,138,.22), transparent 70%);
+      filter:blur(6px); z-index:0; pointer-events:none;
     }
-    .pv-card{border-radius:12px; border:1px solid #24324e; background:rgba(19,24,36,.55)}
-    .pv-card.small{opacity:.9}
-    .pv-bar{height:8px; border-radius:8px; background:rgba(0,226,138,.28); margin:10px}
-    .pv-badge{width:64px; height:64px; border-radius:50%; border:6px solid rgba(0,226,138,.22); border-top-color:var(--mint); margin:12px auto}
+    .phone{
+      position:relative; z-index:1; width:380px; max-width:86%;
+      aspect-ratio:9/19; border-radius:36px; padding:14px;
+      background:linear-gradient(180deg, #0e1320, #0a0f1a);
+      box-shadow:0 12px 40px rgba(0,0,0,.6), 0 0 0 1px #1f2a40 inset;
+      border:1px solid #26344f;
+    }
+    .phone::after{ /* soft reflection */
+      content:""; position:absolute; left:6%; right:6%; bottom:-14px; height:10px;
+      background:linear-gradient(180deg, rgba(0,0,0,.25), transparent);
+      filter:blur(4px); border-radius:50%;
+    }
+    .camera-notch{
+      width:68px; height:16px; background:#0b1220; border-radius:0 0 14px 14px;
+      margin:0 auto 10px; border:1px solid #1d2942;
+    }
+    .screen{
+      height:100%; border-radius:24px; background:linear-gradient(180deg, #0f1727, #0b1321 70%);
+      border:1px solid #22314d; padding:18px; display:flex; flex-direction:column; gap:14px;
+    }
 
+    .mini-tag{font-size:11px; color:var(--mint); text-transform:uppercase; letter-spacing:.25px; opacity:.9}
+    .streak{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px; border-radius:14px; border:1px solid #23324f; background:rgba(14,20,33,.75);
+    }
+    .streak h4{margin:0; font-size:14px; color:#cfe5da}
+    .streak .count{font-weight:800; font-size:22px; color:var(--mint)}
+    .gauge{
+      height:8px; border-radius:8px; background:#203149; overflow:hidden; border:1px solid #273a58;
+    }
+    .gauge > span{display:block; height:100%; width:68%; background:linear-gradient(90deg, rgba(0,226,138,.35), var(--mint));}
+
+    .coach{
+      margin-top:2px; padding:12px 14px; border-radius:14px;
+      border:1px solid #23324f; background:rgba(14,20,33,.75);
+    }
+    .coach .line{color:#cfe5da; margin:0; font-size:13.5px}
+    .coach .you{opacity:.9}
+
+    .metric{
+      padding:12px; border-radius:14px; border:1px solid #23324f; background:rgba(14,20,33,.75);
+    }
+    .metric h5{margin:0 0 6px; font-size:12px; color:#b7c3d8; text-transform:uppercase; letter-spacing:.25px}
+    .metric .big{font-size:22px; font-weight:800}
+    .metric .trend{font-size:12px; color:#9ad6b9}
+
+    .caption{margin-top:14px; color:#cfd6e5; font-size:14px; text-align:center}
+
+    /* Sections */
     .section{padding:70px 0}
     .section h2{font-family:"Bebas Neue"; font-size:40px; margin:0 0 6px}
     .three{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
@@ -111,7 +155,7 @@
     @media (max-width: 900px){
       h1{font-size:56px}
       .three, .grid-2{grid-template-columns:1fr}
-      .preview-frame{height:110px}
+      .phone{width:320px}
     }
   </style>
 </head>
@@ -136,31 +180,44 @@
     <p class="sub">
       BetterBet helps you enjoy the rush without losing yourself — <b>awareness streaks</b>, <b>smart nudges</b>, and a <b>coach that talks like you</b>. Control becomes a flex.
     </p>
-
-    <!-- NEW: one-line functional clarifier -->
     <p class="clarifier">BetterBet tracks your betting patterns, spots tilt early, and coaches you back to control — before you spiral.</p>
 
-    <!-- Form -->
     <form id="waitlist" class="hero-form" action="https://formspree.io/f/manpdjqg" method="POST">
       <input id="email" name="email" type="email" placeholder="Enter your email for early access" required />
       <button class="cta-btn" type="submit">Get early access</button>
       <button class="cta-btn ghost" type="button" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">How it works</button>
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
     </form>
-    <p style="font-size:13px; color:#9fb0c8; margin-top:6px;">🔒 No spam. Just first access when we launch.</p>
+    <p style="font-size:13px; color:var(--muted); margin-top:6px;">🔒 No spam. Just first access when we launch.</p>
 
-    <!-- Subtle app preview (blurred panels hinting at product) -->
-    <div class="app-preview" aria-hidden="true">
-      <div class="preview-frame">
-        <div class="pv-card">
-          <div class="pv-badge"></div>
-          <div class="pv-bar"></div>
-          <div class="pv-bar" style="width:70%"></div>
+    <!-- CONTROL HUB VISUAL -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="phone">
+        <div class="camera-notch"></div>
+        <div class="screen">
+          <span class="mini-tag">Live Snapshot — Your Control Hub</span>
+
+          <div class="streak">
+            <h4>Control Streak</h4>
+            <div class="count">5 days 🔥</div>
+          </div>
+
+          <div class="metric">
+            <h5>Tilt Risk</h5>
+            <div class="big">Low</div>
+            <div class="gauge" style="margin-top:6px"><span></span></div>
+            <div class="trend" style="margin-top:6px">Composure Score 87% ↑ +4% this week</div>
+          </div>
+
+          <div class="coach">
+            <p class="line"><b>BetterBet AI:</b> Lock in your streak tonight?</p>
+            <p class="line you">You: Locking it. No late chase.</p>
+          </div>
         </div>
-        <div class="pv-card small"></div>
-        <div class="pv-card small"></div>
       </div>
     </div>
+
+    <p class="caption">Your AI coach. Your control dashboard.</p>
   </main>
 
   <!-- How BetterBet Works -->
@@ -173,17 +230,17 @@
       <div class="tile">
         <h3>Spot your streaks</h3>
         <p class="hint">Track when you’re hot, when you’re tilting, and when it’s time to reset. Awareness that wins long-term.</p>
-        <p style="font-size:12px; color:#00E28A; margin-top:8px;">Powered by the Awareness Engine™</p>
+        <p style="font-size:12px; color:var(--mint); margin-top:8px;">Powered by the Awareness Engine™</p>
       </div>
       <div class="tile">
         <h3>Talks to you like a friend</h3>
         <p class="hint">Locker-room calm. Street-smart feedback. Big-brother honesty when you need it most.</p>
-        <p style="font-size:12px; color:#00E28A; margin-top:8px;">Built by bettors, not therapists</p>
+        <p style="font-size:12px; color:var(--mint); margin-top:8px;">Built by bettors, not therapists</p>
       </div>
       <div class="tile">
         <h3>Make control your edge</h3>
         <p class="hint">Earn streaks, badges, and rewards that flex discipline — not risk. Control becomes your competitive advantage.</p>
-        <p style="font-size:12px; color:#00E28A; margin-top:8px;">Backed by behavioral science</p>
+        <p style="font-size:12px; color:var(--mint); margin-top:8px;">Backed by behavioral science</p>
       </div>
     </div>
   </section>
@@ -193,7 +250,7 @@
     <div class="grid-2">
       <div>
         <h2>Why We’re Different</h2>
-        <p style="font-size:15px; color:#9fb0c8; margin:0 0 20px;">
+        <p style="font-size:15px; color:var(--muted); margin:0 0 20px;">
           Over 60 million Americans placed a sports bet last year — it’s time we start betting on composure.
         </p>
         <ul class="list" style="list-style-type:none; padding-left:0;">
@@ -216,7 +273,7 @@
       </div>
 
       <div class="tile">
-        <div style="font-size:12px; color:#9fb0c8; text-transform:uppercase; letter-spacing:.2px;">Why We Exist</div>
+        <div style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.2px;">Why We Exist</div>
         <p class="hint" style="margin-top:6px;">
           <b>Sportsbooks bet on your impulses. We bet on your composure.</b><br><br>
           BetterBet is the AI coach that helps you <b>stay sharp, not spiral</b> — keeping the rush without the regret.
@@ -224,7 +281,7 @@
         <div class="divider"></div>
         <p class="hint" style="margin:0 0 12px;"><b>Built by bettors who’ve been there.</b></p>
         <div class="divider"></div>
-        <div style="font-size:12px; color:#9fb0c8; text-transform:uppercase; letter-spacing:.2px;">Tagline</div>
+        <div style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.2px;">Tagline</div>
         <p class="hint"><i>“Better mind. Better moments. BetterBet.”</i></p>
       </div>
     </div>
@@ -251,7 +308,7 @@
   </footer>
 
   <script>
-    // Small UX polish on submit
+    // UX polish on submit
     const form = document.getElementById('waitlist');
     form.addEventListener('submit', () => {
       const btn = form.querySelector('button[type=submit]');
@@ -260,6 +317,7 @@
   </script>
 </body>
 </html>
+
 
 
 
