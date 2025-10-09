@@ -3,8 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>BetterBet — Stay in the game. Stay in control.</title>
-  <meta name="description" content="BetterBet helps you enjoy the rush without losing yourself — awareness streaks, smart nudges, and a coach that talks like you. Control becomes a flex." />
+  <meta name="description" content="BetterBet is an AI coach for bettors. Track patterns, spot tilt early, and get coached back to control — before you spiral." />
+  <meta name="theme-color" content="#0B0D17">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="BetterBet — Stay in the game. Stay in control." />
+  <meta property="og:description" content="AI coach for control — not picks. Awareness streaks, smart nudges, and a coach that talks like you." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://betterbet-landing.vercel.app/" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
@@ -46,13 +55,13 @@
     .cta-btn:hover{ transform:translateY(-1px); box-shadow:0 0 10px rgba(0,226,138,.35); }
     .badge{display:inline-flex; align-items:center; gap:8px; border:1px solid #2a3550; border-radius:999px; padding:6px 10px; font-size:12px; color:#aab6ca}
 
-    .hero{padding:84px 0 48px; position:relative}
+    .hero{padding:84px 0 64px; position:relative}
     .tag{display:inline-flex; align-items:center; gap:8px; background:rgba(30,38,54,.7); border:1px solid #2a3550; color:#aab6ca; padding:8px 12px; border-radius:999px; font-size:13px}
     .pulse{display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--mint); box-shadow:0 0 16px rgba(0,226,138,.9)}
 
     h1{font-family:"Bebas Neue"; font-size:80px; line-height:.95; margin:18px 0 10px; letter-spacing:.5px}
-    .sub{font-size:18px; color:#cfd6e5; max-width:700px}
-    .empathy{font-size:15px; color:#9fb0c8; margin-top:6px; max-width:700px}
+    .sub{font-size:18px; color:#cfd6e5; max-width:760px}
+    .clarifier{font-size:16px; color:#b7c3d8; margin-top:8px; max-width:760px}
 
     .hero-form{margin-top:24px; display:flex; gap:10px; flex-wrap:wrap}
     input[type=email]{
@@ -65,8 +74,24 @@
     }
     /* Subtle premium focus glow */
     input[type=email]:focus{ border-color:var(--mint); box-shadow:0 0 8px rgba(0,226,138,.35); }
-
     .ghost{background:transparent; border:1px solid #2e3b5a; color:#cfd6e5}
+
+    /* Subtle app preview behind the form (non-distracting) */
+    .app-preview{
+      position:absolute; inset:auto 0 -10px 0; pointer-events:none;
+      display:flex; justify-content:center; margin-top:18px;
+      filter:blur(0.2px);
+    }
+    .preview-frame{
+      width:880px; max-width:92%; height:120px;
+      border-radius:18px; backdrop-filter:blur(4px);
+      background:linear-gradient(180deg, rgba(0,226,138,.08), rgba(18,24,36,.75));
+      border:1px solid #2a3550; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:14px; padding:14px; opacity:.45;
+    }
+    .pv-card{border-radius:12px; border:1px solid #24324e; background:rgba(19,24,36,.55)}
+    .pv-card.small{opacity:.9}
+    .pv-bar{height:8px; border-radius:8px; background:rgba(0,226,138,.28); margin:10px}
+    .pv-badge{width:64px; height:64px; border-radius:50%; border:6px solid rgba(0,226,138,.22); border-top-color:var(--mint); margin:12px auto}
 
     .section{padding:70px 0}
     .section h2{font-family:"Bebas Neue"; font-size:40px; margin:0 0 6px}
@@ -77,6 +102,8 @@
     .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
     .list{margin:0; padding-left:18px; color:#cfd6e5}
 
+    .trustline{font-family:"Bebas Neue"; font-size:26px; color:var(--mint); letter-spacing:.5px; text-align:center; margin:0; padding:8px 0 40px}
+
     .footer{padding:40px 0 64px; color:#8fa0ba; font-size:14px}
     .divider{height:1px; background:#25314b; margin:20px 0}
 
@@ -84,6 +111,7 @@
     @media (max-width: 900px){
       h1{font-size:56px}
       .three, .grid-2{grid-template-columns:1fr}
+      .preview-frame{height:110px}
     }
   </style>
 </head>
@@ -108,10 +136,11 @@
     <p class="sub">
       BetterBet helps you enjoy the rush without losing yourself — <b>awareness streaks</b>, <b>smart nudges</b>, and a <b>coach that talks like you</b>. Control becomes a flex.
     </p>
-    <!-- Single empathy micro-line (adds warmth, not clutter) -->
-    <p class="empathy">Because you love the game — you just don’t want it running you.</p>
 
-    <!-- Form: plug in your Formspree endpoint -->
+    <!-- NEW: one-line functional clarifier -->
+    <p class="clarifier">BetterBet tracks your betting patterns, spots tilt early, and coaches you back to control — before you spiral.</p>
+
+    <!-- Form -->
     <form id="waitlist" class="hero-form" action="https://formspree.io/f/manpdjqg" method="POST">
       <input id="email" name="email" type="email" placeholder="Enter your email for early access" required />
       <button class="cta-btn" type="submit">Get early access</button>
@@ -119,6 +148,19 @@
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
     </form>
     <p style="font-size:13px; color:#9fb0c8; margin-top:6px;">🔒 No spam. Just first access when we launch.</p>
+
+    <!-- Subtle app preview (blurred panels hinting at product) -->
+    <div class="app-preview" aria-hidden="true">
+      <div class="preview-frame">
+        <div class="pv-card">
+          <div class="pv-badge"></div>
+          <div class="pv-bar"></div>
+          <div class="pv-bar" style="width:70%"></div>
+        </div>
+        <div class="pv-card small"></div>
+        <div class="pv-card small"></div>
+      </div>
+    </div>
   </main>
 
   <!-- How BetterBet Works -->
@@ -146,7 +188,7 @@
     </div>
   </section>
 
-  <!-- Why We're Different -->
+  <!-- Why We're Different / Why We Exist -->
   <section id="mission" class="wrap section">
     <div class="grid-2">
       <div>
@@ -177,8 +219,10 @@
         <div style="font-size:12px; color:#9fb0c8; text-transform:uppercase; letter-spacing:.2px;">Why We Exist</div>
         <p class="hint" style="margin-top:6px;">
           <b>Sportsbooks bet on your impulses. We bet on your composure.</b><br><br>
-          BetterBet is the AI coach that helps you <b>stay sharp, not spiral</b> — keeping the rush without the regret. 
+          BetterBet is the AI coach that helps you <b>stay sharp, not spiral</b> — keeping the rush without the regret.
         </p>
+        <div class="divider"></div>
+        <p class="hint" style="margin:0 0 12px;"><b>Built by bettors who’ve been there.</b></p>
         <div class="divider"></div>
         <div style="font-size:12px; color:#9fb0c8; text-transform:uppercase; letter-spacing:.2px;">Tagline</div>
         <p class="hint"><i>“Better mind. Better moments. BetterBet.”</i></p>
@@ -186,13 +230,8 @@
     </div>
   </section>
 
-
-  <!-- Trust tagline (small, elegant) -->
-  <section class="wrap" style="padding:8px 20px 40px; text-align:center;">
-    <p style="font-family:'Bebas Neue'; font-size:26px; color:var(--mint); letter-spacing:0.5px; margin:0;">
-      Built by bettors. Backed by behavioral science.
-    </p>
-  </section>
+  <!-- Trust tagline -->
+  <p class="wrap trustline">Built by bettors. Backed by behavioral science.</p>
 
   <!-- Footer -->
   <footer class="wrap footer">
@@ -221,6 +260,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
