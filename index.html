@@ -18,7 +18,8 @@
 
   <style>
     :root{
-      --midnight:#0B0D17; --slate:#1E2636; --mint:#00E28A; --amber:#FFC400; --text:#F5F7FB; --muted:#9fb0c8;
+      --midnight:#0B0D17; --slate:#1E2636; --mint:#00E28A; --amber:#FFC400;
+      --text:#F5F7FB; --muted:#9fb0c8; --ink:#0e1320;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -37,109 +38,88 @@
     /* Logo + subtle pulse */
     .logo{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text)}
     .logo-word{font-family:"Bebas Neue"; letter-spacing:.5px; font-size:28px}
-    .logo-dot{
-      width:10px; height:10px; border-radius:50%;
-      background:var(--mint);
+    .logo-dot{width:10px; height:10px; border-radius:50%; background:var(--mint);
       box-shadow:0 0 8px rgba(0,226,138,.8), 0 0 24px rgba(0,226,138,.15);
-      animation:pulseGlow 3.2s ease-in-out infinite;
-    }
+      animation:pulseGlow 3.2s ease-in-out infinite;}
     @keyframes pulseGlow{
-      0%,100%{ box-shadow:0 0 8px rgba(0,226,138,.8), 0 0 24px rgba(0,226,138,.15); opacity:1; }
-      50%{ box-shadow:0 0 18px rgba(0,226,138,.95), 0 0 40px rgba(0,226,138,.25); opacity:.9; }
+      0%,100%{ box-shadow:0 0 8px rgba(0,226,138,.8), 0 0 24px rgba(0,226,138,.15); opacity:1 }
+      50%{ box-shadow:0 0 18px rgba(0,226,138,.95), 0 0 40px rgba(0,226,138,.25); opacity:.9 }
     }
 
-    .cta-btn{
-      background:var(--mint); color:#031; border:0; padding:12px 18px;
-      border-radius:12px; font-weight:700; cursor:pointer; transition:all .18s ease;
-    }
+    .cta-btn{background:var(--mint); color:#031; border:0; padding:12px 18px;
+      border-radius:12px; font-weight:700; cursor:pointer; transition:all .18s ease;}
     .cta-btn:hover{ transform:translateY(-1px); box-shadow:0 0 10px rgba(0,226,138,.35); }
-    .badge{display:inline-flex; align-items:center; gap:8px; border:1px solid #2a3550; border-radius:999px; padding:6px 10px; font-size:12px; color:#aab6ca}
+    .badge{display:inline-flex; align-items:center; gap:8px; border:1px solid #2a3550;
+      border-radius:999px; padding:6px 10px; font-size:12px; color:#aab6ca}
 
     .hero{padding:64px 0 84px; position:relative}
-    .tag{display:inline-flex; align-items:center; gap:8px; background:rgba(30,38,54,.7); border:1px solid #2a3550; color:#aab6ca; padding:8px 12px; border-radius:999px; font-size:13px}
+    .tag{display:inline-flex; align-items:center; gap:8px; background:rgba(30,38,54,.7);
+      border:1px solid #2a3550; color:#aab6ca; padding:8px 12px; border-radius:999px; font-size:13px}
     .pulse{display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--mint); box-shadow:0 0 16px rgba(0,226,138,.9)}
 
     /* Two-column hero grid */
-    .hero-grid{
-      display:grid; grid-template-columns: 1.05fr 0.95fr; gap:40px; align-items:center;
-    }
+    .hero-grid{ display:grid; grid-template-columns: 1.08fr .92fr; gap:40px; align-items:center; }
 
     h1{font-family:"Bebas Neue"; font-size:80px; line-height:.95; margin:18px 0 10px; letter-spacing:.5px}
     .sub{font-size:18px; color:#cfd6e5; max-width:760px}
     .clarifier{font-size:16px; color:#b7c3d8; margin-top:8px; max-width:760px}
 
     .hero-form{margin-top:24px; display:flex; gap:10px; flex-wrap:wrap}
-    input[type=email]{
-      flex:1; min-width:260px;
-      background:rgba(30,38,54,.75);
-      border:1px solid #2e3b5a;
-      color:var(--text);
-      padding:14px 14px; border-radius:12px; outline:0;
-      transition:border-color .15s ease, box-shadow .15s ease;
-    }
+    input[type=email]{ flex:1; min-width:260px; background:rgba(30,38,54,.75); border:1px solid #2e3b5a;
+      color:var(--text); padding:14px 14px; border-radius:12px; outline:0; transition:border-color .15s ease, box-shadow .15s ease; }
     input[type=email]:focus{ border-color:var(--mint); box-shadow:0 0 8px rgba(0,226,138,.35); }
     .ghost{background:transparent; border:1px solid #2e3b5a; color:#cfd6e5}
 
     /* Control Hub phone (right/top) */
-    .hero-visual{
-      position:relative; justify-self:end;
-    }
+    .hero-visual{ position:relative; justify-self:end; }
     .hero-visual::before{
-      content:"";
-      position:absolute; right:-40px; top:-40px; width:560px; height:560px;
+      content:""; position:absolute; right:-40px; top:-40px; width:560px; height:560px;
       background:radial-gradient(420px at 60% 40%, rgba(0,226,138,.25), transparent 70%);
       filter:blur(10px); z-index:0; pointer-events:none;
     }
-    .phone{
-      position:relative; z-index:1; width:380px; max-width:92%;
+    .phone{ position:relative; z-index:1; width:392px; max-width:92%;
       aspect-ratio:9/19; border-radius:36px; padding:14px;
       background:linear-gradient(180deg, #0e1320, #0a0f1a);
       box-shadow:0 12px 40px rgba(0,0,0,.6), 0 0 0 1px #1f2a40 inset;
-      border:1px solid #26344f; transform:translateZ(0);
-    }
-    .phone::after{ /* reflection */
-      content:""; position:absolute; left:8%; right:8%; bottom:-14px; height:10px;
+      border:1px solid #26344f; transform:translateZ(0); }
+    .phone::after{ content:""; position:absolute; left:8%; right:8%; bottom:-14px; height:10px;
       background:linear-gradient(180deg, rgba(0,0,0,.25), transparent);
-      filter:blur(5px); border-radius:50%;
-    }
-    .camera-notch{
-      width:68px; height:16px; background:#0b1220; border-radius:0 0 14px 14px;
-      margin:0 auto 10px; border:1px solid #1d2942;
-    }
-    .screen{
-      height:100%; border-radius:24px; background:linear-gradient(180deg, #0f1727, #0b1321 70%);
-      border:1px solid #22314d; padding:18px; display:flex; flex-direction:column; gap:14px;
-    }
+      filter:blur(5px); border-radius:50%; }
+    .camera-notch{ width:68px; height:16px; background:#0b1220; border-radius:0 0 14px 14px;
+      margin:0 auto 10px; border:1px solid #1d2942; }
+    .screen{ height:100%; border-radius:24px; background:linear-gradient(180deg, #0f1727, #0b1321 70%);
+      border:1px solid #22314d; padding:18px; display:flex; flex-direction:column; gap:14px; }
 
     .mini-tag{font-size:11px; color:var(--mint); text-transform:uppercase; letter-spacing:.25px; opacity:.9}
     .tabs{display:flex; gap:18px; font-size:12px; color:#a9b8d2; margin-top:4px}
     .tabs .active{color:#e9f7f0; position:relative}
     .tabs .active::after{content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:var(--mint); border-radius:2px;}
 
-    .streak{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:12px; border-radius:14px; border:1px solid #23324f; background:rgba(14,20,33,.75);
-    }
-    .streak h4{margin:0; font-size:14px; color:#cfe5da}
-    .streak .count{font-weight:800; font-size:22px; color:var(--mint)}
-    .gauge{
-      height:8px; border-radius:8px; background:#203149; overflow:hidden; border:1px solid #273a58;
-    }
-    .gauge > span{display:block; height:100%; width:68%; background:linear-gradient(90deg, rgba(0,226,138,.35), var(--mint));}
+    .row{ display:grid; grid-template-columns:1fr; gap:12px; }
+    .card{ border-radius:14px; border:1px solid #23324f; background:rgba(14,20,33,.75); padding:12px; }
 
-    .metric{
-      padding:12px; border-radius:14px; border:1px solid #23324f; background:rgba(14,20,33,.75);
-    }
+    /* COMPOSURE / STREAK */
     .metric h5{margin:0 0 6px; font-size:12px; color:#b7c3d8; text-transform:uppercase; letter-spacing:.25px}
     .metric .big{font-size:22px; font-weight:800}
     .metric .trend{font-size:12px; color:#9ad6b9}
+    .gauge{height:8px; border-radius:8px; background:#203149; overflow:hidden; border:1px solid #273a58;}
+    .gauge > span{display:block; height:100%; width:72%; background:linear-gradient(90deg, rgba(0,226,138,.35), var(--mint));}
 
-    .coach{
-      margin-top:2px; padding:12px 14px; border-radius:14px;
-      border:1px solid #23324f; background:rgba(14,20,33,.75);
-    }
-    .coach .line{color:#cfe5da; margin:0; font-size:13.5px}
+    .streak{ display:flex; align-items:center; justify-content:space-between; }
+    .streak h4{margin:0; font-size:14px; color:#cfe5da}
+    .streak .count{font-weight:800; font-size:22px; color:var(--mint)}
+
+    /* COACH THREAD */
+    .coach .line{margin:0 0 6px; font-size:13.5px; color:#d9e6ef}
     .coach .you{opacity:.9}
+    .typing{display:inline-block; width:22px; height:8px; background:linear-gradient(90deg, rgba(0,226,138,.0), rgba(0,226,138,.55), rgba(0,226,138,.0));
+      background-size:200% 100%; animation:typing 1.4s infinite ease;}
+    @keyframes typing{ 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+    /* EDGE INSIGHT */
+    .insight h4{margin:0 0 6px; font-size:14px; color:#d9e6ef}
+    .insight p{margin:0; font-size:13px; color:#bcd1e6}
+    .pill{display:inline-block; font-size:11px; color:#072; background:rgba(0,226,138,.18); border:1px solid rgba(0,226,138,.35); padding:4px 8px; border-radius:999px}
 
     .caption{margin-top:10px; color:#cfd6e5; font-size:14px; text-align:center}
 
@@ -205,33 +185,46 @@
         <p style="font-size:13px; color:var(--muted); margin-top:6px;">🔒 No spam. Just first access when we launch.</p>
       </div>
 
-      <!-- RIGHT: product mock -->
+      <!-- RIGHT: Control Hub with Edge + Coach hybrid -->
       <div class="hero-visual" aria-hidden="true">
         <div class="phone" id="controlHub">
           <div class="camera-notch"></div>
           <div class="screen">
             <span class="mini-tag">Live Snapshot — Your Control Hub</span>
-            <div class="tabs"><span class="active">Control</span><span>Chat</span><span>Tilt</span></div>
+            <div class="tabs"><span class="active">Control</span><span>Coach</span><span>Insight</span></div>
 
-            <div class="streak">
-              <h4>Control Streak</h4>
-              <div class="count">5 days 🔥</div>
-            </div>
+            <div class="row">
+              <!-- Metrics -->
+              <div class="card metric">
+                <div class="streak">
+                  <h4>Control Streak</h4>
+                  <div class="count">6 days 🔥</div>
+                </div>
+                <div style="height:8px"></div>
+                <h5>Composure</h5>
+                <div class="big">91%</div>
+                <div class="gauge" style="margin-top:6px"><span></span></div>
+                <div class="trend" style="margin-top:6px">↑ +3% this week</div>
+              </div>
 
-            <div class="metric">
-              <h5>Todays tilt risk</h5>
-              <div class="big">Low</div>
-              <div class="gauge" style="margin-top:6px"><span></span></div>
-              <div class="trend" style="margin-top:6px">Composure Score 87% ↑ +4% this week</div>
-            </div>
+              <!-- Edge Insight -->
+              <div class="card insight">
+                <h4>Today’s Edge</h4>
+                <p><span class="pill">SGP Reality Check</span></p>
+                <p style="margin-top:6px">Same-game parlays hit <b>~18% less</b> after a loss streak.</p>
+                <p style="margin-top:4px">Your edge tonight: <b>skip the late add-on</b> — keep the streak.</p>
+              </div>
 
-            <div class="coach">
-              <p class="line"><b>BetterBet AI:</b> Lock in your streak tonight?</p>
-              <p class="line you">You: Locking it. No late chase.</p>
+              <!-- Coach Thread -->
+              <div class="card coach">
+                <p class="line"><b>BetterBet AI:</b> You went 4/5 last night. Want to lock your edge early?</p>
+                <p class="line you">You: Let’s tighten it. No late tilts.</p>
+                <p class="line"><b>BetterBet AI:</b> Smart. Confidence high, risk low. <span class="typing" aria-hidden="true"></span></p>
+              </div>
             </div>
           </div>
         </div>
-        <p class="caption">Your AI coach. Your control dashboard.</p>
+        <p class="caption">Your AI coach. Your control dashboard — edge and awareness in one place.</p>
       </div>
     </div>
   </section>
@@ -341,6 +334,7 @@
   </script>
 </body>
 </html>
+
 
 
 
