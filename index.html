@@ -2,338 +2,451 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BetterBet — Stay in the game. Stay in control.</title>
-  <meta name="description" content="BetterBet is the AI coach for bettors. Control streaks, smart nudges, and an accountability voice that keeps you sharp." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BetterBet — AI Coach for Bettors. Find Your Edge in 60 Seconds.</title>
+  <meta name="description" content="BetterBet is the AI coach for bettors. Connect your sportsbook, see your real edge in 60 seconds, and make control your advantage." />
   <meta name="theme-color" content="#0B0D17" />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://your-domain.example/" />
 
-  <!-- Open Graph / Twitter -->
+  <!-- Open Graph -->
   <meta property="og:title" content="BetterBet — Stay in the game. Stay in control." />
-  <meta property="og:description" content="AI coach for control — not picks. Control streaks, smart nudges, and a coach that talks like you." />
+  <meta property="og:description" content="AI coach for bettors — not picks. Awareness streaks, smart nudges, and a coach that talks like you." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://your-domain.example/" />
-  <meta property="og:image" content="https://your-domain.example/social-card.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="BetterBet — Stay in the game. Stay in control." />
-  <meta name="twitter:description" content="AI coach for control — not picks. Control streaks, smart nudges, and a coach that talks like you." />
-  <meta name="twitter:image" content="https://your-domain.example/social-card.png" />
-
-  <!-- Organization JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"BetterBet",
-    "url":"https://your-domain.example/",
-    "description":"AI coach for bettors. Stay in control, skip tilt, and make discipline your edge.",
-    "logo":"https://your-domain.example/logo.png"
-  }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <meta property="og:image" content="social-card.png" />
 
   <style>
     :root{
-      --midnight:#0B0D17; --slate:#1E2636; --mint:#00E28A; --amber:#FFC400;
-      --text:#F5F7FB; --muted:#9fb0c8; --ink:#0e1320;
+      --bg:#0B0D17; --panel:#0f1727; --panel2:#0b1321; --line:#23324f;
+      --text:#EAF2FF; --muted:#9fb0c8; --mint:#00E28A; --mint-2:rgba(0,226,138,.14);
+      --ink:#06101a; --amber:#F6C045; --red:#FF5A6B; --blue:#58B3FF;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0;
-      background:
-        radial-gradient(1200px 700px at 75% 10%, rgba(0,226,138,.18), transparent 60%),
-        var(--midnight);
-      color:var(--text);
-      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      line-height:1.5;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      color:var(--text); background:
+        radial-gradient(1400px 780px at 75% 0%, rgba(0,226,138,.18), transparent 60%),
+        var(--bg);
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
-    .wrap{max-width:1120px; margin:0 auto; padding:0 20px}
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:20px 0}
+    a{color:inherit}
+    .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+    .sr-only{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 
-    /* Logo */
-    .logo{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text)}
-    .logo-word{font-family:"Bebas Neue"; letter-spacing:.5px; font-size:28px}
-    .logo-dot{width:10px; height:10px; border-radius:50%; background:var(--mint);
-      box-shadow:0 0 8px rgba(0,226,138,.8), 0 0 24px rgba(0,226,138,.15); animation:pulseGlow 3.2s ease-in-out infinite;}
-    @keyframes pulseGlow{0%,100%{box-shadow:0 0 8px rgba(0,226,138,.8),0 0 24px rgba(0,226,138,.15);opacity:1}50%{box-shadow:0 0 18px rgba(0,226,138,.95),0 0 40px rgba(0,226,138,.25);opacity:.9}}
-
-    .cta-btn{background:var(--mint); color:#031; border:0; padding:12px 18px; border-radius:12px; font-weight:700; cursor:pointer; transition:all .18s ease;}
-    .cta-btn:hover{ transform:translateY(-1px); box-shadow:0 0 10px rgba(0,226,138,.35); }
-    .badge{display:inline-flex; align-items:center; gap:8px; border:1px solid #2a3550; border-radius:999px; padding:6px 10px; font-size:12px; color:#aab6ca}
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(11,13,23,.75);backdrop-filter:blur(10px);border-bottom:1px solid #18253c}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .logo{display:flex;gap:10px;align-items:center;text-decoration:none}
+    .logo-dot{width:10px;height:10px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px rgba(0,226,138,.9)}
+    .logo-word{font-weight:800;letter-spacing:.3px}
+    .nav-right{display:flex;gap:12px;align-items:center}
+    .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid #26344f;border-radius:999px;padding:8px 12px;color:#a8b6cf;font-size:12px;text-decoration:none}
+    .cta{background:var(--mint);color:#032d20;border:0;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer}
+    .cta--ghost{background:transparent;border:1px solid #2a3a58;color:#cfe3f8}
 
     /* Hero */
-    .hero{padding:64px 0 84px; position:relative}
-    .tag{display:inline-flex; align-items:center; gap:8px; background:rgba(30,38,54,.7); border:1px solid #2a3550; color:#aab6ca; padding:8px 12px; border-radius:999px; font-size:13px}
-    .pulse{display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--mint); box-shadow:0 0 16px rgba(0,226,138,.9)}
-    .hero-grid{ display:grid; grid-template-columns: 1.08fr .92fr; gap:40px; align-items:center; }
+    .hero{padding:64px 0 28px}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:38px;align-items:center}
+    .tag{display:inline-flex;align-items:center;gap:8px;background:rgba(30,38,54,.7);border:1px solid #2a3550;border-radius:999px;padding:8px 12px;color:#aab6ca;font-size:12px}
+    .tag .dot{width:8px;height:8px;background:var(--mint);border-radius:50%;box-shadow:0 0 16px rgba(0,226,138,.8)}
+    h1{font-size:64px;line-height:1.02;margin:14px 0 8px}
+    .sub{font-size:18px;color:#cfd6e5;max-width:720px}
+    .hero-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+    .trust-mini{display:flex;gap:16px;align-items:center;color:#9fb0c8;font-size:13px;margin-top:12px}
+    .trust-mini .sep{opacity:.4}
 
-    h1{font-family:"Bebas Neue"; font-size:76px; line-height:.95; margin:18px 0 10px; letter-spacing:.5px}
-    .sub{font-size:18px; color:#cfd6e5; max-width:760px}
-    .clarifier{font-size:16px; color:#b7c3d8; margin-top:8px; max-width:760px}
+    /* Hero Visual */
+    .visual{position:relative;justify-self:end}
+    .visual::before{content:"";position:absolute;right:-40px;top:-40px;width:560px;height:560px;background:radial-gradient(420px at 60% 40%, rgba(0,226,138,.25), transparent 70%);filter:blur(10px)}
+    .phone{position:relative;width:420px;max-width:92%;aspect-ratio:9/19;border-radius:36px;padding:14px;background:linear-gradient(180deg,#0e1320,#0a0f1a);box-shadow:0 12px 40px rgba(0,0,0,.55),0 0 0 1px #1f2a40 inset;border:1px solid #26344f}
+    .notch{width:70px;height:16px;background:#0b1220;border-radius:0 0 14px 14px;margin:0 auto 10px;border:1px solid #1d2942}
+    .screen{height:100%;border-radius:24px;background:linear-gradient(180deg,#0f1727,#0b1321 68%);border:1px solid #22314d;padding:16px;display:flex;flex-direction:column;gap:12px}
+    .tabs{display:flex;gap:16px;color:#a8b6cf;font-size:12px}
+    .tabs .active{color:#eaf2ff;position:relative}
+    .tabs .active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--mint);border-radius:2px}
+    .card{border:1px solid #22314d;border-radius:14px;background:rgba(14,20,33,.75);padding:12px}
+    .insight h4{margin:0 0 6px;font-size:14px}
+    .pill{display:inline-block;font-size:11px;color:#052;background:rgba(0,226,138,.18);border:1px solid rgba(0,226,138,.35);padding:4px 8px;border-radius:999px}
+    .chat .line{margin:0 0 6px;font-size:13.5px}
+    .metric .row{display:flex;align-items:center;justify-content:space-between}
+    .gauge{width:82px;height:82px;border:6px solid #203149;border-radius:50%;position:relative}
+    .gauge::after{content:"";position:absolute;inset:3px;border-radius:50%;background:conic-gradient(var(--mint) 310deg, rgba(0,226,138,.18) 0)}
+    .gauge-label{position:absolute;width:100%;text-align:center;top:30px;font-size:12px;color:#b7c3d8}
+    .streak{font-weight:800;font-size:22px;color:var(--mint)}
 
-    /* Founding 50 badge */
-    .founding{display:inline-flex; align-items:center; gap:8px; margin-top:10px; background:rgba(0,226,138,.12); border:1px solid rgba(0,226,138,.35); color:#bff0da; padding:6px 10px; border-radius:10px; font-size:12px}
+    /* Logos / proof */
+    .logos{padding:22px 0 8px;border-top:1px solid #1b2740;border-bottom:1px solid #1b2740;background:rgba(11,19,33,.35)}
+    .logos-row{display:flex;gap:22px;flex-wrap:wrap;align-items:center;justify-content:center;color:#9fb0c8;font-size:14px}
+    .logo-pill{border:1px solid #243354;border-radius:12px;padding:8px 12px}
 
-    /* Form */
-    .hero-form{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap}
-    .form-field{flex:1; min-width:260px; display:flex; flex-direction:column; gap:6px}
-    label{font-size:12px; color:#aab6ca}
-    input[type=email]{ background:rgba(30,38,54,.75); border:1px solid #2e3b5a; color:var(--text); padding:14px 14px; border-radius:12px; outline:0; transition:border-color .15s ease, box-shadow .15s ease; }
-    input[type=email]:focus{ border-color:var(--mint); box-shadow:0 0 8px rgba(0,226,138,.35); }
-    .ghost{background:transparent; border:1px solid #2e3b5a; color:#cfd6e5}
-
-    /* Control Hub (right) */
-    .hero-visual{ position:relative; justify-self:end; }
-    .hero-visual::before{content:""; position:absolute; right:-40px; top:-40px; width:560px; height:560px; background:radial-gradient(420px at 60% 40%, rgba(0,226,138,.25), transparent 70%); filter:blur(10px); z-index:0; pointer-events:none;}
-    .phone{ position:relative; z-index:1; width:410px; max-width:92%; aspect-ratio:9/19; border-radius:36px; padding:14px; background:linear-gradient(180deg, #0e1320, #0a0f1a); box-shadow:0 12px 40px rgba(0,0,0,.6), 0 0 0 1px #1f2a40 inset; border:1px solid #26344f; transform:translateZ(0); }
-    .phone::after{ content:""; position:absolute; left:8%; right:8%; bottom:-14px; height:10px; background:linear-gradient(180deg, rgba(0,0,0,.25), transparent); filter:blur(5px); border-radius:50%; }
-    .camera-notch{ width:68px; height:16px; background:#0b1220; border-radius:0 0 14px 14px; margin:0 auto 10px; border:1px solid #1d2942; }
-    .screen{ height:100%; border-radius:24px; background:linear-gradient(180deg, #0f1727, #0b1321 70%); border:1px solid #22314d; padding:18px; display:flex; flex-direction:column; gap:14px; }
-
-    .mini-tag{font-size:11px; color:var(--mint); text-transform:uppercase; letter-spacing:.25px; opacity:.9}
-    .tabs{display:flex; gap:18px; font-size:12px; color:#a9b8d2; margin-top:4px}
-    .tabs .active{color:#e9f7f0; position:relative}
-    .tabs .active::after{content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:var(--mint); border-radius:2px;}
-
-    .row{ display:grid; grid-template-columns:1fr; gap:12px; }
-    .card{ border-radius:14px; border:1px solid #23324f; background:rgba(14,20,33,.75); padding:12px; }
-
-    /* Metrics / Composure */
-    .metric h5{margin:0 0 6px; font-size:12px; color:#b7c3d8; text-transform:uppercase; letter-spacing:.25px}
-    .metric .big{font-size:22px; font-weight:800}
-    .metric .trend{font-size:12px; color:#9ad6b9}
-    .gauge{height:8px; border-radius:8px; background:#203149; overflow:hidden; border:1px solid #273a58;}
-    .gauge > span{display:block; height:100%; width:76%; background:linear-gradient(90deg, rgba(0,226,138,.35), var(--mint));}
-    .streak{ display:flex; align-items:center; justify-content:space-between; }
-    .streak h4{margin:0; font-size:14px; color:#cfe5da}
-    .streak .count{font-weight:800; font-size:22px; color:var(--mint)}
-
-    /* Coach thread */
-    .coach .line{margin:0 0 6px; font-size:13.5px; color:#d9e6ef}
-    .coach .you{opacity:.9}
-    .typing{display:inline-block; width:22px; height:8px; background:linear-gradient(90deg, rgba(0,226,138,.0), rgba(0,226,138,.55), rgba(0,226,138,.0)); background-size:200% 100%; animation:typing 1.4s infinite ease;}
-    @keyframes typing{0%{background-position:200% 0}100%{background-position:-200% 0}}
-
-    /* Edge insight */
-    .insight h4{margin:0 0 6px; font-size:14px; color:#d9e6ef}
-    .insight p{margin:0; font-size:13px; color:#bcd1e6}
-    .pill{display:inline-block; font-size:11px; color:#072; background:rgba(0,226,138,.18); border:1px solid rgba(0,226,138,.35); padding:4px 8px; border-radius:999px}
+    /* Calculator */
+    .calc{padding:36px 0 12px}
+    .calc-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+    .panel{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:16px}
+    .panel h3{margin:0 0 6px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .field{display:flex;flex-direction:column;gap:6px}
+    label{font-size:12px;color:#aab6ca}
+    input[type=number]{background:var(--panel2);border:1px solid #2a3a58;color:#eaf2ff;padding:12px;border-radius:10px;outline:0}
+    .muted{font-size:13px;color:#9fb0c8}
+    .result{font-size:22px;font-weight:800;color:#ffd5db}
 
     /* Sections */
-    .section{padding:70px 0}
-    .section h2{font-family:"Bebas Neue"; font-size:40px; margin:0 0 6px}
-    .three{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-    .tile{background:rgba(30,38,54,.6); border:1px solid #2a3550; padding:18px; border-radius:16px}
-    .tile h3{margin:0 0 6px}
-    .hint{font-size:13px; color:#b7c3d8}
-    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
-    .list{margin:0; padding-left:18px; color:#cfd6e5}
+    section{padding:56px 0}
+    .section-title{font-size:32px;margin:0 0 6px}
+    .section-sub{color:#cbd7eb;max-width:760px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .tile{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:16px}
+    .tile h4{margin:0 0 4px}
 
-    /* Trustline centered */
-    .trustline-outer{width:100%; display:flex; justify-content:center; padding:8px 0 40px;}
-    .trustline-inner{font-family:"Bebas Neue"; font-size:26px; color:var(--mint); letter-spacing:.5px; text-align:center; margin:0; max-width:1120px; padding:0 20px;}
+    /* Intelligence demo card */
+    .demo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+    .callout{border-left:3px solid var(--mint);padding-left:12px}
 
-    .footer{padding:40px 0 64px; color:#8fa0ba; font-size:14px}
-    .divider{height:1px; background:#25314b; margin:20px 0}
+    /* Product system */
+    .system{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .dotnum{width:36px;height:36px;border-radius:50%;background:var(--mint);color:#032d20;font-weight:800;display:flex;align-items:center;justify-content:center}
+
+    /* Testimonials */
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .quote p{margin:0 0 12px}
+    .author{display:flex;align-items:center;gap:10px;color:#9fb0c8}
+    .avatar{width:36px;height:36px;border-radius:50%;background:#1d2942;display:flex;align-items:center;justify-content:center}
+
+    /* Trust & FAQ */
+    .trust{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:18px}
+    .list{margin:0;padding-left:18px}
+    .list li{margin:6px 0}
+
+    /* Forms */
+    form.waitlist{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .email{flex:1;min-width:240px;background:var(--panel);border:1px solid #2a3a58;color:#eaf2ff;padding:12px;border-radius:10px;outline:0}
+
+    /* Footer */
+    footer{padding:36px 0 64px;border-top:1px solid #1b2740;color:#9fb0c8}
+    .foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .links{display:flex;gap:12px;flex-wrap:wrap}
 
     /* Responsive */
     @media (max-width: 1024px){
-      .hero-grid{grid-template-columns:1fr; gap:28px}
-      .hero-visual{justify-self:center}
+      .hero-grid{grid-template-columns:1fr;gap:24px}
+      .visual{justify-self:center}
       .phone{width:360px}
+      .calc-wrap{grid-template-columns:1fr}
+      .demo{grid-template-columns:1fr}
+      .system,.cards,.testimonials{grid-template-columns:1fr}
+      .trust{grid-template-columns:1fr}
     }
-    @media (max-width: 480px){
-      h1{font-size:52px}
-      .phone{width:320px}
+    @media (max-width: 520px){
+      h1{font-size:40px}
     }
   </style>
 </head>
 <body>
   <a class="sr-only" href="#main">Skip to content</a>
 
-  <!-- Header -->
-  <header class="wrap nav" role="banner">
-    <a class="logo" href="/" aria-label="BetterBet Home">
-      <span class="logo-dot" aria-hidden="true"></span>
-      <span class="logo-word">BetterBet</span>
-    </a>
-    <div class="cta" role="navigation" aria-label="Primary">
-      <a class="badge" href="#mission"><span class="pulse" aria-hidden="true"></span> Our mission</a>
-      <button class="cta-btn" onclick="document.getElementById('email').focus()">Join the waitlist</button>
+  <header>
+    <div class="wrap nav" role="navigation" aria-label="Primary">
+      <a class="logo" href="#">
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span class="logo-word">BetterBet</span>
+      </a>
+      <div class="nav-right">
+        <span class="badge">Featured in: <strong style="margin-left:6px;color:#d5e9ff">NYT</strong> · <strong>WSJ</strong> · <strong>ESPN</strong></span>
+        <button class="cta" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Join the waitlist</button>
+      </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <main id="main" class="wrap hero" role="main">
+  <main id="main" class="wrap hero" role="main" aria-label="Hero">
     <div class="hero-grid">
-      <!-- LEFT: Copy -->
       <div>
-        <span class="tag"><span class="pulse" aria-hidden="true"></span> AI coach for bettors — not picks.</span>
+        <span class="tag"><span class="dot" aria-hidden="true"></span> AI coach for bettors — not picks.</span>
         <h1>Your edge is control.</h1>
         <p class="sub">
-          BetterBet keeps you composed when it counts — <b>control streaks</b>, <b>smart nudges</b>, and a <b>coach that talks like you</b>.
+          Connect your sportsbook. <strong>See your real edge in 60 seconds.</strong> BetterBet keeps you composed when it counts — awareness streaks, smart nudges, and a coach that talks like you.
         </p>
-        <div class="founding">🔥 Founding 50: We’re hand-picking our first users for private beta.</div>
-
-        <form id="waitlist" class="hero-form" action="https://formspree.io/f/manpdjqg" method="POST" aria-label="Join the waitlist">
-          <div class="form-field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@domain.com" required autocomplete="email" inputmode="email" />
-          </div>
-          <button class="cta-btn" type="submit">Join the waitlist</button>
-          <button class="cta-btn ghost" type="button" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">How it works</button>
-          <input type="hidden" name="_subject" value="New BetterBet waitlist signup" />
-          <input type="hidden" name="_next" value="https://your-domain.example/thankyou.html" />
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-        </form>
-        <p style="font-size:13px; color:var(--muted); margin-top:6px;">🔒 No spam. First access when we launch.</p>
+        <div class="hero-actions">
+          <button class="cta" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Find my edge</button>
+          <button class="cta cta--ghost" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">How it works</button>
+        </div>
+        <div class="trust-mini" aria-label="Trust">
+          <span>Trusted by <strong>50,000+</strong> serious bettors</span><span class="sep">•</span>
+          <span>Bank-level security</span><span class="sep">•</span>
+          <span>Privacy is product</span>
+        </div>
       </div>
 
-      <!-- RIGHT: Control Hub (Coach + Edge + Composure) -->
-      <div class="hero-visual" aria-hidden="true">
-        <div class="phone" id="controlHub">
-          <div class="camera-notch"></div>
+      <!-- Product glimpse -->
+      <div class="visual" aria-hidden="true">
+        <div class="phone">
+          <div class="notch"></div>
           <div class="screen">
-            <span class="mini-tag">Live Snapshot — Your Control Hub</span>
-            <div class="tabs"><span class="active">Control</span><span>Coach</span><span>Insight</span></div>
+            <div class="tabs"><span class="active">Coach</span><span>Stats</span><span>Reality Check</span></div>
 
-            <div class="row">
-              <!-- Edge Insight -->
-              <div class="card insight">
-                <h4>Today’s Edge</h4>
-                <p><span class="pill">SGP Reality Check</span></p>
-                <p style="margin-top:6px">Same-game parlays hit <b>~18% less</b> after a loss streak.</p>
-                <p style="margin-top:4px">Your move: <b>skip the add-on</b> — protect your streak.</p>
-              </div>
+            <div class="card chat">
+              <p class="line"><strong>BetterBet AI:</strong> Big slate tonight — you’ve been sharp on unders. Want to lock one early and walk away?</p>
+              <p class="line">You: Yeah. Keep me off late SGPs.</p>
+              <p class="line"><strong>BetterBet AI:</strong> Smart. <span style="color:var(--mint)">Confidence high, risk low.</span></p>
+            </div>
 
-              <!-- Coach Thread -->
-              <div class="card coach">
-                <p class="line"><b>BetterBet AI:</b> 4/5 last night. Let’s lock your edge early?</p>
-                <p class="line you">You: Tighten it. No late tilts.</p>
-                <p class="line"><b>BetterBet AI:</b> Smart. Confidence high, risk low. <span class="typing" aria-hidden="true"></span></p>
-              </div>
+            <div class="card insight">
+              <h4>Today’s Edge <span class="pill" style="margin-left:6px">SGP Reality Check</span></h4>
+              <p style="color:#cde6db;margin:6px 0 0">Cut parlays and you’d be <strong>+$1,620</strong> this year. Want me to auto-hide after 2 losses?</p>
+            </div>
 
-              <!-- Metrics -->
-              <div class="card metric">
-                <div class="streak">
-                  <h4>Control Streak</h4>
-                  <div class="count">6 days 🔥</div>
-                </div>
-                <div style="height:8px"></div>
-                <h5>Composure</h5>
-                <div class="big">93%</div>
-                <div class="gauge" style="margin-top:6px"><span></span></div>
-                <div class="trend" style="margin-top:6px">↑ +5% this week</div>
+            <div class="card metric">
+              <div class="row"><div>
+                <div style="font-size:12px;color:#b7c3d8">Control streak</div>
+                <div class="streak">7 days 🔥</div>
               </div>
+              <div style="position:relative">
+                <div class="gauge"></div>
+                <div class="gauge-label">Composure 93%</div>
+              </div></div>
             </div>
           </div>
         </div>
-        <p class="sub" style="text-align:center; color:#cfe6db; margin-top:10px;">Your AI coach. Your control dashboard — edge, composure, accountability.</p>
       </div>
     </div>
+
+    <!-- Logos / proof row -->
+    <div class="logos" role="region" aria-label="Proof">
+      <div class="wrap logos-row">
+        <span class="logo-pill">Backed by [Logo]</span>
+        <span class="logo-pill">[Logo]</span>
+        <span class="logo-pill">[Logo]</span>
+        <span class="logo-pill">Featured in: NYT · WSJ · ESPN</span>
+      </div>
+    </div>
+
+    <!-- Hidden Leaks Calculator -->
+    <section class="calc" aria-labelledby="calc-title">
+      <div class="wrap">
+        <h2 id="calc-title" class="section-title">How much are hidden leaks costing you?</h2>
+        <p class="section-sub">Quick estimate. Then see your actuals when you connect.</p>
+        <div class="calc-wrap">
+          <div class="panel">
+            <h3>Estimate your annual leak</h3>
+            <div class="grid" style="margin-top:10px">
+              <div class="field">
+                <label for="avgBet">Average bet size ($)</label>
+                <input id="avgBet" type="number" min="1" value="50" />
+              </div>
+              <div class="field">
+                <label for="betsPerMonth">Bets per month</label>
+                <input id="betsPerMonth" type="number" min="1" value="20" />
+              </div>
+              <div class="field">
+                <label for="years">Years betting</label>
+                <input id="years" type="number" min="1" value="2" />
+              </div>
+            </div>
+            <p class="muted" style="margin-top:8px">Assumes common leak patterns (parlays, late-night chase, favorite bias).</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px">
+              <button class="cta" onclick="calc()">Calculate my leaks</button>
+              <div class="result" id="calcOut">$0</div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>What happens next</h3>
+            <ul class="list">
+              <li>Connect your sportsbook (2 minutes)</li>
+              <li>We analyze your history (≈60 seconds)</li>
+              <li>See your edges instantly — and what to skip</li>
+            </ul>
+            <form id="signup" class="waitlist" action="https://formspree.io/f/manpdjqg" method="POST" aria-label="Join the waitlist">
+              <input class="email" type="email" name="email" placeholder="you@domain.com" required />
+              <button class="cta" type="submit">Join the waitlist</button>
+              <input type="hidden" name="_subject" value="BetterBet waitlist signup" />
+              <input type="hidden" name="_gotcha" style="display:none" />
+            </form>
+            <p class="muted">No spam. First access when we launch. Privacy is product.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- How it works -->
-  <section id="how" class="wrap section" aria-labelledby="how-title">
-    <h2 id="how-title">How BetterBet Works</h2>
-    <p class="sub" style="margin:6px 0 18px; max-width:760px">
-      We don’t tell you to stop betting. We help you stay sharp and composed — no matter the streak.
-    </p>
-    <div class="three" role="list">
-      <div class="tile" role="listitem">
-        <h3>Spot your streaks</h3>
-        <p class="hint">See when you’re hot, when you’re tilting, and when it’s time to reset.</p>
-        <p style="font-size:12px; color:var(--mint); margin-top:8px;">Powered by the Awareness Engine™</p>
-      </div>
-      <div class="tile" role="listitem">
-        <h3>Talks like a friend</h3>
-        <p class="hint">Locker-room calm. Street-smart feedback. Big-brother honesty.</p>
-        <p style="font-size:12px; color:var(--mint); margin-top:8px;">Built by bettors, not therapists</p>
-      </div>
-      <div class="tile" role="listitem">
-        <h3>Make control your edge</h3>
-        <p class="hint">Earn streaks and rewards that flex discipline — not risk.</p>
-        <p style="font-size:12px; color:var(--mint); margin-top:8px;">Backed by behavioral science</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why -->
-  <section id="mission" class="wrap section" aria-labelledby="why-title">
-    <div class="grid-2">
-      <div>
-        <h2 id="why-title">Why We’re Different</h2>
-        <p style="font-size:15px; color:var(--muted); margin:0 0 20px;">
-          Over 60 million Americans placed a sports bet last year — it’s time we start betting on composure.
-        </p>
-        <ul class="list" style="list-style-type:none; padding-left:0;">
-          <li style="margin-bottom:12px;"><b>We profit from control, not compulsion.</b><br>Subscriptions, not volume.</li>
-          <li style="margin-bottom:12px;"><b>Privacy is product.</b><br>Your data stays yours — anonymized by design.</li>
-          <li><b>No shame. No preach.</b><br>Humor when you’re fine. Calm when you’re spiraling.</li>
-        </ul>
-        <div style="margin-top:20px"><button class="cta-btn" onclick="document.getElementById('email').focus()">Get early access</button></div>
-      </div>
-
+  <!-- Problem -->
+  <section id="how" class="wrap" aria-labelledby="problem-title">
+    <h2 id="problem-title" class="section-title">Your performance doesn’t match your knowledge.</h2>
+    <p class="section-sub">You research. You analyze. You follow sharp money. So why aren’t results there? Because you’re flying blind.</p>
+    <div class="cards">
       <div class="tile">
-        <div style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.2px;">Why We Exist</div>
-        <p class="hint" style="margin-top:6px;">
-          <b>Sportsbooks bet on your impulses. We bet on your composure.</b><br><br>
-          BetterBet is the AI coach that helps you <b>stay sharp, not spiral</b> — keeping the rush without the regret.
-        </p>
-        <div class="divider"></div>
-        <p class="hint" style="margin:0 0 12px;"><b>Built by bettors who’ve been there.</b></p>
-        <div class="divider"></div>
-        <div style="font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.2px;">Tagline</div>
-        <p class="hint"><i>“Better mind. Better moments. BetterBet.”</i></p>
+        <h4>No visibility into patterns</h4>
+        <p class="muted">You’re 58% on spreads, 31% on parlays. Which would you rather bet?</p>
+        <p class="muted" style="margin-top:8px;color:#cde6db">73% of bettors are profitable in at least one category — they just don’t know which.</p>
+      </div>
+      <div class="tile">
+        <h4>Timing tilts your edge</h4>
+        <p class="muted">Late-night bets hit 28%. Morning bets: 58%. Same bettor — different timing.</p>
+      </div>
+      <div class="tile">
+        <h4>No real-time feedback</h4>
+        <p class="muted">By the time you notice tilt, your bankroll already did.</p>
       </div>
     </div>
   </section>
 
-  <!-- Trustline -->
-  <div class="trustline-outer" role="presentation">
-    <p class="trustline-inner">Built by bettors. Backed by behavioral science.</p>
-  </div>
-
-  <!-- Footer -->
-  <footer class="wrap footer" role="contentinfo">
-    <div class="divider"></div>
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap">
-      <div style="display:flex; align-items:center; gap:10px">
-        <span class="logo-dot" style="opacity:.85" aria-hidden="true"></span>
-        <span style="font-weight:700">BetterBet</span>
-        <span style="opacity:.6">© 2025</span>
-      </div>
-      <nav aria-label="Footer">
-        <div style="display:flex; gap:16px; flex-wrap:wrap">
-          <a class="badge" href="#">Privacy</a>
-          <a class="badge" href="#">Terms</a>
-          <a class="badge" href="mailto:hello@betterbet.app">Contact</a>
+  <!-- Intelligence demo -->
+  <section class="wrap" aria-labelledby="intel-title">
+    <h2 id="intel-title" class="section-title">AI that knows you better than you know yourself.</h2>
+    <p class="section-sub">This is what you’ll see in ~60 seconds after connecting.</p>
+    <div class="demo">
+      <div class="tile">
+        <div class="callout">
+          <h4>Hidden edge: road underdogs</h4>
+          <p class="muted">You hit <strong>61%</strong> on NBA road dogs — but only bet them 12% of the time. That’s your edge.</p>
         </div>
-      </nav>
+        <div class="cards" style="grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px">
+          <div class="tile"><div style="font-size:22px;font-weight:800;color:var(--mint)">61%</div><div class="muted">Win rate</div></div>
+          <div class="tile"><div style="font-size:22px;font-weight:800;color:var(--mint)">+12.4%</div><div class="muted">ROI</div></div>
+          <div class="tile"><div style="font-size:22px;font-weight:800">42</div><div class="muted">Total bets</div></div>
+        </div>
+      </div>
+      <div class="tile">
+        <div class="callout">
+          <h4>Leak: parlays are draining you</h4>
+          <p class="muted">87 parlays, 23% hit, −18% ROI → <span style="color:#ffd5db"><strong>−$1,234</strong></span>. Single bets: <span style="color:var(--mint)"><strong>+$892</strong></span>.</p>
+        </div>
+        <div class="tile" style="margin-top:10px">
+          <p class="muted"><strong>Coach:</strong> “Want me to hide SGPs after 2 losses?” — <em>Discipline becomes easy.</em></p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <button class="cta" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Show me my edges</button>
+    </div>
+  </section>
+
+  <!-- System -->
+  <section class="wrap" aria-labelledby="system-title">
+    <h2 id="system-title" class="section-title">Three layers of intelligence.</h2>
+    <p class="section-sub">Not just tracking. Not just insights. A complete performance system that makes you sharper every day.</p>
+    <div class="system">
+      <div class="tile">
+        <div class="dotnum">1</div>
+        <h4 style="margin-top:8px">Performance tracking</h4>
+        <p class="muted">Automatic import, every book. Win rates by sport, bet type, time, and team. Bankroll visualization.</p>
+      </div>
+      <div class="tile">
+        <div class="dotnum">2</div>
+        <h4 style="margin-top:8px">AI-powered insights</h4>
+        <p class="muted">Hidden edge detection. Leak quantification. Optimal sizing suggestions. Reality-checked parlays.</p>
+      </div>
+      <div class="tile">
+        <div class="dotnum">3</div>
+        <h4 style="margin-top:8px">Real-time coaching</h4>
+        <p class="muted">Interventions when you chase. Streaks & rewards that flex discipline — not risk.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials (stories) -->
+  <section class="wrap" aria-labelledby="stories-title">
+    <h2 id="stories-title" class="section-title">Stories, not slogans.</h2>
+    <div class="testimonials">
+      <div class="tile quote">
+        <p>“I thought I was good on NFL favorites. BetterBet showed I was 28% there and 67% on underdogs. I stopped forcing favorites. Up <strong>$3,400</strong> in 4 months.”</p>
+        <div class="author"><div class="avatar">A</div><div>Alex — DFS grinder</div></div>
+      </div>
+      <div class="tile quote">
+        <p>“I didn’t realize late-night betting nuked me. Now the coach shuts me down after a bad beat. First season I’ve actually protected my roll.”</p>
+        <div class="author"><div class="avatar">M</div><div>Marcus — NBA daily</div></div>
+      </div>
+      <div class="tile quote">
+        <p>“Seeing ‘cut parlays and you’d be +$1.6k’ hurt… in the best way. I cut them. I’m calmer, and my Sundays don’t end in tilt.”</p>
+        <div class="author"><div class="avatar">J</div><div>Jules — Same-game parlay fan</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust / Security / FAQ -->
+  <section class="wrap" aria-labelledby="trust-title">
+    <h2 id="trust-title" class="section-title">Why trust us?</h2>
+    <div class="trust">
+      <div class="tile">
+        <h4>We’re not touts.</h4>
+        <ul class="list">
+          <li>No picks. No “bet more.” We show <strong>your</strong> data.</li>
+          <li>Privacy is product. Data anonymized by default.</li>
+          <li>Bank-level security. Read-only access. We never see your password.</li>
+        </ul>
+        <form class="waitlist" action="https://formspree.io/f/manpdjqg" method="POST" aria-label="Join the waitlist (footer)">
+          <input class="email" type="email" name="email" placeholder="you@domain.com" required />
+          <button class="cta" type="submit">Get early access</button>
+          <input type="hidden" name="_subject" value="BetterBet waitlist signup" />
+          <input type="hidden" name="_gotcha" style="display:none" />
+        </form>
+      </div>
+      <div class="tile">
+        <h4>FAQ</h4>
+        <p class="muted"><strong>Is this a picks service?</strong> No. Coaching, not picks.</p>
+        <p class="muted"><strong>Which books?</strong> Major U.S. books; more coming.</p>
+        <p class="muted"><strong>Cost?</strong> Free trial, then monthly. We profit from control, not compulsion.</p>
+        <p class="muted"><strong>Responsible gaming?</strong> We build the seatbelt — limits, cool-offs, and coaching built-in.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="wrap" style="text-align:center;padding:40px 0 72px">
+    <h2 class="section-title">Make control your edge.</h2>
+    <p class="section-sub" style="margin:0 auto">Join the private beta. Built by bettors. Backed by behavioral science.</p>
+    <div style="margin-top:16px">
+      <button class="cta" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Get early access</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="logo-dot" aria-hidden="true"></span><strong>BetterBet</strong><span style="opacity:.6">© 2025</span>
+      </div>
+      <div class="links">
+        <a class="badge" href="#">Privacy</a>
+        <a class="badge" href="#">Terms</a>
+        <a class="badge" href="#">Responsible Gaming</a>
+        <a class="badge" href="mailto:hello@betterbet.app">Contact</a>
+      </div>
     </div>
   </footer>
 
   <script>
-    // Parallax-lite
-    const hub = document.getElementById('controlHub');
-    const onScroll = () => {
-      const y = Math.min(10, Math.max(-10, (window.scrollY - 40) * 0.03));
-      hub.style.transform = `translate3d(0, ${y}px, 0)`;
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
+    // Calculator: simple heuristic (conservative) for illustrative estimate
+    function calc(){
+      const avg = +document.getElementById('avgBet').value || 0;
+      const bpm = +document.getElementById('betsPerMonth').value || 0;
+      const yrs = +document.getElementById('years').value || 0;
+      // Assume 20% of bets are leaks with -15% ROI typical; multiplier for years
+      const annual = avg * bpm * 12 * 0.20 * 0.15;
+      const total = Math.round(annual * Math.max(1, yrs));
+      document.getElementById('calcOut').textContent = total <= 0 ? "$0" : total.toLocaleString('en-US',{style:'currency',currency:'USD'});
+    }
+    calc();
 
     // Form UX
-    const form = document.getElementById('waitlist');
-    form.addEventListener('submit', () => {
-      const btn = form.querySelector('button[type=submit]');
-      btn.disabled = true; btn.textContent = 'Joining…';
+    document.querySelectorAll('form').forEach(f=>{
+      f.addEventListener('submit',()=> {
+        const btn = f.querySelector('button[type=submit]');
+        if(btn){btn.disabled = true; btn.textContent = 'One sec…';}
+      });
     });
+
+    // Counter animation for potential future stat blocks (example hook)
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function countUp(el, to){
+      if(prefersReduced) { el.textContent = to; return; }
+      let start = 0; const duration = 900; const t0 = performance.now();
+      function step(t){
+        const p = Math.min(1,(t - t0)/duration);
+        el.textContent = Math.round(p*to);
+        if(p<1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
   </script>
 </body>
 </html>
