@@ -1,789 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>BetterBet - Performance Intelligence for Serious Bettors</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto',sans-serif;
+            color:#111;line-height:1.6;overflow-x:hidden;background:#fff;
         }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            color: #111;
-            line-height: 1.6;
-            overflow-x: hidden;
-            background: #fff;
-        }
-        
+
         /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e8e8e8;
-            z-index: 1000;
-            padding: 18px 0;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #000;
-            letter-spacing: -0.5px;
-        }
-        
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-        
-        .nav-trust {
-            font-size: 0.8rem;
-            color: #666;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .trust-dot {
-            color: #4ade80;
-            font-size: 0.6rem;
-        }
-        
-        .nav-cta {
-            background: #000;
-            color: #fff;
-            padding: 12px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-        
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            padding: 100px 30px 80px;
-            background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
-            text-align: center;
-        }
-        
-        .hero-badge {
-            display: inline-block;
-            background: #000;
-            color: #fff;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-bottom: 24px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        
-        .hero h1 {
-            font-size: 4.2rem;
-            font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 24px;
-            letter-spacing: -2.5px;
-            max-width: 950px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.45rem;
-            color: #555;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
-            font-weight: 400;
-        }
-        
-        .hero-cta {
-            display: inline-block;
-            background: #000;
-            color: #fff;
-            padding: 18px 40px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-            margin-bottom: 12px;
-        }
-        
-        .hero-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .hero-subtext {
-            color: #999;
-            font-size: 0.9rem;
-            margin-top: 12px;
-        }
-        
-        /* Calculator Section */
-        .calculator-section {
-            padding: 80px 30px;
-            background: #fff;
-            border-top: 1px solid #eee;
-        }
-        
-        .calculator-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #f8f8f8 0%, #fafafa 100%);
-            border-radius: 24px;
-            padding: 50px;
-            border: 1px solid #e8e8e8;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-        }
-        
-        .calc-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            text-align: center;
-            letter-spacing: -1px;
-        }
-        
-        .calc-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 40px;
-            font-size: 1.05rem;
-        }
-        
-        .calc-inputs {
-            display: grid;
-            gap: 25px;
-            margin-bottom: 35px;
-        }
-        
-        .calc-input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .calc-label {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: #333;
-        }
-        
-        .calc-input {
-            padding: 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            background: #fff;
-            transition: border-color 0.2s;
-        }
-        
-        .calc-input:focus {
-            outline: none;
-            border-color: #000;
-        }
-        
-        .calc-button {
-            width: 100%;
-            padding: 18px;
-            background: #000;
-            color: #fff;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .calc-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .calc-result {
-            display: none;
-            margin-top: 30px;
-            padding: 30px;
-            background: #000;
-            color: #fff;
-            border-radius: 16px;
-            text-align: center;
-        }
-        
-        .calc-result.show {
-            display: block;
-        }
-        
-        .result-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #ef4444;
-            margin-bottom: 12px;
-            line-height: 1;
-        }
-        
-        .result-text {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            color: #ccc;
-        }
-        
-        .result-cta {
-            display: inline-block;
-            background: #4ade80;
-            color: #000;
-            padding: 16px 40px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.05rem;
-            transition: all 0.3s;
-        }
-        
-        .result-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(74, 222, 128, 0.4);
-        }
-        
+        nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.98);
+            backdrop-filter:blur(10px);border-bottom:1px solid #e8e8e8;z-index:1000;padding:18px 0}
+        .nav-container{max-width:1200px;margin:0 auto;padding:0 30px;display:flex;justify-content:space-between;align-items:center}
+        .logo{font-size:1.4rem;font-weight:700;color:#000;letter-spacing:-.5px}
+        .nav-right{display:flex;align-items:center;gap:30px}
+        .nav-trust{font-size:.8rem;color:#666;display:flex;align-items:center;gap:15px}
+        .trust-item{display:flex;align-items:center;gap:5px}
+        .trust-dot{color:#4ade80;font-size:.6rem}
+        .nav-cta{background:#000;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:.95rem;transition:.2s;white-space:nowrap}
+        .nav-cta:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+
+        /* Hero */
+        .hero{margin-top:80px;padding:100px 30px 80px;background:linear-gradient(180deg,#fafafa 0%,#ffffff 100%);text-align:center}
+        .hero-badge{display:inline-block;background:#000;color:#fff;padding:8px 20px;border-radius:20px;font-size:.75rem;font-weight:700;margin-bottom:24px;letter-spacing:1px;text-transform:uppercase}
+        .hero h1{font-size:4.2rem;font-weight:700;line-height:1.15;margin-bottom:24px;letter-spacing:-2.5px;max-width:950px;margin-left:auto;margin-right:auto}
+        .hero-subtitle{font-size:1.45rem;color:#555;max-width:700px;margin:0 auto 40px;line-height:1.6;font-weight:400}
+        .hero-cta{display:inline-block;background:#000;color:#fff;padding:18px 40px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1.1rem;transition:.3s;box-shadow:0 4px 14px rgba(0,0,0,.1);margin-bottom:12px}
+        .hero-cta:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,0,0,.15)}
+        .hero-subtext{color:#999;font-size:.9rem;margin-top:12px}
+
+        /* Calculator */
+        .calculator-section{padding:80px 30px;background:#fff;border-top:1px solid #eee}
+        .calculator-container{max-width:700px;margin:0 auto;background:linear-gradient(135deg,#f8f8f8 0%,#fafafa 100%);border-radius:24px;padding:50px;border:1px solid #e8e8e8;box-shadow:0 8px 30px rgba(0,0,0,.06)}
+        .calc-title{font-size:2rem;font-weight:700;margin-bottom:12px;text-align:center;letter-spacing:-1px}
+        .calc-subtitle{text-align:center;color:#666;margin-bottom:40px;font-size:1.05rem}
+        .calc-inputs{display:grid;gap:25px;margin-bottom:35px}
+        .calc-input-group{display:flex;flex-direction:column;gap:10px}
+        .calc-label{font-weight:600;font-size:.95rem;color:#333}
+        .calc-input{padding:16px;border:2px solid #e0e0e0;border-radius:10px;font-size:1.1rem;font-weight:600;background:#fff;transition:border-color .2s}
+        .calc-input:focus{outline:none;border-color:#000}
+        .calc-button{width:100%;padding:18px;background:#000;color:#fff;border:none;border-radius:12px;font-size:1.1rem;font-weight:700;cursor:pointer;transition:.3s}
+        .calc-button:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
+        .calc-result{display:none;margin-top:30px;padding:30px;background:#000;color:#fff;border-radius:16px;text-align:center}
+        .calc-result.show{display:block}
+        .result-number{font-size:3.5rem;font-weight:700;color:#ef4444;margin-bottom:12px;line-height:1}
+        .result-text{font-size:1.2rem;margin-bottom:25px;color:#ccc}
+        .result-cta{display:inline-block;background:#4ade80;color:#000;padding:16px 40px;border-radius:10px;text-decoration:none;font-weight:700;font-size:1.05rem;transition:.3s}
+        .result-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(74,222,128,.4)}
+
         /* Stats Bar */
-        .stats-bar {
-            background: #000;
-            color: #fff;
-            padding: 60px 30px;
-        }
-        
-        .stats-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 50px;
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #4ade80;
-            line-height: 1;
-        }
-        
-        .stat-label {
-            color: #aaa;
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
-        
+        .stats-bar{background:#000;color:#fff;padding:60px 30px}
+        .stats-container{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:50px;text-align:center}
+        .stat-number{font-size:3rem;font-weight:700;margin-bottom:8px;color:#4ade80;line-height:1}
+        .stat-label{color:#aaa;font-size:.95rem;line-height:1.4}
+
         /* Quick Testimonials */
-        .quick-testimonials {
-            padding: 80px 30px;
-            background: #fafafa;
-        }
-        
-        .quick-test-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .quick-test {
-            background: #fff;
-            padding: 30px;
-            border-radius: 16px;
-            border: 1px solid #e8e8e8;
-            font-size: 1rem;
-            color: #333;
-            line-height: 1.7;
-            position: relative;
-        }
-        
-        .quick-test:before {
-            content: '"';
-            font-size: 4rem;
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            color: #e8e8e8;
-            font-family: Georgia, serif;
-        }
-        
-        .quick-test-text {
-            position: relative;
-            z-index: 1;
-            padding-top: 20px;
-        }
-        
-        .quick-test-author {
-            margin-top: 15px;
-            font-weight: 600;
-            color: #000;
-            font-size: 0.9rem;
-        }
-        
-        .quick-test-result {
-            color: #4ade80;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        
+        .quick-testimonials{padding:80px 30px;background:#fafafa}
+        .quick-test-container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+        .quick-test{background:#fff;padding:30px;border-radius:16px;border:1px solid #e8e8e8;font-size:1rem;color:#333;line-height:1.7;position:relative}
+        .quick-test:before{content:'"';font-size:4rem;position:absolute;top:10px;left:20px;color:#e8e8e8;font-family:Georgia,serif}
+        .quick-test-text{position:relative;z-index:1;padding-top:20px}
+        .quick-test-author{margin-top:15px;font-weight:600;color:#000;font-size:.9rem}
+        .quick-test-result{color:#4ade80;font-size:.85rem;font-weight:600}
+
         /* Problem Section */
-        .problem-section {
-            padding: 100px 30px;
-            background: #fff;
+        .problem-section{padding:100px 30px;background:#fff}
+        .section-container{max-width:1100px;margin:0 auto}
+        .section-eyebrow{display:inline-block;background:#f0f0f0;padding:6px 16px;border-radius:16px;font-size:.75rem;font-weight:700;color:#666;margin-bottom:20px;letter-spacing:1.5px;text-transform:uppercase}
+        .section-title{font-size:3.2rem;font-weight:700;margin-bottom:24px;line-height:1.2;letter-spacing:-1.5px}
+        .section-subtitle{font-size:1.35rem;color:#666;margin-bottom:60px;max-width:750px;line-height:1.6}
+        .problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:35px}
+        .problem-card{background:#fafafa;padding:40px;border-radius:16px;border:1px solid #eee;transition:.3s}
+        .problem-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
+        .problem-icon{font-size:2.5rem;margin-bottom:20px}
+        .problem-title{font-size:1.4rem;font-weight:700;margin-bottom:12px}
+        .problem-text{color:#666;line-height:1.7;font-size:1.02rem}
+
+        /* Product Showcase (enhanced visuals) */
+        .product-showcase{padding:100px 30px;background:linear-gradient(135deg,#000 0%,#1a1a1a 100%);color:#fff}
+        .product-showcase .section-eyebrow{background:rgba(255,255,255,.1);color:#888}
+        .product-showcase .section-title{color:#fff}
+        .product-showcase .section-subtitle{color:#aaa}
+
+        .dashboard-preview{
+            max-width:1100px;margin:40px auto 0;background:rgba(255,255,255,.05);
+            border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:26px 26px 30px;position:relative
         }
-        
-        .section-container {
-            max-width: 1100px;
-            margin: 0 auto;
+        .preview-label{position:absolute;top:16px;right:16px;background:rgba(74,222,128,.2);color:#4ade80;padding:6px 12px;border-radius:10px;font-size:.72rem;font-weight:800;letter-spacing:.5px}
+        .preview-title{font-size:1.6rem;font-weight:800;margin-bottom:12px;color:#fff}
+        .snapshot-tabs{display:flex;gap:16px;margin-bottom:16px;font-size:.9rem;color:#c9d1e2}
+        .snapshot-tabs .on{color:#fff;position:relative}
+        .snapshot-tabs .on:after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:#4ade80;border-radius:2px}
+
+        .snapshot-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+        .insight-col{display:flex;flex-direction:column;gap:14px}
+        .insight-box{
+            background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));
+            padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,.12);position:relative;overflow:hidden
         }
-        
-        .section-eyebrow {
-            display: inline-block;
-            background: #f0f0f0;
-            padding: 6px 16px;
-            border-radius: 16px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #666;
-            margin-bottom: 20px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
+        .insight-box:before{
+            content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:#4ade80
         }
-        
-        .section-title {
-            font-size: 3.2rem;
-            font-weight: 700;
-            margin-bottom: 24px;
-            line-height: 1.2;
-            letter-spacing: -1.5px;
+        .insight-header{font-size:1.05rem;font-weight:800;margin-bottom:10px;color:#fff}
+        .insight-text{color:#cfd7e6;line-height:1.7;margin-bottom:16px}
+        .insight-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+        .metric{text-align:center;padding:12px;background:rgba(0,0,0,.25);border-radius:10px;border:1px solid rgba(255,255,255,.06)}
+        .metric-value{font-size:1.4rem;font-weight:800;color:#4ade80;margin-bottom:2px}
+        .metric-label{font-size:.78rem;color:#95a3bd}
+
+        .coach-panel{
+            background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+            border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px
         }
-        
-        .section-subtitle {
-            font-size: 1.35rem;
-            color: #666;
-            margin-bottom: 60px;
-            max-width: 750px;
-            line-height: 1.6;
+        .coach-head{display:flex;align-items:center;justify-content:space-between}
+        .coach-title{font-weight:800}
+        .gauge{
+            width:84px;height:84px;border-radius:50%;
+            background:conic-gradient(#4ade80 0 330deg, rgba(255,255,255,.15) 330deg 360deg);
+            display:grid;place-items:center;border:6px solid rgba(255,255,255,.08)
         }
-        
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
+        .gauge span{font-weight:800;font-size:.95rem;color:#e8f8ef}
+        .watchlist{border-top:1px solid rgba(255,255,255,.08);padding-top:12px}
+        .watch-item{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+        .watch-item:last-child{border-bottom:none}
+        .watch-meta{font-size:.82rem;color:#aab7cf}
+        .pill{background:rgba(74,222,128,.18);border:1px solid rgba(74,222,128,.35);color:#d5ffe7;padding:4px 8px;border-radius:999px;font-size:.75rem;font-weight:700}
+        .guardrails{border-top:1px solid rgba(255,255,255,.08);padding-top:12px}
+        .rail{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
+        .toggle{width:38px;height:22px;border-radius:999px;background:#0e1522;border:1px solid rgba(255,255,255,.2);position:relative}
+        .toggle:after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}
+        .on .toggle{background:#4ade80;border-color:#4ade80}
+        .on .toggle:after{left:18px}
+
+        .showcase-cta{
+            margin-top:16px;display:flex;justify-content:center
         }
-        
-        .problem-card {
-            background: #fafafa;
-            padding: 40px;
-            border-radius: 16px;
-            border: 1px solid #eee;
-            transition: all 0.3s;
+        .showcase-cta a{
+            display:inline-block;background:#4ade80;color:#000;padding:14px 26px;border-radius:12px;text-decoration:none;font-weight:800;box-shadow:0 6px 24px rgba(74,222,128,.25)
         }
-        
-        .problem-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+
+        /* What happens next strip */
+        .next-strip{
+            max-width:1100px;margin:22px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px
         }
-        
-        .problem-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+        .next-card{
+            background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px
         }
-        
-        .problem-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-        
-        .problem-text {
-            color: #666;
-            line-height: 1.7;
-            font-size: 1.02rem;
-        }
-        
-        /* Product Showcase */
-        .product-showcase {
-            padding: 100px 30px;
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
-            color: #fff;
-        }
-        
-        .product-showcase .section-eyebrow {
-            background: rgba(255, 255, 255, 0.1);
-            color: #888;
-        }
-        
-        .product-showcase .section-title {
-            color: #fff;
-        }
-        
-        .product-showcase .section-subtitle {
-            color: #aaa;
-        }
-        
-        .dashboard-preview {
-            max-width: 1000px;
-            margin: 60px auto 0;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 50px;
-            position: relative;
-        }
-        
-        .preview-label {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(74, 222, 128, 0.2);
-            color: #4ade80;
-            padding: 6px 14px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        
-        .preview-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: #fff;
-        }
-        
-        .insight-box {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 30px;
-            border-radius: 14px;
-            margin-bottom: 20px;
-            border-left: 4px solid #4ade80;
-        }
-        
-        .insight-header {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        
-        .insight-text {
-            color: #ccc;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-        
-        .insight-metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 20px;
-        }
-        
-        .metric {
-            text-align: center;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-        }
-        
-        .metric-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #4ade80;
-            margin-bottom: 4px;
-        }
-        
-        .metric-label {
-            font-size: 0.8rem;
-            color: #888;
-        }
-        
-        /* Three Pillars */
-        .pillars-section {
-            padding: 100px 30px;
-            background: #fff;
-        }
-        
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        .pillar {
-            position: relative;
-            background: #fafafa;
-            padding: 45px 35px;
-            border-radius: 16px;
-            border: 1px solid #eee;
-        }
-        
-        .pillar-number {
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            width: 50px;
-            height: 50px;
-            background: #000;
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.3rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        .pillar-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .pillar-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-        
-        .pillar-text {
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-        
-        .pillar-features {
-            list-style: none;
-        }
-        
-        .pillar-features li {
-            padding: 10px 0;
-            padding-left: 25px;
-            position: relative;
-            color: #444;
-            font-size: 0.95rem;
-            border-bottom: 1px solid #e8e8e8;
-        }
-        
-        .pillar-features li:last-child {
-            border-bottom: none;
-        }
-        
-        .pillar-features li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-            color: #000;
-        }
-        
+        .next-title{font-weight:800;margin-bottom:4px;color:#fff}
+        .next-sub{color:#c8d2e8;font-size:.95rem}
+
+        /* Pillars */
+        .pillars-section{padding:100px 30px;background:#fff}
+        .pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;margin-top:60px}
+        .pillar{position:relative;background:#fafafa;padding:45px 35px;border-radius:16px;border:1px solid #eee}
+        .pillar-number{position:absolute;top:-15px;left:-15px;width:50px;height:50px;background:#000;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+        .pillar-icon{font-size:2.5rem;margin-bottom:20px}
+        .pillar-title{font-size:1.5rem;font-weight:700;margin-bottom:12px}
+        .pillar-text{color:#666;line-height:1.7;margin-bottom:20px}
+        .pillar-features{list-style:none}
+        .pillar-features li{padding:10px 0;padding-left:25px;position:relative;color:#444;font-size:.95rem;border-bottom:1px solid #e8e8e8}
+        .pillar-features li:last-child{border-bottom:none}
+        .pillar-features li:before{content:"→";position:absolute;left:0;font-weight:bold;color:#000}
+
         /* Testimonials */
-        .testimonials-section {
-            padding: 100px 30px;
-            background: #fafafa;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 35px;
-            margin-top: 60px;
-        }
-        
-        .testimonial {
-            background: #fff;
-            padding: 40px;
-            border-radius: 16px;
-            border: 1px solid #eee;
-        }
-        
-        .testimonial-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 25px;
-            color: #333;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding-top: 20px;
-            border-top: 1px solid #e8e8e8;
-        }
-        
-        .author-avatar {
-            width: 52px;
-            height: 52px;
-            background: #000;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-weight: 700;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-        
-        .author-info {
-            flex: 1;
-        }
-        
-        .author-name {
-            font-weight: 700;
-            margin-bottom: 3px;
-        }
-        
-        .author-meta {
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 4px;
-        }
-        
-        .author-stat {
-            color: #4ade80;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
-        /* Final CTA */
-        .final-cta {
-            padding: 120px 30px;
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
-            color: #fff;
-            text-align: center;
-        }
-        
-        .final-cta h2 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 24px;
-            line-height: 1.2;
-            letter-spacing: -2px;
-        }
-        
-        .final-cta p {
-            font-size: 1.5rem;
-            color: #aaa;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-        
-        .final-cta-button {
-            display: inline-block;
-            background: #4ade80;
-            color: #000;
-            padding: 20px 50px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 14px rgba(74, 222, 128, 0.3);
-        }
-        
-        .final-cta-button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 35px rgba(74, 222, 128, 0.4);
-        }
-        
-        .final-subtext {
-            margin-top: 18px;
-            color: #888;
-            font-size: 0.9rem;
-        }
-        
-        /* Footer */
-        footer {
-            background: #000;
-            color: #666;
-            padding: 40px 30px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        .footer-links {
-            margin-bottom: 20px;
-        }
-        
-        footer a {
-            color: #999;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-        
-        footer a:hover {
-            color: #fff;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .nav-trust {
-                display: none;
-            }
-            
-            .calculator-container {
-                padding: 35px 25px;
-            }
-            
-            .stats-container {
-                gap: 35px;
-            }
+        .testimonials-section{padding:100px 30px;background:#fafafa}
+        .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:35px;margin-top:60px}
+        .testimonial{background:#fff;padding:40px;border-radius:16px;border:1px solid #eee}
+        .testimonial-text{font-size:1.1rem;line-height:1.8;margin-bottom:25px;color:#333}
+        .testimonial-author{display:flex;align-items:center;gap:16px;padding-top:20px;border-top:1px solid #e8e8e8}
+        .author-avatar{width:52px;height:52px;background:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.2rem;flex-shrink:0}
+        .author-info{flex:1}
+        .author-name{font-weight:700;margin-bottom:3px}
+        .author-meta{font-size:.85rem;color:#666;margin-bottom:4px}
+        .author-stat{color:#4ade80;font-weight:600;font-size:.9rem}
+
+        /* Final CTA & Footer */
+        .final-cta{padding:120px 30px;background:linear-gradient(135deg,#000 0%,#1a1a1a 100%);color:#fff;text-align:center}
+        .final-cta h2{font-size:3.5rem;font-weight:700;margin-bottom:24px;line-height:1.2;letter-spacing:-2px}
+        .final-cta p{font-size:1.5rem;color:#aaa;margin-bottom:40px;max-width:700px;margin-left:auto;margin-right:auto;line-height:1.6}
+        .final-cta-button{display:inline-block;background:#4ade80;color:#000;padding:20px 50px;border-radius:12px;text-decoration:none;font-weight:700;font-size:1.2rem;transition:.3s;box-shadow:0 4px 14px rgba(74,222,128,.3)}
+        .final-cta-button:hover{transform:translateY(-4px);box-shadow:0 12px 35px rgba(74,222,128,.4)}
+        .final-subtext{margin-top:18px;color:#888;font-size:.9rem}
+        footer{background:#000;color:#666;padding:40px 30px;text-align:center;font-size:.9rem}
+        .footer-links{margin-bottom:20px}
+        footer a{color:#999;text-decoration:none;margin:0 15px}
+        footer a:hover{color:#fff}
+
+        @media (max-width:768px){
+            .hero h1{font-size:2.5rem}
+            .section-title{font-size:2rem}
+            .nav-trust{display:none}
+            .calculator-container{padding:35px 25px}
+            .stats-container{gap:35px}
+            .snapshot-grid{grid-template-columns:1fr}
         }
     </style>
 </head>
@@ -801,24 +213,25 @@
             </div>
         </div>
     </nav>
-    
-    <!-- Hero Section -->
+
+    <!-- Hero -->
     <section class="hero">
         <div class="hero-badge">Performance Intelligence</div>
         <h1>Most bettors are better than their results suggest.</h1>
         <p class="hero-subtitle">
-            Connect your sportsbook. See your real edge in 60 seconds. Stop guessing, start knowing.
+            Connect your sportsbook. <strong>See your edge in 60 seconds — and keep it all season.</strong>
+            Stop guessing, start knowing.
         </p>
         <a href="#calculator" class="hero-cta">Find My Hidden Edge →</a>
         <p class="hero-subtext">Free 7 days • No credit card • 2 minutes to insights</p>
     </section>
-    
-    <!-- Calculator Section -->
+
+    <!-- Calculator -->
     <section class="calculator-section" id="calculator">
         <div class="calculator-container">
             <h2 class="calc-title">How Much Are Leaks Costing You?</h2>
             <p class="calc-subtitle">Most bettors lose $2,400+/year to hidden patterns they can't see.</p>
-            
+
             <div class="calc-inputs">
                 <div class="calc-input-group">
                     <label class="calc-label">Average bet size</label>
@@ -833,9 +246,9 @@
                     <input type="number" class="calc-input" id="years" placeholder="3" value="3">
                 </div>
             </div>
-            
+
             <button class="calc-button" onclick="calculateLeaks()">Calculate My Leaks →</button>
-            
+
             <div class="calc-result" id="result">
                 <div class="result-number" id="resultNumber">$0</div>
                 <p class="result-text">You're likely losing this much annually to hidden leaks like bad timing, tilt betting, and unprofitable bet types.</p>
@@ -843,7 +256,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Stats Bar -->
     <div class="stats-bar">
         <div class="stats-container">
@@ -861,7 +274,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Quick Testimonials -->
     <section class="quick-testimonials">
         <div class="quick-test-container">
@@ -885,145 +298,190 @@
             </div>
         </div>
     </section>
-    
-    <!-- Problem Section -->
+
+    <!-- Problem -->
     <section class="problem-section">
         <div class="section-container">
             <span class="section-eyebrow">The Gap</span>
             <h2 class="section-title">You're sharper than your results show.</h2>
-            <p class="section-subtitle">
-                You research. You analyze. You follow sharp money. So why aren't you profitable?
-            </p>
-            
+            <p class="section-subtitle">You research. You analyze. You follow sharp money. So why aren't you profitable?</p>
+
             <div class="problem-grid">
                 <div class="problem-card">
                     <div class="problem-icon">📊</div>
                     <h3 class="problem-title">No visibility</h3>
-                    <p class="problem-text">
-                        You're 58% on spreads. 31% on parlays. Which would you rather bet? Without tracking, you can't see which bets print and which burn.
-                    </p>
+                    <p class="problem-text">You're 58% on spreads. 31% on parlays. Which would you rather bet? Without tracking, you can't see which bets print and which burn.</p>
                 </div>
-                
                 <div class="problem-card">
                     <div class="problem-icon">⏱️</div>
                     <h3 class="problem-title">Bad timing</h3>
-                    <p class="problem-text">
-                        Late-night bets hit 42% less than morning bets. Same bettor, different timing. Your performance varies more than you think.
-                    </p>
+                    <p class="problem-text">Late-night bets hit 42% less than morning bets. Same bettor, different timing. Your performance varies more than you think.</p>
                 </div>
-                
                 <div class="problem-card">
                     <div class="problem-icon">🎯</div>
                     <h3 class="problem-title">Hidden edges</h3>
-                    <p class="problem-text">
-                        73% of bettors are profitable in at least one specific category. You probably have an edge you don't even know about.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Product Showcase -->
-    <section class="product-showcase">
-        <div class="section-container">
-            <span class="section-eyebrow">The Intelligence</span>
-            <h2 class="section-title">AI that knows you better than you know yourself.</h2>
-            <p class="section-subtitle">
-                Connect your sportsbook. Our AI analyzes every bet and surfaces insights you'd never find alone.
-            </p>
-            
-            <div class="dashboard-preview">
-                <div class="preview-label">LIVE DASHBOARD</div>
-                <h3 class="preview-title">This is what you'll see in ~60 seconds</h3>
-                
-                <div class="insight-box">
-                    <div class="insight-header">Hidden edge: NBA road underdogs</div>
-                    <p class="insight-text">
-                        You hit <strong>61%</strong> on road dogs, but only bet them <strong>12%</strong> of the time. That's sharp-level performance you're underusing.
-                    </p>
-                    <div class="insight-metrics">
-                        <div class="metric">
-                            <div class="metric-value">61%</div>
-                            <div class="metric-label">Win rate</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">+12.4%</div>
-                            <div class="metric-label">ROI</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">42</div>
-                            <div class="metric-label">Total bets</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="insight-box">
-                    <div class="insight-header">Leak: same-game parlays are draining you</div>
-                    <p class="insight-text">
-                        You've placed <strong>87</strong> SGPs with a <strong>23%</strong> hit rate and <strong>-18%</strong> ROI. That's <strong>−$1,234</strong>. Singles? You're <strong>+$892</strong>.
-                    </p>
-                    <div class="insight-metrics">
-                        <div class="metric">
-                            <div class="metric-value">−$1,234</div>
-                            <div class="metric-label">Parlay P&L</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">+$892</div>
-                            <div class="metric-label">Singles P&L</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">23%</div>
-                            <div class="metric-label">Parlay hit rate</div>
-                        </div>
-                    </div>
+                    <p class="problem-text">73% of bettors are profitable in at least one specific category. You probably have an edge you don't even know about.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Three Pillars -->
+    <!-- Product Showcase (ENHANCED) -->
+    <section class="product-showcase">
+        <div class="section-container">
+            <span class="section-eyebrow">The Intelligence</span>
+            <h2 class="section-title">See your edge in 60 seconds. Get coached all season.</h2>
+            <p class="section-subtitle">Day-0 insights are the start. Live edge alerts, guardrails, and weekly reviews keep you on plan.</p>
+
+            <div class="dashboard-preview">
+                <div class="preview-label">COACH SNAPSHOT</div>
+                <h3 class="preview-title">Your first look</h3>
+
+                <div class="snapshot-tabs"><span class="on">Insights</span><span>Alerts</span><span>Guardrails</span></div>
+
+                <div class="snapshot-grid">
+                    <!-- LEFT: Insight cards -->
+                    <div class="insight-col">
+                        <div class="insight-box">
+                            <div class="insight-header">Hidden edge: NBA road underdogs</div>
+                            <p class="insight-text">
+                                You hit <strong>61%</strong> on road dogs, but only bet them <strong>12%</strong> of the time. That's sharp-level performance you're underusing.
+                            </p>
+                            <div class="insight-metrics">
+                                <div class="metric">
+                                    <div class="metric-value">61%</div>
+                                    <div class="metric-label">Win rate</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">+12.4%</div>
+                                    <div class="metric-label">ROI</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">42</div>
+                                    <div class="metric-label">Total bets</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="insight-box">
+                            <div class="insight-header">Leak: same-game parlays are draining you</div>
+                            <p class="insight-text">
+                                You've placed <strong>87</strong> SGPs with a <strong>23%</strong> hit rate and <strong>-18%</strong> ROI. That's <strong>−$1,234</strong>. Singles? You're <strong>+$892</strong>.
+                            </p>
+                            <div class="insight-metrics">
+                                <div class="metric">
+                                    <div class="metric-value">−$1,234</div>
+                                    <div class="metric-label">Parlay P&L</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">+$892</div>
+                                    <div class="metric-label">Singles P&L</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">23%</div>
+                                    <div class="metric-label">Parlay hit rate</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: Coach panel -->
+                    <aside class="coach-panel" aria-label="Coach Panel">
+                        <div class="coach-head">
+                            <div class="coach-title">Control</div>
+                            <div class="gauge"><span>92%</span></div>
+                        </div>
+                        <div class="watchlist">
+                            <div class="watch-item">
+                                <div>
+                                    <strong>Edge Watchlist</strong><div class="watch-meta">Road dog signal — HOU @ BOS · 7:10pm</div>
+                                </div>
+                                <span class="pill">Notify</span>
+                            </div>
+                            <div class="watch-item">
+                                <div>
+                                    <strong>Fair price ping</strong><div class="watch-meta">NBA totals · o 217.5 hits −110 at 6:55pm</div>
+                                </div>
+                                <span class="pill">Add</span>
+                            </div>
+                        </div>
+                        <div class="guardrails">
+                            <div class="rail on">
+                                <div>
+                                    <strong>Mute SGPs after 2 losses</strong>
+                                    <div class="watch-meta">Protects bankroll during tilt windows</div>
+                                </div>
+                                <div class="toggle"></div>
+                            </div>
+                            <div class="rail on">
+                                <div>
+                                    <strong>Cool-off after midnight</strong>
+                                    <div class="watch-meta">Your win rate drops 42% after 12am</div>
+                                </div>
+                                <div class="toggle"></div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+
+                <div class="showcase-cta">
+                    <a href="#signup">Turn on edge alerts →</a>
+                </div>
+            </div>
+
+            <!-- What happens next strip -->
+            <div class="next-strip">
+                <div class="next-card">
+                    <div class="next-title">Tonight</div>
+                    <div class="next-sub">Get alerted when a road-dog edge appears.</div>
+                </div>
+                <div class="next-card">
+                    <div class="next-title">This week</div>
+                    <div class="next-sub">Your first Weekly Review lands Monday morning.</div>
+                </div>
+                <div class="next-card">
+                    <div class="next-title">This month</div>
+                    <div class="next-sub">Your Personal Playbook v1.0 is generated.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pillars -->
     <section class="pillars-section">
         <div class="section-container">
             <span class="section-eyebrow">The System</span>
             <h2 class="section-title">Three layers of intelligence.</h2>
             <p class="section-subtitle">Not just tracking. Not just insights. A complete system that keeps you composed when it counts.</p>
-            
+
             <div class="pillars-grid">
                 <div class="pillar">
                     <div class="pillar-number">1</div>
                     <div class="pillar-icon">🎯</div>
                     <h3 class="pillar-title">Performance Tracking</h3>
-                    <p class="pillar-text">
-                        Automatic bet import from major sportsbooks. Every bet tracked, categorized, and visualized.
-                    </p>
+                    <p class="pillar-text">Automatic bet import from major sportsbooks. Every bet tracked, categorized, and visualized.</p>
                     <ul class="pillar-features">
                         <li>Win rates by sport, bet type, timing, team</li>
                         <li>ROI tracking across all books</li>
                         <li>Bankroll and exposure visualization</li>
                     </ul>
                 </div>
-                
                 <div class="pillar">
                     <div class="pillar-number">2</div>
                     <div class="pillar-icon">🧠</div>
                     <h3 class="pillar-title">AI Insights</h3>
-                    <p class="pillar-text">
-                        We find edges and leaks across thousands of data points — the patterns you’d never see alone.
-                    </p>
+                    <p class="pillar-text">We find edges and leaks across thousands of data points — the patterns you’d never see alone.</p>
                     <ul class="pillar-features">
                         <li>Hidden edge detection</li>
                         <li>Leak identification & quantification</li>
                         <li>Optimal bet sizing suggestions</li>
                     </ul>
                 </div>
-                
                 <div class="pillar">
                     <div class="pillar-number">3</div>
                     <div class="pillar-icon">⚡</div>
                     <h3 class="pillar-title">Real-Time Coaching</h3>
-                    <p class="pillar-text">
-                        Interventions when you chase. Nudges that reinforce your plan. Discipline gets easier by default.
-                    </p>
+                    <p class="pillar-text">Interventions when you chase. Nudges that reinforce your plan. Discipline gets easier by default.</p>
                     <ul class="pillar-features">
                         <li>“Tilt” detection and cool-offs</li>
                         <li>Reality checks on parlays</li>
@@ -1033,14 +491,14 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Testimonials -->
     <section class="testimonials-section">
         <div class="section-container">
             <span class="section-eyebrow">Stories, not slogans</span>
             <h2 class="section-title">What serious bettors say.</h2>
             <p class="section-subtitle">Real results from users who traded guessing for knowing.</p>
-            
+
             <div class="testimonials-grid">
                 <div class="testimonial">
                     <p class="testimonial-text">
@@ -1055,7 +513,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="testimonial">
                     <p class="testimonial-text">
                         “I didn’t realize late-night betting nuked me. Now the coach shuts me down after a bad beat. First season I’ve actually protected my roll.”
@@ -1069,7 +526,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="testimonial">
                     <p class="testimonial-text">
                         “Seeing ‘cut parlays and you’d be +$1.6k’ hurt… in the best way. I cut them. I’m calmer, and Sundays don’t end in tilt.”
@@ -1092,18 +548,18 @@
         <h2>Make control your edge.</h2>
         <p>Join the private beta. Built by bettors. Backed by behavioral science.</p>
 
-        <!-- Waitlist Form (Formspree) -->
-        <form action="https://formspree.io/f/manpdjqg" method="POST" style="max-width:720px;margin:0 auto 16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+        <form action="https://formspree.io/f/manpdjqg" method="POST"
+              style="max-width:720px;margin:0 auto 16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
             <input type="email" name="email" placeholder="you@domain.com" required
-                   style="flex:1;min-width:260px;padding:16px;border-radius:12px;border:1px solid #2b2b2b;font-size:1rem" />
+                   style="flex:1;min-width:260px;padding:16px;border-radius:12px;border:1px solid #2b2b2b;font-size:1rem"/>
             <button type="submit" class="final-cta-button">Get Early Access</button>
-            <input type="hidden" name="_subject" value="BetterBet waitlist signup" />
-            <input type="text" name="_gotcha" style="display:none" />
+            <input type="hidden" name="_subject" value="BetterBet waitlist signup"/>
+            <input type="text" name="_gotcha" style="display:none"/>
         </form>
 
         <div class="final-subtext">We’re not touts. No picks — your data only. Privacy is product.</div>
     </section>
-    
+
     <!-- Footer -->
     <footer>
         <div class="footer-links">
@@ -1116,22 +572,20 @@
     </footer>
 
     <script>
-      // Simple, conservative estimate for hidden leaks (illustrative)
-      function calculateLeaks() {
-        const betSize = Math.max(0, parseFloat(document.getElementById('betSize').value) || 0);
-        const betsPerMonth = Math.max(0, parseFloat(document.getElementById('betsPerMonth').value) || 0);
-        const years = Math.max(1, parseFloat(document.getElementById('years').value) || 1);
+        function calculateLeaks(){
+            const betSize = Math.max(0, parseFloat(document.getElementById('betSize').value) || 0);
+            const betsPerMonth = Math.max(0, parseFloat(document.getElementById('betsPerMonth').value) || 0);
+            const years = Math.max(1, parseFloat(document.getElementById('years').value) || 1);
 
-        // Heuristic: assume ~20% of volume are "leak bets" at ~-15% ROI
-        const annual = betSize * betsPerMonth * 12 * 0.20 * 0.15;
-        const estimate = Math.round(annual); // show annual first (more actionable)
+            // Heuristic: ~20% of volume are "leak bets" at ~-15% ROI
+            const annual = betSize * betsPerMonth * 12 * 0.20 * 0.15;
+            const estimate = Math.round(annual);
 
-        const out = document.getElementById('resultNumber');
-        out.textContent = estimate.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+            const out = document.getElementById('resultNumber');
+            out.textContent = estimate.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 
-        const res = document.getElementById('result');
-        res.classList.add('show');
-      }
+            document.getElementById('result').classList.add('show');
+        }
     </script>
 </body>
 </html>
