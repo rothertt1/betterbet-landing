@@ -12,7 +12,7 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
             color: #111;
             line-height: 1.6;
             overflow-x: hidden;
@@ -28,7 +28,7 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid #e8e8e8;
             z-index: 1000;
-            padding: 20px 0;
+            padding: 18px 0;
         }
         
         .nav-container {
@@ -47,6 +47,31 @@
             letter-spacing: -0.5px;
         }
         
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .nav-trust {
+            font-size: 0.8rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .trust-dot {
+            color: #4ade80;
+            font-size: 0.6rem;
+        }
+        
         .nav-cta {
             background: #000;
             color: #fff;
@@ -56,6 +81,7 @@
             font-weight: 600;
             font-size: 0.95rem;
             transition: all 0.2s;
+            white-space: nowrap;
         }
         
         .nav-cta:hover {
@@ -66,7 +92,7 @@
         /* Hero Section */
         .hero {
             margin-top: 80px;
-            padding: 120px 30px 100px;
+            padding: 100px 30px 80px;
             background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
             text-align: center;
         }
@@ -79,27 +105,27 @@
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 700;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
         
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 4.2rem;
             font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 28px;
+            line-height: 1.15;
+            margin-bottom: 24px;
             letter-spacing: -2.5px;
-            max-width: 1000px;
+            max-width: 950px;
             margin-left: auto;
             margin-right: auto;
         }
         
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.45rem;
             color: #555;
-            max-width: 750px;
-            margin: 0 auto 50px;
+            max-width: 700px;
+            margin: 0 auto 40px;
             line-height: 1.6;
             font-weight: 400;
         }
@@ -108,13 +134,14 @@
             display: inline-block;
             background: #000;
             color: #fff;
-            padding: 20px 45px;
+            padding: 18px 40px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             transition: all 0.3s;
             box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+            margin-bottom: 12px;
         }
         
         .hero-cta:hover {
@@ -125,14 +152,142 @@
         .hero-subtext {
             color: #999;
             font-size: 0.9rem;
-            margin-top: 16px;
+            margin-top: 12px;
+        }
+        
+        /* Calculator Section */
+        .calculator-section {
+            padding: 80px 30px;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+        
+        .calculator-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #f8f8f8 0%, #fafafa 100%);
+            border-radius: 24px;
+            padding: 50px;
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+        
+        .calc-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-align: center;
+            letter-spacing: -1px;
+        }
+        
+        .calc-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.05rem;
+        }
+        
+        .calc-inputs {
+            display: grid;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+        
+        .calc-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .calc-label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #333;
+        }
+        
+        .calc-input {
+            padding: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: #fff;
+            transition: border-color 0.2s;
+        }
+        
+        .calc-input:focus {
+            outline: none;
+            border-color: #000;
+        }
+        
+        .calc-button {
+            width: 100%;
+            padding: 18px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .calc-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .calc-result {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: #000;
+            color: #fff;
+            border-radius: 16px;
+            text-align: center;
+        }
+        
+        .calc-result.show {
+            display: block;
+        }
+        
+        .result-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ef4444;
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+        
+        .result-text {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #ccc;
+        }
+        
+        .result-cta {
+            display: inline-block;
+            background: #4ade80;
+            color: #000;
+            padding: 16px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+        }
+        
+        .result-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 222, 128, 0.4);
         }
         
         /* Stats Bar */
         .stats-bar {
             background: #000;
             color: #fff;
-            padding: 50px 30px;
+            padding: 60px 30px;
         }
         
         .stats-container {
@@ -158,9 +313,63 @@
             line-height: 1.4;
         }
         
+        /* Quick Testimonials */
+        .quick-testimonials {
+            padding: 80px 30px;
+            background: #fafafa;
+        }
+        
+        .quick-test-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .quick-test {
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #e8e8e8;
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.7;
+            position: relative;
+        }
+        
+        .quick-test:before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            color: #e8e8e8;
+            font-family: Georgia, serif;
+        }
+        
+        .quick-test-text {
+            position: relative;
+            z-index: 1;
+            padding-top: 20px;
+        }
+        
+        .quick-test-author {
+            margin-top: 15px;
+            font-weight: 600;
+            color: #000;
+            font-size: 0.9rem;
+        }
+        
+        .quick-test-result {
+            color: #4ade80;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
         /* Problem Section */
         .problem-section {
-            padding: 120px 30px;
+            padding: 100px 30px;
             background: #fff;
         }
         
@@ -177,21 +386,21 @@
             font-size: 0.75rem;
             font-weight: 700;
             color: #666;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
         
         .section-title {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 700;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             line-height: 1.2;
             letter-spacing: -1.5px;
         }
         
         .section-subtitle {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             color: #666;
             margin-bottom: 60px;
             max-width: 750px;
@@ -201,14 +410,13 @@
         .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            margin-top: 70px;
+            gap: 35px;
         }
         
         .problem-card {
             background: #fafafa;
-            padding: 45px;
-            border-radius: 20px;
+            padding: 40px;
+            border-radius: 16px;
             border: 1px solid #eee;
             transition: all 0.3s;
         }
@@ -220,133 +428,140 @@
         
         .problem-icon {
             font-size: 2.5rem;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
         
         .problem-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
         
         .problem-text {
             color: #666;
-            line-height: 1.8;
-            font-size: 1.05rem;
+            line-height: 1.7;
+            font-size: 1.02rem;
         }
         
-        .problem-stat {
-            margin-top: 24px;
-            padding-top: 24px;
-            border-top: 1px solid #e0e0e0;
-            font-weight: 600;
-            color: #000;
-            font-size: 0.95rem;
-        }
-        
-        /* Intelligence Section */
-        .intelligence-section {
-            padding: 120px 30px;
+        /* Product Showcase */
+        .product-showcase {
+            padding: 100px 30px;
             background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
             color: #fff;
         }
         
-        .intelligence-section .section-eyebrow {
+        .product-showcase .section-eyebrow {
             background: rgba(255, 255, 255, 0.1);
             color: #888;
         }
         
-        .intelligence-section .section-title {
+        .product-showcase .section-title {
             color: #fff;
         }
         
-        .intelligence-section .section-subtitle {
+        .product-showcase .section-subtitle {
             color: #aaa;
         }
         
-        .intelligence-demo {
-            max-width: 900px;
-            margin: 70px auto 0;
+        .dashboard-preview {
+            max-width: 1000px;
+            margin: 60px auto 0;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 60px 50px;
+            border-radius: 20px;
+            padding: 50px;
+            position: relative;
         }
         
-        .demo-label {
-            color: #888;
-            font-size: 0.85rem;
+        .preview-label {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(74, 222, 128, 0.2);
+            color: #4ade80;
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 20px;
-            font-weight: 600;
         }
         
-        .demo-insight {
+        .preview-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+        
+        .insight-box {
             background: rgba(255, 255, 255, 0.08);
-            padding: 35px;
-            border-radius: 16px;
+            padding: 30px;
+            border-radius: 14px;
             margin-bottom: 20px;
             border-left: 4px solid #4ade80;
         }
         
-        .insight-title {
-            font-size: 1.3rem;
+        .insight-header {
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: #fff;
         }
         
         .insight-text {
             color: #ccc;
             line-height: 1.7;
-            font-size: 1.05rem;
+            margin-bottom: 20px;
         }
         
-        .insight-data {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
+        .insight-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
         }
         
-        .data-point {
-            flex: 1;
-            min-width: 150px;
+        .metric {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
         }
         
-        .data-value {
+        .metric-value {
             font-size: 2rem;
             font-weight: 700;
             color: #4ade80;
             margin-bottom: 4px;
         }
         
-        .data-label {
-            font-size: 0.85rem;
+        .metric-label {
+            font-size: 0.8rem;
             color: #888;
         }
         
-        /* Product Section */
-        .product-section {
-            padding: 120px 30px;
+        /* Three Pillars */
+        .pillars-section {
+            padding: 100px 30px;
             background: #fff;
         }
         
-        .product-grid {
+        .pillars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 50px;
-            margin-top: 80px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
         
-        .product-feature {
+        .pillar {
             position: relative;
+            background: #fafafa;
+            padding: 45px 35px;
+            border-radius: 16px;
+            border: 1px solid #eee;
         }
         
-        .feature-number {
+        .pillar-number {
             position: absolute;
             top: -15px;
             left: -15px;
@@ -363,81 +578,72 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         
-        .feature-content {
-            background: #fafafa;
-            padding: 50px 40px;
-            border-radius: 20px;
-            border: 1px solid #eee;
-            height: 100%;
+        .pillar-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
         
-        .feature-icon {
-            font-size: 2.8rem;
-            margin-bottom: 24px;
-        }
-        
-        .feature-title {
-            font-size: 1.6rem;
+        .pillar-title {
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
         
-        .feature-description {
+        .pillar-text {
             color: #666;
-            line-height: 1.8;
-            margin-bottom: 24px;
-            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
         }
         
-        .feature-list {
+        .pillar-features {
             list-style: none;
-            margin-top: 24px;
         }
         
-        .feature-list li {
-            padding: 12px 0;
-            padding-left: 28px;
+        .pillar-features li {
+            padding: 10px 0;
+            padding-left: 25px;
             position: relative;
             color: #444;
+            font-size: 0.95rem;
             border-bottom: 1px solid #e8e8e8;
         }
         
-        .feature-list li:last-child {
+        .pillar-features li:last-child {
             border-bottom: none;
         }
         
-        .feature-list li:before {
+        .pillar-features li:before {
             content: "→";
             position: absolute;
             left: 0;
-            color: #000;
             font-weight: bold;
+            color: #000;
         }
         
-        /* Social Proof Section */
-        .social-section {
-            padding: 120px 30px;
+        /* Testimonials */
+        .testimonials-section {
+            padding: 100px 30px;
             background: #fafafa;
         }
         
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 70px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
         }
         
         .testimonial {
             background: #fff;
-            padding: 45px;
-            border-radius: 20px;
+            padding: 40px;
+            border-radius: 16px;
             border: 1px solid #eee;
         }
         
         .testimonial-text {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             line-height: 1.8;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             color: #333;
         }
         
@@ -445,13 +651,13 @@
             display: flex;
             align-items: center;
             gap: 16px;
-            padding-top: 25px;
+            padding-top: 20px;
             border-top: 1px solid #e8e8e8;
         }
         
         .author-avatar {
-            width: 56px;
-            height: 56px;
+            width: 52px;
+            height: 52px;
             background: #000;
             border-radius: 50%;
             display: flex;
@@ -459,7 +665,8 @@
             justify-content: center;
             color: #fff;
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
         
         .author-info {
@@ -468,105 +675,42 @@
         
         .author-name {
             font-weight: 700;
-            margin-bottom: 4px;
-            font-size: 1.05rem;
+            margin-bottom: 3px;
         }
         
         .author-meta {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #666;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
         
         .author-stat {
             color: #4ade80;
             font-weight: 600;
-            font-size: 0.95rem;
-        }
-        
-        /* How It Works */
-        .how-section {
-            padding: 120px 30px;
-            background: #fff;
-        }
-        
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 50px;
-            margin-top: 80px;
-        }
-        
-        .step {
-            text-align: center;
-        }
-        
-        .step-number {
-            width: 90px;
-            height: 90px;
-            background: #000;
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 0 auto 30px;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-        }
-        
-        .step-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-        
-        .step-description {
-            color: #666;
-            line-height: 1.7;
-            font-size: 1.05rem;
+            font-size: 0.9rem;
         }
         
         /* Final CTA */
         .final-cta {
-            padding: 140px 30px;
+            padding: 120px 30px;
             background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
             color: #fff;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .final-cta:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(74, 222, 128, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        
-        .final-cta-content {
-            position: relative;
-            z-index: 1;
         }
         
         .final-cta h2 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
             line-height: 1.2;
             letter-spacing: -2px;
         }
         
         .final-cta p {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: #aaa;
-            margin-bottom: 50px;
-            max-width: 750px;
+            margin-bottom: 40px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
@@ -576,11 +720,11 @@
             display: inline-block;
             background: #4ade80;
             color: #000;
-            padding: 22px 55px;
-            border-radius: 14px;
+            padding: 20px 50px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             transition: all 0.3s;
             box-shadow: 0 4px 14px rgba(74, 222, 128, 0.3);
         }
@@ -591,18 +735,22 @@
         }
         
         .final-subtext {
-            margin-top: 20px;
+            margin-top: 18px;
             color: #888;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         
         /* Footer */
         footer {
             background: #000;
             color: #666;
-            padding: 50px 30px;
+            padding: 40px 30px;
             text-align: center;
             font-size: 0.9rem;
+        }
+        
+        .footer-links {
+            margin-bottom: 20px;
         }
         
         footer a {
@@ -615,35 +763,26 @@
             color: #fff;
         }
         
-        .footer-links {
-            margin-bottom: 20px;
-        }
-        
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.8rem;
-                letter-spacing: -1.5px;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.3rem;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .section-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .final-cta h2 {
                 font-size: 2.5rem;
             }
             
-            .final-cta p {
-                font-size: 1.3rem;
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-trust {
+                display: none;
+            }
+            
+            .calculator-container {
+                padding: 35px 25px;
+            }
+            
+            .stats-container {
+                gap: 35px;
             }
         }
     </style>
@@ -653,21 +792,56 @@
     <nav>
         <div class="nav-container">
             <div class="logo">betterbet</div>
-            <a href="#" class="nav-cta">Start Free Trial</a>
+            <div class="nav-right">
+                <div class="nav-trust">
+                    <span class="trust-item"><span class="trust-dot">●</span> 50,000+ users</span>
+                    <span class="trust-item"><span class="trust-dot">●</span> Bank-level security</span>
+                </div>
+                <a href="#calculator" class="nav-cta">Find My Edge</a>
+            </div>
         </div>
     </nav>
     
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-badge">Performance Intelligence</div>
-        <h1>
-            Most bettors are better<br>than their results suggest.
-        </h1>
+        <h1>Most bettors are better than their results suggest.</h1>
         <p class="hero-subtitle">
-            BetterBet is AI-powered performance tracking for serious bettors. See your real edge, eliminate leaks, and bet with clarity.
+            Connect your sportsbook. See your real edge in 60 seconds. Stop guessing, start knowing.
         </p>
-        <a href="#" class="hero-cta">See Your Performance →</a>
-        <p class="hero-subtext">Free 7-day trial • Connect in 2 minutes • No credit card required</p>
+        <a href="#calculator" class="hero-cta">Find My Hidden Edge →</a>
+        <p class="hero-subtext">Free 7 days • No credit card • 2 minutes to insights</p>
+    </section>
+    
+    <!-- Calculator Section -->
+    <section class="calculator-section" id="calculator">
+        <div class="calculator-container">
+            <h2 class="calc-title">How Much Are Leaks Costing You?</h2>
+            <p class="calc-subtitle">Most bettors lose $2,400+/year to hidden patterns they can't see.</p>
+            
+            <div class="calc-inputs">
+                <div class="calc-input-group">
+                    <label class="calc-label">Average bet size</label>
+                    <input type="number" class="calc-input" id="betSize" placeholder="$50" value="50">
+                </div>
+                <div class="calc-input-group">
+                    <label class="calc-label">Bets per month</label>
+                    <input type="number" class="calc-input" id="betsPerMonth" placeholder="20" value="20">
+                </div>
+                <div class="calc-input-group">
+                    <label class="calc-label">Been betting for (years)</label>
+                    <input type="number" class="calc-input" id="years" placeholder="3" value="3">
+                </div>
+            </div>
+            
+            <button class="calc-button" onclick="calculateLeaks()">Calculate My Leaks →</button>
+            
+            <div class="calc-result" id="result">
+                <div class="result-number" id="resultNumber">$0</div>
+                <p class="result-text">You're likely losing this much annually to hidden leaks like bad timing, tilt betting, and unprofitable bet types.</p>
+                <a href="#signup" class="result-cta">Show Me My Leaks →</a>
+            </div>
+        </div>
     </section>
     
     <!-- Stats Bar -->
@@ -679,7 +853,7 @@
             </div>
             <div class="stat">
                 <div class="stat-number">67%</div>
-                <div class="stat-label">of users discover a profitable edge they didn't know they had</div>
+                <div class="stat-label">of users discover a profitable edge they didn't know about</div>
             </div>
             <div class="stat">
                 <div class="stat-number">$2,400</div>
@@ -688,145 +862,276 @@
         </div>
     </div>
     
+    <!-- Quick Testimonials -->
+    <section class="quick-testimonials">
+        <div class="quick-test-container">
+            <div class="quick-test">
+                <div class="quick-test-text">
+                    I thought I was break-even. BetterBet showed me I was down $3,200. Found out I'm 65% on NFL underdogs but kept forcing favorites. Changed my approach immediately.
+                </div>
+                <div class="quick-test-author">Marcus T. <span class="quick-test-result">• Now up $890 in 4 months</span></div>
+            </div>
+            <div class="quick-test">
+                <div class="quick-test-text">
+                    My late-night bets were killing me. 28% win rate after 10pm vs. 58% in the morning. I just didn't see the pattern until BetterBet showed me the data.
+                </div>
+                <div class="quick-test-author">David K. <span class="quick-test-result">• Eliminated $1,800 in annual leaks</span></div>
+            </div>
+            <div class="quick-test">
+                <div class="quick-test-text">
+                    I'm an engineer—I thought I had this figured out. Turns out I was 23% on parlays but 54% on singles. The data doesn't lie. Stopped parlays completely.
+                </div>
+                <div class="quick-test-author">Sarah L. <span class="quick-test-result">• ROI improved from -8% to +5%</span></div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Problem Section -->
     <section class="problem-section">
         <div class="section-container">
             <span class="section-eyebrow">The Gap</span>
-            <h2 class="section-title">Your performance doesn't match your knowledge.</h2>
+            <h2 class="section-title">You're sharper than your results show.</h2>
             <p class="section-subtitle">
-                You research matchups. You understand odds. You follow sharp money. So why aren't you profitable? Because you're flying blind.
+                You research. You analyze. You follow sharp money. So why aren't you profitable?
             </p>
             
             <div class="problem-grid">
                 <div class="problem-card">
                     <div class="problem-icon">📊</div>
-                    <h3 class="problem-title">No visibility into patterns</h3>
+                    <h3 class="problem-title">No visibility</h3>
                     <p class="problem-text">
-                        You might be 58% on NBA spreads but 31% on parlays. Without tracking, you can't see which bets print money and which burn it.
+                        You're 58% on spreads. 31% on parlays. Which would you rather bet? Without tracking, you can't see which bets print and which burn.
                     </p>
-                    <p class="problem-stat">73% of bettors are profitable in at least one category—they just don't know which one</p>
-                </div>
-                
-                <div class="problem-card">
-                    <div class="problem-icon">🧠</div>
-                    <h3 class="problem-title">Emotional decisions</h3>
-                    <p class="problem-text">
-                        Late-night bets. Chasing losses. Betting your favorite team. These patterns sabotage even the smartest bettors.
-                    </p>
-                    <p class="problem-stat">Win rates drop 42% when betting emotionally vs. analytically</p>
                 </div>
                 
                 <div class="problem-card">
                     <div class="problem-icon">⏱️</div>
-                    <h3 class="problem-title">No real-time feedback</h3>
+                    <h3 class="problem-title">Bad timing</h3>
                     <p class="problem-text">
-                        By the time you realize you're on tilt, you're already down $500. You need intelligence in the moment, not a post-mortem.
+                        Late-night bets hit 42% less than morning bets. Same bettor, different timing. Your performance varies more than you think.
                     </p>
-                    <p class="problem-stat">Average bettor takes 47 bets to recognize a losing pattern</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">🎯</div>
+                    <h3 class="problem-title">Hidden edges</h3>
+                    <p class="problem-text">
+                        73% of bettors are profitable in at least one specific category. You probably have an edge you don't even know about.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Intelligence Section -->
-    <section class="intelligence-section">
+    <!-- Product Showcase -->
+    <section class="product-showcase">
         <div class="section-container">
             <span class="section-eyebrow">The Intelligence</span>
-            <h2 class="section-title">AI that knows you better than<br>you know yourself.</h2>
+            <h2 class="section-title">AI that knows you better than you know yourself.</h2>
             <p class="section-subtitle">
-                Connect your sportsbook. Our AI analyzes every bet you've ever placed and surfaces insights you'd never find on your own.
+                Connect your sportsbook. Our AI analyzes every bet and surfaces insights you'd never find alone.
             </p>
             
-            <div class="intelligence-demo">
-                <div class="demo-label">Example: Your Hidden Edge</div>
+            <div class="dashboard-preview">
+                <div class="preview-label">LIVE DASHBOARD</div>
+                <h3 class="preview-title">This is what you'll see in ~60 seconds</h3>
                 
-                <div class="demo-insight">
-                    <h4 class="insight-title">You're elite on road underdogs</h4>
+                <div class="insight-box">
+                    <div class="insight-header">Hidden edge: NBA road underdogs</div>
                     <p class="insight-text">
-                        We analyzed your 342 bets and found something remarkable: You hit 61% on road underdogs in the NBA. That's sharp-level performance. But you only bet them 12% of the time.
+                        You hit <strong>61%</strong> on road dogs, but only bet them <strong>12%</strong> of the time. That's sharp-level performance you're underusing.
                     </p>
-                    <div class="insight-data">
-                        <div class="data-point">
-                            <div class="data-value">61%</div>
-                            <div class="data-label">Win Rate</div>
+                    <div class="insight-metrics">
+                        <div class="metric">
+                            <div class="metric-value">61%</div>
+                            <div class="metric-label">Win rate</div>
                         </div>
-                        <div class="data-point">
-                            <div class="data-value">+12.4%</div>
-                            <div class="data-label">ROI</div>
+                        <div class="metric">
+                            <div class="metric-value">+12.4%</div>
+                            <div class="metric-label">ROI</div>
                         </div>
-                        <div class="data-point">
-                            <div class="data-value">42</div>
-                            <div class="data-label">Total Bets</div>
+                        <div class="metric">
+                            <div class="metric-value">42</div>
+                            <div class="metric-label">Total bets</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="demo-insight">
-                    <h4 class="insight-title">Parlays are killing your bankroll</h4>
+                <div class="insight-box">
+                    <div class="insight-header">Leak: same-game parlays are draining you</div>
                     <p class="insight-text">
-                        You've placed 87 parlays with a 23% hit rate and -18% ROI. You've lost $1,234 on them. Meanwhile, your single-bet performance is +5.2% ROI.
+                        You've placed <strong>87</strong> SGPs with a <strong>23%</strong> hit rate and <strong>-18%</strong> ROI. That's <strong>−$1,234</strong>. Singles? You're <strong>+$892</strong>.
                     </p>
-                    <div class="insight-data">
-                        <div class="data-point">
-                            <div class="data-value">-$1,234</div>
-                            <div class="data-label">Parlay P&L</div>
+                    <div class="insight-metrics">
+                        <div class="metric">
+                            <div class="metric-value">−$1,234</div>
+                            <div class="metric-label">Parlay P&L</div>
                         </div>
-                        <div class="data-point">
-                            <div class="data-value">+$892</div>
-                            <div class="data-label">Single Bet P&L</div>
+                        <div class="metric">
+                            <div class="metric-value">+$892</div>
+                            <div class="metric-label">Singles P&L</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">23%</div>
+                            <div class="metric-label">Parlay hit rate</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Product Section -->
-    <section class="product-section">
+
+    <!-- Three Pillars -->
+    <section class="pillars-section">
         <div class="section-container">
             <span class="section-eyebrow">The System</span>
             <h2 class="section-title">Three layers of intelligence.</h2>
-            <p class="section-subtitle">
-                Not just tracking. Not just insights. A complete performance system that makes you sharper every day.
-            </p>
+            <p class="section-subtitle">Not just tracking. Not just insights. A complete system that keeps you composed when it counts.</p>
             
-            <div class="product-grid">
-                <div class="product-feature">
-                    <div class="feature-number">1</div>
-                    <div class="feature-content">
-                        <div class="feature-icon">🎯</div>
-                        <h3 class="feature-title">Performance Tracking</h3>
-                        <p class="feature-description">
-                            Automatic bet import from all major sportsbooks. Every bet tracked, categorized, and analyzed in real-time.
-                        </p>
-                        <ul class="feature-list">
-                            <li>Win rates by sport, bet type, time, team</li>
-                            <li>ROI tracking across all books</li>
-                            <li>Bankroll visualization</li>
-                            <li>Historical performance trends</li>
-                        </ul>
+            <div class="pillars-grid">
+                <div class="pillar">
+                    <div class="pillar-number">1</div>
+                    <div class="pillar-icon">🎯</div>
+                    <h3 class="pillar-title">Performance Tracking</h3>
+                    <p class="pillar-text">
+                        Automatic bet import from major sportsbooks. Every bet tracked, categorized, and visualized.
+                    </p>
+                    <ul class="pillar-features">
+                        <li>Win rates by sport, bet type, timing, team</li>
+                        <li>ROI tracking across all books</li>
+                        <li>Bankroll and exposure visualization</li>
+                    </ul>
+                </div>
+                
+                <div class="pillar">
+                    <div class="pillar-number">2</div>
+                    <div class="pillar-icon">🧠</div>
+                    <h3 class="pillar-title">AI Insights</h3>
+                    <p class="pillar-text">
+                        We find edges and leaks across thousands of data points — the patterns you’d never see alone.
+                    </p>
+                    <ul class="pillar-features">
+                        <li>Hidden edge detection</li>
+                        <li>Leak identification & quantification</li>
+                        <li>Optimal bet sizing suggestions</li>
+                    </ul>
+                </div>
+                
+                <div class="pillar">
+                    <div class="pillar-number">3</div>
+                    <div class="pillar-icon">⚡</div>
+                    <h3 class="pillar-title">Real-Time Coaching</h3>
+                    <p class="pillar-text">
+                        Interventions when you chase. Nudges that reinforce your plan. Discipline gets easier by default.
+                    </p>
+                    <ul class="pillar-features">
+                        <li>“Tilt” detection and cool-offs</li>
+                        <li>Reality checks on parlays</li>
+                        <li>Awareness streaks & progress</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="section-container">
+            <span class="section-eyebrow">Stories, not slogans</span>
+            <h2 class="section-title">What serious bettors say.</h2>
+            <p class="section-subtitle">Real results from users who traded guessing for knowing.</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        “I thought I was good on NFL favorites. BetterBet showed I was 28% there and 67% on underdogs. I stopped forcing favorites. Up <strong>$3,400</strong> in 4 months.”
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <div class="author-name">Alex R.</div>
+                            <div class="author-meta">DFS grinder</div>
+                            <div class="author-stat">+14% ROI since switching</div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="product-feature">
-                    <div class="feature-number">2</div>
-                    <div class="feature-content">
-                        <div class="feature-icon">🧠</div>
-                        <h3 class="feature-title">AI-Powered Insights</h3>
-                        <p class="feature-description">
-                            Our AI finds patterns across thousands of data points. Discover edges you didn't know existed.
-                        </p>
-                        <ul class="feature-list">
-                            <li>Hidden edge detection</li>
-                            <li>Leak identification and quantification</li>
-                            <li>Optimal bet sizing recommendations</li>
-                            <li>Performance predictions</li>
-                        </ul>
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        “I didn’t realize late-night betting nuked me. Now the coach shuts me down after a bad beat. First season I’ve actually protected my roll.”
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <div class="author-name">Marcus T.</div>
+                            <div class="author-meta">NBA daily</div>
+                            <div class="author-stat">Eliminated $1,800 in leaks</div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="product-feature">
-                    <div class="feature-number">3</div>
-                    <div class="feature-content">
-                        <div class="feature-icon">⚡</div>
-                        <h3
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        “Seeing ‘cut parlays and you’d be +$1.6k’ hurt… in the best way. I cut them. I’m calmer, and Sundays don’t end in tilt.”
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div class="author-info">
+                            <div class="author-name">Jules P.</div>
+                            <div class="author-meta">SGP fan</div>
+                            <div class="author-stat">Control streak: 21 days</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="signup">
+        <h2>Make control your edge.</h2>
+        <p>Join the private beta. Built by bettors. Backed by behavioral science.</p>
+
+        <!-- Waitlist Form (Formspree) -->
+        <form action="https://formspree.io/f/manpdjqg" method="POST" style="max-width:720px;margin:0 auto 16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+            <input type="email" name="email" placeholder="you@domain.com" required
+                   style="flex:1;min-width:260px;padding:16px;border-radius:12px;border:1px solid #2b2b2b;font-size:1rem" />
+            <button type="submit" class="final-cta-button">Get Early Access</button>
+            <input type="hidden" name="_subject" value="BetterBet waitlist signup" />
+            <input type="text" name="_gotcha" style="display:none" />
+        </form>
+
+        <div class="final-subtext">We’re not touts. No picks — your data only. Privacy is product.</div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Responsible Gaming</a>
+            <a href="mailto:hello@betterbet.app">Contact</a>
+        </div>
+        <div>© 2025 BetterBet. All rights reserved.</div>
+    </footer>
+
+    <script>
+      // Simple, conservative estimate for hidden leaks (illustrative)
+      function calculateLeaks() {
+        const betSize = Math.max(0, parseFloat(document.getElementById('betSize').value) || 0);
+        const betsPerMonth = Math.max(0, parseFloat(document.getElementById('betsPerMonth').value) || 0);
+        const years = Math.max(1, parseFloat(document.getElementById('years').value) || 1);
+
+        // Heuristic: assume ~20% of volume are "leak bets" at ~-15% ROI
+        const annual = betSize * betsPerMonth * 12 * 0.20 * 0.15;
+        const estimate = Math.round(annual); // show annual first (more actionable)
+
+        const out = document.getElementById('resultNumber');
+        out.textContent = estimate.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+
+        const res = document.getElementById('result');
+        res.classList.add('show');
+      }
+    </script>
+</body>
+</html>
