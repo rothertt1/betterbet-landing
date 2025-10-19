@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>BetterBet - Performance Intelligence for Serious Bettors</title>
+    <title>BetterBet - See Where You Actually Make Money</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{
@@ -30,7 +30,37 @@
         .hero-subtitle{font-size:1.45rem;color:#555;max-width:700px;margin:0 auto 40px;line-height:1.6;font-weight:400}
         .hero-cta{display:inline-block;background:#000;color:#fff;padding:18px 40px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1.1rem;transition:.3s;box-shadow:0 4px 14px rgba(0,0,0,.1);margin-bottom:12px}
         .hero-cta:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,0,0,.15)}
-        .hero-subtext{color:#999;font-size:.9rem;margin-top:12px}
+        .hero-subtext{color:#999;font-size:.9rem;margin-top:12px;margin-bottom:30px}
+        .hero-features{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-top:40px;font-size:.95rem;color:#666}
+        .hero-features span{display:flex;align-items:center;gap:8px}
+        .hero-features span:before{content:"✓";color:#4ade80;font-weight:bold;font-size:1.2rem}
+
+        /* Truth Section (NEW) */
+        .truth-section{padding:80px 30px;background:#fff;border-top:1px solid #eee}
+        .truth-container{max-width:1100px;margin:0 auto;text-align:center}
+        .truth-container h2{font-size:2.8rem;font-weight:700;margin-bottom:50px;letter-spacing:-1.5px}
+        .truth-example{display:grid;grid-template-columns:1fr auto 1fr;gap:30px;align-items:center;background:#fafafa;padding:50px;border-radius:20px;border:1px solid #e8e8e8;margin-bottom:40px}
+        .truth-before,.truth-after{text-align:left}
+        .truth-before h3,.truth-after h3{font-size:1.1rem;font-weight:700;margin-bottom:16px;color:#000}
+        .truth-before{color:#666;font-style:italic;font-size:1.05rem;line-height:1.7}
+        .truth-after{background:#fff;padding:25px;border-radius:12px;border:1px solid #e0e0e0}
+        .truth-after ul{list-style:none;margin-bottom:20px;font-size:1.05rem;line-height:2}
+        .truth-after li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f0f0f0}
+        .truth-after li:last-child{border-bottom:none;font-weight:700;color:#000;margin-top:10px;padding-top:15px;border-top:2px solid #000}
+        .truth-after p{color:#666;font-size:.95rem;line-height:1.6;margin-top:15px;padding-top:15px;border-top:1px solid #e8e8e8}
+        .truth-arrow{font-size:3rem;color:#4ade80;font-weight:700}
+        .truth-tagline{font-size:1.3rem;color:#000;font-weight:600;margin-top:30px}
+
+        /* Magic Features (NEW) */
+        .magic-section{padding:80px 30px;background:#fafafa}
+        .magic-container{max-width:1100px;margin:0 auto}
+        .magic-title{font-size:2.8rem;font-weight:700;text-align:center;margin-bottom:20px;letter-spacing:-1.5px}
+        .magic-subtitle{text-align:center;font-size:1.3rem;color:#666;margin-bottom:60px;max-width:700px;margin-left:auto;margin-right:auto}
+        .magic-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+        .magic-card{background:#fff;padding:40px;border-radius:16px;border:1px solid #e8e8e8;text-align:center;transition:.3s}
+        .magic-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
+        .magic-card h3{font-size:1.8rem;margin-bottom:15px}
+        .magic-card p{color:#666;line-height:1.7;font-size:1.05rem}
 
         /* Calculator */
         .calculator-section{padding:80px 30px;background:#fff;border-top:1px solid #eee}
@@ -51,12 +81,6 @@
         .result-cta{display:inline-block;background:#4ade80;color:#000;padding:16px 40px;border-radius:10px;text-decoration:none;font-weight:700;font-size:1.05rem;transition:.3s}
         .result-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(74,222,128,.4)}
 
-        /* Stats Bar */
-        .stats-bar{background:#000;color:#fff;padding:60px 30px}
-        .stats-container{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:50px;text-align:center}
-        .stat-number{font-size:3rem;font-weight:700;margin-bottom:8px;color:#4ade80;line-height:1}
-        .stat-label{color:#aaa;font-size:.95rem;line-height:1.4}
-
         /* Quick Testimonials */
         .quick-testimonials{padding:80px 30px;background:#fafafa}
         .quick-test-container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
@@ -64,7 +88,7 @@
         .quick-test:before{content:'"';font-size:4rem;position:absolute;top:10px;left:20px;color:#e8e8e8;font-family:Georgia,serif}
         .quick-test-text{position:relative;z-index:1;padding-top:20px}
         .quick-test-author{margin-top:15px;font-weight:600;color:#000;font-size:.9rem}
-        .quick-test-result{color:#4ade80;font-size:.85rem;font-weight:600}
+        .quick-test-context{color:#666;font-size:.85rem;margin-top:5px;font-style:italic}
 
         /* Problem Section */
         .problem-section{padding:100px 30px;background:#fff}
@@ -79,7 +103,21 @@
         .problem-title{font-size:1.4rem;font-weight:700;margin-bottom:12px}
         .problem-text{color:#666;line-height:1.7;font-size:1.02rem}
 
-        /* Product Showcase (enhanced visuals) */
+        /* Autonomy Section (NEW) */
+        .autonomy-section{padding:100px 30px;background:#fafafa}
+        .autonomy-container{max-width:900px;margin:0 auto;text-align:center}
+        .autonomy-title{font-size:3rem;font-weight:700;margin-bottom:40px;letter-spacing:-1.5px}
+        .autonomy-comparison{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:60px}
+        .autonomy-col{background:#fff;padding:40px;border-radius:16px;border:1px solid #e8e8e8}
+        .autonomy-col h3{font-size:1.3rem;margin-bottom:25px;font-weight:700}
+        .autonomy-col.bad{border-left:4px solid #ef4444}
+        .autonomy-col.good{border-left:4px solid #4ade80}
+        .autonomy-item{padding:20px 0;border-bottom:1px solid #f0f0f0;text-align:left;font-size:1.05rem;line-height:1.7}
+        .autonomy-item:last-child{border-bottom:none}
+        .autonomy-item strong{display:block;margin-bottom:8px;color:#000}
+        .autonomy-tagline{margin-top:50px;font-size:1.4rem;font-weight:600;color:#000}
+
+        /* Product Showcase */
         .product-showcase{padding:100px 30px;background:linear-gradient(135deg,#000 0%,#1a1a1a 100%);color:#fff}
         .product-showcase .section-eyebrow{background:rgba(255,255,255,.1);color:#888}
         .product-showcase .section-title{color:#fff}
@@ -165,18 +203,6 @@
         .pillar-features li:last-child{border-bottom:none}
         .pillar-features li:before{content:"→";position:absolute;left:0;font-weight:bold;color:#000}
 
-        /* Testimonials */
-        .testimonials-section{padding:100px 30px;background:#fafafa}
-        .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:35px;margin-top:60px}
-        .testimonial{background:#fff;padding:40px;border-radius:16px;border:1px solid #eee}
-        .testimonial-text{font-size:1.1rem;line-height:1.8;margin-bottom:25px;color:#333}
-        .testimonial-author{display:flex;align-items:center;gap:16px;padding-top:20px;border-top:1px solid #e8e8e8}
-        .author-avatar{width:52px;height:52px;background:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.2rem;flex-shrink:0}
-        .author-info{flex:1}
-        .author-name{font-weight:700;margin-bottom:3px}
-        .author-meta{font-size:.85rem;color:#666;margin-bottom:4px}
-        .author-stat{color:#4ade80;font-weight:600;font-size:.9rem}
-
         /* Final CTA & Footer */
         .final-cta{padding:120px 30px;background:linear-gradient(135deg,#000 0%,#1a1a1a 100%);color:#fff;text-align:center}
         .final-cta h2{font-size:3.5rem;font-weight:700;margin-bottom:24px;line-height:1.2;letter-spacing:-2px}
@@ -194,8 +220,12 @@
             .section-title{font-size:2rem}
             .nav-trust{display:none}
             .calculator-container{padding:35px 25px}
-            .stats-container{gap:35px}
+            .truth-example{grid-template-columns:1fr;gap:20px}
+            .truth-arrow{display:none}
+            .magic-features{grid-template-columns:1fr}
+            .autonomy-comparison{grid-template-columns:1fr}
             .snapshot-grid{grid-template-columns:1fr}
+            .hero-features{flex-direction:column;gap:15px;align-items:center}
         }
     </style>
 </head>
@@ -206,31 +236,92 @@
             <div class="logo">betterbet</div>
             <div class="nav-right">
                 <div class="nav-trust">
-                    <span class="trust-item"><span class="trust-dot">●</span> 50,000+ users</span>
-                    <span class="trust-item"><span class="trust-dot">●</span> Bank-level security</span>
+                    <span class="trust-item"><span class="trust-dot">●</span> Free during beta</span>
+                    <span class="trust-item"><span class="trust-dot">●</span> Works with all sportsbooks</span>
                 </div>
-                <a href="#calculator" class="nav-cta">Find My Edge</a>
+                <a href="#calculator" class="nav-cta">See My Patterns</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-badge">Performance Intelligence</div>
-        <h1>Most bettors are better than their results suggest.</h1>
+        <div class="hero-badge">Your Betting Truth</div>
+        <h1>You're Probably Losing on Bets You Think You're Winning</h1>
         <p class="hero-subtitle">
-            Connect your sportsbook. <strong>See your edge in 60 seconds — and keep it all season.</strong>
-            Stop guessing, start knowing.
+            BetterBet shows you exactly where you make money and where you don't—
+            then helps you bet smarter on both. <strong>See patterns in 60 seconds.</strong>
         </p>
-        <a href="#calculator" class="hero-cta">Find My Hidden Edge →</a>
-        <p class="hero-subtext">Free 7 days • No credit card • 2 minutes to insights</p>
+        <a href="#calculator" class="hero-cta">Paste My Last 30 Days →</a>
+        <p class="hero-subtext">Free • No signup required • Instant insights</p>
+        
+        <div class="hero-features">
+            <span>We auto-detect outcomes (no manual tracking)</span>
+            <span>Shows patterns you can't see yourself</span>
+            <span>Suggests smarter sizing (doesn't tell you what to do)</span>
+        </div>
+    </section>
+
+    <!-- Truth Section -->
+    <section class="truth-section">
+        <div class="truth-container">
+            <h2>Here's What BetterBet Actually Shows You</h2>
+            
+            <div class="truth-example">
+                <div class="truth-before">
+                    <h3>What You Think</h3>
+                    <p>"I'm probably up a little overall. I hit that big parlay last week."</p>
+                </div>
+                
+                <div class="truth-arrow">→</div>
+                
+                <div class="truth-after">
+                    <h3>The Reality (Your Actual Data)</h3>
+                    <ul style="list-style:none;margin:0;padding:0">
+                        <li><span>Parlays:</span> <span style="color:#ef4444">3-15 (-$780)</span></li>
+                        <li><span>Straight bets:</span> <span style="color:#4ade80">24-18 (+$420)</span></li>
+                        <li><span>Net total:</span> <span style="color:#ef4444;font-weight:700">-$360</span></li>
+                    </ul>
+                    <p>"You'd be <strong>+$420</strong> if you skipped parlays. Or bet <strong>$10</strong> on them instead of <strong>$50</strong>."</p>
+                </div>
+            </div>
+            
+            <p class="truth-tagline">
+                This is YOUR data. This is the truth. What you do with it is up to you.
+            </p>
+        </div>
+    </section>
+
+    <!-- Magic Features -->
+    <section class="magic-section">
+        <div class="magic-container">
+            <h2 class="magic-title">How BetterBet Actually Works</h2>
+            <p class="magic-subtitle">Three features that make this "magic, not work"</p>
+            
+            <div class="magic-features">
+                <div class="magic-card">
+                    <h3>📋 Copy/Paste Import</h3>
+                    <p>Paste 30 days of bet history from any sportsbook. See patterns in 60 seconds. No connection needed—just copy/paste.</p>
+                </div>
+                
+                <div class="magic-card">
+                    <h3>🤖 Auto-Detection</h3>
+                    <p>We automatically check scores for you. 80% of outcomes marked automatically—zero manual tracking after you log the bet.</p>
+                </div>
+                
+                <div class="magic-card">
+                    <h3>🎯 Smart Sizing</h3>
+                    <p>We suggest where to bet big (your edge) and where to bet small (your weaknesses). You always decide.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Calculator -->
     <section class="calculator-section" id="calculator">
         <div class="calculator-container">
-            <h2 class="calc-title">How Much Are Leaks Costing You?</h2>
-            <p class="calc-subtitle">Most bettors lose $2,400+/year to hidden patterns they can't see.</p>
+            <h2 class="calc-title">How Much Are Hidden Patterns Costing You?</h2>
+            <p class="calc-subtitle">Most bettors lose $2,400+/year to patterns they can't see: betting the wrong teams, late-night bets, parlays.</p>
 
             <div class="calc-inputs">
                 <div class="calc-input-group">
@@ -247,54 +338,39 @@
                 </div>
             </div>
 
-            <button class="calc-button" onclick="calculateLeaks()">Calculate My Leaks →</button>
+            <button class="calc-button" onclick="calculateLeaks()">Calculate My Hidden Losses →</button>
 
             <div class="calc-result" id="result">
                 <div class="result-number" id="resultNumber">$0</div>
-                <p class="result-text">You're likely losing this much annually to hidden leaks like bad timing, tilt betting, and unprofitable bet types.</p>
-                <a href="#signup" class="result-cta">Show Me My Leaks →</a>
+                <p class="result-text">You're likely losing this much annually to hidden patterns like Cowboys bets (2-7), parlays (18% win rate), and late-night betting (42% lower win rate).</p>
+                <a href="#signup" class="result-cta">Show Me My Patterns →</a>
             </div>
         </div>
     </section>
 
-    <!-- Stats Bar -->
-    <div class="stats-bar">
-        <div class="stats-container">
-            <div class="stat">
-                <div class="stat-number">8.3%</div>
-                <div class="stat-label">Average ROI improvement in first 90 days</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">67%</div>
-                <div class="stat-label">of users discover a profitable edge they didn't know about</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">$2,400</div>
-                <div class="stat-label">Average annual value of eliminated leaks</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Quick Testimonials -->
+    <!-- Quick Testimonials (Real Reddit Quotes) -->
     <section class="quick-testimonials">
         <div class="quick-test-container">
             <div class="quick-test">
                 <div class="quick-test-text">
-                    I thought I was break-even. BetterBet showed me I was down $3,200. Found out I'm 65% on NFL underdogs but kept forcing favorites. Changed my approach immediately.
+                    Beer and sports and the god damn Dallas cowboys. Not a fan at all but for some reason I think they will win way too often.
                 </div>
-                <div class="quick-test-author">Marcus T. <span class="quick-test-result">• Now up $890 in 4 months</span></div>
+                <div class="quick-test-author">u/carinislumpyhead97</div>
+                <div class="quick-test-context">r/sportsbook • Would use BetterBet to see actual Cowboys record</div>
             </div>
             <div class="quick-test">
                 <div class="quick-test-text">
-                    My late-night bets were killing me. 28% win rate after 10pm vs. 58% in the morning. I just didn't see the pattern until BetterBet showed me the data.
+                    I was at one point [profitable], not by a lot but by a little. It's a matter of time, research and watching the lines. I don't have that now, time.
                 </div>
-                <div class="quick-test-author">David K. <span class="quick-test-result">• Eliminated $1,800 in annual leaks</span></div>
+                <div class="quick-test-author">u/Confusion-Ashamed</div>
+                <div class="quick-test-context">r/sportsbook • Needs insights without hours of research</div>
             </div>
             <div class="quick-test">
                 <div class="quick-test-text">
-                    I'm an engineer—I thought I had this figured out. Turns out I was 23% on parlays but 54% on singles. The data doesn't lie. Stopped parlays completely.
+                    Straight bets are boring. Parlays are fun.
                 </div>
-                <div class="quick-test-author">Sarah L. <span class="quick-test-result">• ROI improved from -8% to +5%</span></div>
+                <div class="quick-test-author">u/scottiepippen13</div>
+                <div class="quick-test-context">r/sportsbook • Would bet smaller on parlays if shown the data</div>
             </div>
         </div>
     </section>
@@ -308,42 +384,87 @@
 
             <div class="problem-grid">
                 <div class="problem-card">
-                    <div class="problem-icon">📊</div>
-                    <h3 class="problem-title">No visibility</h3>
-                    <p class="problem-text">You're 58% on spreads. 31% on parlays. Which would you rather bet? Without tracking, you can't see which bets print and which burn.</p>
+                    <div class="problem-icon">🏈</div>
+                    <h3 class="problem-title">The Cowboys Trap</h3>
+                    <p class="problem-text">You're 2-7 on Cowboys (-$280) but keep betting them because you "like the matchup." Meanwhile you're 18-7 on NBA (+$540). Without tracking, you chase feelings—not profits.</p>
                 </div>
                 <div class="problem-card">
-                    <div class="problem-icon">⏱️</div>
-                    <h3 class="problem-title">Bad timing</h3>
-                    <p class="problem-text">Late-night bets hit 42% less than morning bets. Same bettor, different timing. Your performance varies more than you think.</p>
+                    <div class="problem-icon">🎰</div>
+                    <h3 class="problem-title">The Parlay Drain</h3>
+                    <p class="problem-text">Parlays feel like big wins when they hit. But you're 3-22 on them (-$780) while straight bets are +$420. Without seeing the full picture, you chase the high—not the edge.</p>
                 </div>
                 <div class="problem-card">
-                    <div class="problem-icon">🎯</div>
-                    <h3 class="problem-title">Hidden edges</h3>
-                    <p class="problem-text">73% of bettors are profitable in at least one specific category. You probably have an edge you don't even know about.</p>
+                    <div class="problem-icon">🌙</div>
+                    <h3 class="problem-title">The Late Night Leak</h3>
+                    <p class="problem-text">Your 9am bets: 58% win rate. Your 11pm bets: 31% win rate. Same bettor, different judgment. You can't fix patterns you can't see.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Product Showcase (ENHANCED) -->
+    <!-- Autonomy Section -->
+    <section class="autonomy-section">
+        <div class="autonomy-container">
+            <h2 class="autonomy-title">We Don't Tell You What to Do</h2>
+            
+            <div class="autonomy-comparison">
+                <div class="autonomy-col bad">
+                    <h3>❌ Other Apps</h3>
+                    <div class="autonomy-item">
+                        <strong>"Stop betting parlays!"</strong>
+                        Judgmental and controlling
+                    </div>
+                    <div class="autonomy-item">
+                        <strong>"You have a gambling problem"</strong>
+                        Shame-based approach
+                    </div>
+                    <div class="autonomy-item">
+                        <strong>"Account locked after 2 losses"</strong>
+                        Takes away your choice
+                    </div>
+                </div>
+                
+                <div class="autonomy-col good">
+                    <h3>✓ BetterBet</h3>
+                    <div class="autonomy-item">
+                        <strong>"Parlays cost you $680. Singles made you $420."</strong>
+                        If you do parlays, bet $10 instead of $50.
+                    </div>
+                    <div class="autonomy-item">
+                        <strong>"You're 2-7 on Cowboys (-$280)"</strong>
+                        Consider betting $20 instead of $50, or skip them.
+                    </div>
+                    <div class="autonomy-item">
+                        <strong>"You lose 42% more after midnight"</strong>
+                        Suggested unit: $20. Your choice to continue.
+                    </div>
+                </div>
+            </div>
+            
+            <p class="autonomy-tagline">
+                We show you the truth. We suggest smarter sizing. You always decide.
+            </p>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
     <section class="product-showcase">
         <div class="section-container">
             <span class="section-eyebrow">The Intelligence</span>
-            <h2 class="section-title">See your edge in 60 seconds. Get coached all season.</h2>
-            <p class="section-subtitle">Day-0 insights are the start. Live edge alerts, guardrails, and weekly reviews keep you on plan.</p>
+            <h2 class="section-title">See your patterns in 60 seconds. Get coached all season.</h2>
+            <p class="section-subtitle">Instant insights are the start. Pattern alerts and smart suggestions keep you on track.</p>
 
             <div class="dashboard-preview">
-                <div class="preview-label">COACH SNAPSHOT</div>
-                <h3 class="preview-title">Your first look</h3>
+                <div class="preview-label">LIVE PREVIEW</div>
+                <h3 class="preview-title">Your Dashboard</h3>
 
-                <div class="snapshot-tabs"><span class="on">Insights</span><span>Alerts</span><span>Guardrails</span></div>
+                <div class="snapshot-tabs"><span class="on">Insights</span><span>Patterns</span><span>Suggestions</span></div>
 
                 <div class="snapshot-grid">
                     <!-- LEFT: Insight cards -->
                     <div class="insight-col">
                         <div class="insight-box">
-                            <div class="insight-header">Hidden edge: NBA road underdogs</div>
+                            <div class="insight-header">Your Edge: NBA road underdogs</div>
                             <p class="insight-text">
                                 You hit <strong>61%</strong> on road dogs, but only bet them <strong>12%</strong> of the time. That's sharp-level performance you're underusing.
                             </p>
@@ -364,9 +485,9 @@
                         </div>
 
                         <div class="insight-box">
-                            <div class="insight-header">Leak: same-game parlays are draining you</div>
+                            <div class="insight-header">Your Leak: Same-game parlays</div>
                             <p class="insight-text">
-                                You've placed <strong>87</strong> SGPs with a <strong>23%</strong> hit rate and <strong>-18%</strong> ROI. That's <strong>−$1,234</strong>. Singles? You're <strong>+$892</strong>.
+                                You've placed <strong>87</strong> SGPs with a <strong>23%</strong> hit rate. That's <strong>−$1,234</strong>. Singles? You're <strong>+$892</strong>.
                             </p>
                             <div class="insight-metrics">
                                 <div class="metric">
@@ -385,38 +506,40 @@
                         </div>
                     </div>
 
-                    <!-- RIGHT: Coach panel -->
-                    <aside class="coach-panel" aria-label="Coach Panel">
+                    <!-- RIGHT: Suggestions panel -->
+                    <aside class="coach-panel">
                         <div class="coach-head">
-                            <div class="coach-title">Control</div>
+                            <div class="coach-title">Smart Suggestions</div>
                             <div class="gauge"><span>92%</span></div>
                         </div>
                         <div class="watchlist">
                             <div class="watch-item">
                                 <div>
-                                    <strong>Edge Watchlist</strong><div class="watch-meta">Road dog signal — HOU @ BOS · 7:10pm</div>
+                                    <strong>Bet NBA road dogs more</strong>
+                                    <div class="watch-meta">You're 61% on these—your best edge</div>
                                 </div>
-                                <span class="pill">Notify</span>
+                                <span class="pill">$50 unit</span>
                             </div>
                             <div class="watch-item">
                                 <div>
-                                    <strong>Fair price ping</strong><div class="watch-meta">NBA totals · o 217.5 hits −110 at 6:55pm</div>
+                                    <strong>Reduce parlay unit size</strong>
+                                    <div class="watch-meta">Bet $10-15 instead of $50 on SGPs</div>
                                 </div>
-                                <span class="pill">Add</span>
+                                <span class="pill">$10-15</span>
                             </div>
                         </div>
                         <div class="guardrails">
                             <div class="rail on">
                                 <div>
-                                    <strong>Mute SGPs after 2 losses</strong>
-                                    <div class="watch-meta">Protects bankroll during tilt windows</div>
+                                    <strong>Pattern alerts</strong>
+                                    <div class="watch-meta">Notify when betting on losing patterns</div>
                                 </div>
                                 <div class="toggle"></div>
                             </div>
                             <div class="rail on">
                                 <div>
-                                    <strong>Cool-off after midnight</strong>
-                                    <div class="watch-meta">Your win rate drops 42% after 12am</div>
+                                    <strong>Late night check-in</strong>
+                                    <div class="watch-meta">Your win rate drops 42% after midnight</div>
                                 </div>
                                 <div class="toggle"></div>
                             </div>
@@ -425,23 +548,23 @@
                 </div>
 
                 <div class="showcase-cta">
-                    <a href="#signup">Turn on edge alerts →</a>
+                    <a href="#signup">See My Patterns →</a>
                 </div>
             </div>
 
-            <!-- What happens next strip -->
+            <!-- What happens next -->
             <div class="next-strip">
                 <div class="next-card">
-                    <div class="next-title">Tonight</div>
-                    <div class="next-sub">Get alerted when a road-dog edge appears.</div>
+                    <div class="next-title">Today</div>
+                    <div class="next-sub">Paste 30 days, see instant insights</div>
                 </div>
                 <div class="next-card">
-                    <div class="next-title">This week</div>
-                    <div class="next-sub">Your first Weekly Review lands Monday morning.</div>
+                    <div class="next-title">This Week</div>
+                    <div class="next-sub">Log new bets, get pattern alerts</div>
                 </div>
                 <div class="next-card">
-                    <div class="next-title">This month</div>
-                    <div class="next-sub">Your Personal Playbook v1.0 is generated.</div>
+                    <div class="next-title">This Month</div>
+                    <div class="next-sub">Track improvement, bet smarter</div>
                 </div>
             </div>
         </div>
@@ -451,93 +574,45 @@
     <section class="pillars-section">
         <div class="section-container">
             <span class="section-eyebrow">The System</span>
-            <h2 class="section-title">Three layers of intelligence.</h2>
-            <p class="section-subtitle">Not just tracking. Not just insights. A complete system that keeps you composed when it counts.</p>
+            <h2 class="section-title">Three layers that make you smarter.</h2>
+            <p class="section-subtitle">Not just tracking. Not just insights. A complete system that helps you bet smarter.</p>
 
             <div class="pillars-grid">
                 <div class="pillar">
                     <div class="pillar-number">1</div>
-                    <div class="pillar-icon">🎯</div>
-                    <h3 class="pillar-title">Performance Tracking</h3>
-                    <p class="pillar-text">Automatic bet import from major sportsbooks. Every bet tracked, categorized, and visualized.</p>
+                    <div class="pillar-icon">📊</div>
+                    <h3 class="pillar-title">Pattern Recognition</h3>
+                    <p class="pillar-text">We find patterns you can't see yourself. Where you actually make money, where you're losing, and why.</p>
                     <ul class="pillar-features">
-                        <li>Win rates by sport, bet type, timing, team</li>
-                        <li>ROI tracking across all books</li>
-                        <li>Bankroll and exposure visualization</li>
+                        <li>Win rates by sport, bet type, team, timing</li>
+                        <li>Profit/loss breakdowns across all bets</li>
+                        <li>Your edge vs. your leaks identified</li>
+                        <li>Auto-detection: 80% of outcomes marked automatically</li>
                     </ul>
                 </div>
                 <div class="pillar">
                     <div class="pillar-number">2</div>
-                    <div class="pillar-icon">🧠</div>
-                    <h3 class="pillar-title">AI Insights</h3>
-                    <p class="pillar-text">We find edges and leaks across thousands of data points — the patterns you’d never see alone.</p>
+                    <div class="pillar-icon">💡</div>
+                    <h3 class="pillar-title">Smart Suggestions</h3>
+                    <p class="pillar-text">Data-driven recommendations on where to bet big, where to bet small, and where to avoid.</p>
                     <ul class="pillar-features">
-                        <li>Hidden edge detection</li>
-                        <li>Leak identification & quantification</li>
-                        <li>Optimal bet sizing suggestions</li>
+                        <li>Unit sizing based on your performance</li>
+                        <li>"Bet $50 here, $15 there" suggestions</li>
+                        <li>Pattern alerts: "You're 2-7 on Cowboys"</li>
+                        <li>You always have final say</li>
                     </ul>
                 </div>
                 <div class="pillar">
                     <div class="pillar-number">3</div>
-                    <div class="pillar-icon">⚡</div>
-                    <h3 class="pillar-title">Real-Time Coaching</h3>
-                    <p class="pillar-text">Interventions when you chase. Nudges that reinforce your plan. Discipline gets easier by default.</p>
+                    <div class="pillar-icon">⚖️</div>
+                    <h3 class="pillar-title">Autonomy Preserved</h3>
+                    <p class="pillar-text">We show you the truth and suggest smarter choices. You decide what to do with the information.</p>
                     <ul class="pillar-features">
-                        <li>“Tilt” detection and cool-offs</li>
-                        <li>Reality checks on parlays</li>
-                        <li>Awareness streaks & progress</li>
+                        <li>No judgment, no shame, no blocking</li>
+                        <li>Reality checks, not restrictions</li>
+                        <li>Optional alerts you can customize</li>
+                        <li>Your money, your choices, better data</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials-section">
-        <div class="section-container">
-            <span class="section-eyebrow">Stories, not slogans</span>
-            <h2 class="section-title">What serious bettors say.</h2>
-            <p class="section-subtitle">Real results from users who traded guessing for knowing.</p>
-
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <p class="testimonial-text">
-                        “I thought I was good on NFL favorites. BetterBet showed I was 28% there and 67% on underdogs. I stopped forcing favorites. Up <strong>$3,400</strong> in 4 months.”
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">A</div>
-                        <div class="author-info">
-                            <div class="author-name">Alex R.</div>
-                            <div class="author-meta">DFS grinder</div>
-                            <div class="author-stat">+14% ROI since switching</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">
-                        “I didn’t realize late-night betting nuked me. Now the coach shuts me down after a bad beat. First season I’ve actually protected my roll.”
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">M</div>
-                        <div class="author-info">
-                            <div class="author-name">Marcus T.</div>
-                            <div class="author-meta">NBA daily</div>
-                            <div class="author-stat">Eliminated $1,800 in leaks</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">
-                        “Seeing ‘cut parlays and you’d be +$1.6k’ hurt… in the best way. I cut them. I’m calmer, and Sundays don’t end in tilt.”
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">J</div>
-                        <div class="author-info">
-                            <div class="author-name">Jules P.</div>
-                            <div class="author-meta">SGP fan</div>
-                            <div class="author-stat">Control streak: 21 days</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -545,8 +620,8 @@
 
     <!-- Final CTA -->
     <section class="final-cta" id="signup">
-        <h2>Make control your edge.</h2>
-        <p>Join the private beta. Built by bettors. Backed by behavioral science.</p>
+        <h2>See Where You Actually Make Money</h2>
+        <p>Join the private beta. Free while we build. No credit card. Just paste and see the truth.</p>
 
         <form action="https://formspree.io/f/manpdjqg" method="POST"
               style="max-width:720px;margin:0 auto 16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
@@ -557,7 +632,7 @@
             <input type="text" name="_gotcha" style="display:none"/>
         </form>
 
-        <div class="final-subtext">We’re not touts. No picks — your data only. Privacy is product.</div>
+        <div class="final-subtext">We don't sell picks. We don't share your data. Just truth about your betting.</div>
     </section>
 
     <!-- Footer -->
@@ -577,7 +652,7 @@
             const betsPerMonth = Math.max(0, parseFloat(document.getElementById('betsPerMonth').value) || 0);
             const years = Math.max(1, parseFloat(document.getElementById('years').value) || 1);
 
-            // Heuristic: ~20% of volume are "leak bets" at ~-15% ROI
+            // Conservative estimate: ~20% of volume are "leak bets" at ~-15% ROI
             const annual = betSize * betsPerMonth * 12 * 0.20 * 0.15;
             const estimate = Math.round(annual);
 
