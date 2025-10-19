@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>BetterBet - See Where You Actually Make Money</title>
+    <title>BetterBet - Know What Actually Works</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{
@@ -24,208 +24,217 @@
         .nav-cta:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
 
         /* Hero */
-        .hero{margin-top:80px;padding:100px 30px 80px;background:linear-gradient(180deg,#fafafa 0%,#ffffff 100%);text-align:center}
-        .hero-badge{display:inline-block;background:#000;color:#fff;padding:8px 20px;border-radius:20px;font-size:.75rem;font-weight:700;margin-bottom:24px;letter-spacing:1px;text-transform:uppercase}
-        .hero h1{font-size:4.2rem;font-weight:700;line-height:1.15;margin-bottom:24px;letter-spacing:-2.5px;max-width:950px;margin-left:auto;margin-right:auto}
-        .hero-subtitle{font-size:1.45rem;color:#555;max-width:700px;margin:0 auto 40px;line-height:1.6;font-weight:400}
-        .hero-cta{display:inline-block;background:#000;color:#fff;padding:18px 40px;border-radius:12px;text-decoration:none;font-weight:600;font-size:1.1rem;transition:.3s;box-shadow:0 4px 14px rgba(0,0,0,.1);margin-bottom:12px}
+        .hero{margin-top:80px;padding:120px 30px 100px;background:linear-gradient(180deg,#fafafa 0%,#ffffff 100%);text-align:center}
+        .hero-badge{display:inline-block;background:#000;color:#fff;padding:8px 20px;border-radius:20px;font-size:.75rem;font-weight:700;margin-bottom:28px;letter-spacing:1px;text-transform:uppercase}
+        .hero h1{font-size:4.8rem;font-weight:700;line-height:1.1;margin-bottom:28px;letter-spacing:-3px;max-width:900px;margin-left:auto;margin-right:auto;color:#000}
+        .hero-hook{font-size:1.9rem;font-weight:600;margin-bottom:20px;color:#000;letter-spacing:-.5px}
+        .hero-outcome{font-size:1.35rem;color:#555;max-width:680px;margin:0 auto 45px;line-height:1.6;font-weight:400}
+        .hero-cta{display:inline-block;background:#000;color:#fff;padding:20px 50px;border-radius:12px;text-decoration:none;font-weight:700;font-size:1.15rem;transition:.3s;box-shadow:0 4px 14px rgba(0,0,0,.1);margin-bottom:14px}
         .hero-cta:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,0,0,.15)}
-        .hero-subtext{color:#999;font-size:.9rem;margin-top:12px;margin-bottom:30px}
-        .hero-features{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-top:40px;font-size:.95rem;color:#666}
-        .hero-features span{display:flex;align-items:center;gap:8px}
-        .hero-features span:before{content:"✓";color:#4ade80;font-weight:bold;font-size:1.2rem}
+        .hero-subtext{color:#999;font-size:.95rem;margin-top:14px;margin-bottom:50px;font-weight:500}
+        .hero-features{display:flex;gap:35px;justify-content:center;flex-wrap:wrap;margin-top:50px;font-size:1rem;color:#666;max-width:900px;margin-left:auto;margin-right:auto}
+        .hero-features span{display:flex;align-items:center;gap:10px;font-weight:500}
+        .hero-features span:before{content:"✓";color:#4ade80;font-weight:bold;font-size:1.3rem}
 
-        /* Truth Section (NEW) */
-        .truth-section{padding:80px 30px;background:#fff;border-top:1px solid #eee}
+        /* Social Proof Strip (NEW) */
+        .social-proof{background:#000;color:#fff;padding:20px 30px;text-align:center}
+        .social-proof-content{max-width:1000px;margin:0 auto;font-size:.95rem;color:#aaa}
+        .social-proof-content strong{color:#4ade80;font-weight:600}
+
+        /* Truth Section */
+        .truth-section{padding:100px 30px;background:#fff;border-top:1px solid #eee}
         .truth-container{max-width:1100px;margin:0 auto;text-align:center}
-        .truth-container h2{font-size:2.8rem;font-weight:700;margin-bottom:50px;letter-spacing:-1.5px}
-        .truth-example{display:grid;grid-template-columns:1fr auto 1fr;gap:30px;align-items:center;background:#fafafa;padding:50px;border-radius:20px;border:1px solid #e8e8e8;margin-bottom:40px}
+        .truth-container h2{font-size:3rem;font-weight:700;margin-bottom:50px;letter-spacing:-1.8px}
+        .truth-example{display:grid;grid-template-columns:1fr auto 1fr;gap:35px;align-items:center;background:#fafafa;padding:55px;border-radius:20px;border:1px solid #e8e8e8;margin-bottom:45px}
         .truth-before,.truth-after{text-align:left}
-        .truth-before h3,.truth-after h3{font-size:1.1rem;font-weight:700;margin-bottom:16px;color:#000}
-        .truth-before{color:#666;font-style:italic;font-size:1.05rem;line-height:1.7}
-        .truth-after{background:#fff;padding:25px;border-radius:12px;border:1px solid #e0e0e0}
-        .truth-after ul{list-style:none;margin-bottom:20px;font-size:1.05rem;line-height:2}
-        .truth-after li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f0f0f0}
-        .truth-after li:last-child{border-bottom:none;font-weight:700;color:#000;margin-top:10px;padding-top:15px;border-top:2px solid #000}
-        .truth-after p{color:#666;font-size:.95rem;line-height:1.6;margin-top:15px;padding-top:15px;border-top:1px solid #e8e8e8}
-        .truth-arrow{font-size:3rem;color:#4ade80;font-weight:700}
-        .truth-tagline{font-size:1.3rem;color:#000;font-weight:600;margin-top:30px}
+        .truth-before h3,.truth-after h3{font-size:1.15rem;font-weight:700;margin-bottom:18px;color:#000}
+        .truth-before{color:#666;font-style:italic;font-size:1.1rem;line-height:1.75}
+        .truth-after{background:#fff;padding:28px;border-radius:12px;border:1px solid #e0e0e0}
+        .truth-after ul{list-style:none;margin-bottom:22px;font-size:1.08rem;line-height:2.2}
+        .truth-after li{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #f0f0f0}
+        .truth-after li:last-child{border-bottom:none;font-weight:700;color:#000;margin-top:12px;padding-top:18px;border-top:2px solid #000}
+        .truth-after p{color:#666;font-size:1rem;line-height:1.65;margin-top:18px;padding-top:18px;border-top:1px solid #e8e8e8}
+        .truth-arrow{font-size:3.5rem;color:#4ade80;font-weight:700}
+        .truth-tagline{font-size:1.4rem;color:#000;font-weight:600;margin-top:35px}
 
-        /* Magic Features (NEW) */
-        .magic-section{padding:80px 30px;background:#fafafa}
+        /* Magic Features */
+        .magic-section{padding:100px 30px;background:#fafafa}
         .magic-container{max-width:1100px;margin:0 auto}
-        .magic-title{font-size:2.8rem;font-weight:700;text-align:center;margin-bottom:20px;letter-spacing:-1.5px}
-        .magic-subtitle{text-align:center;font-size:1.3rem;color:#666;margin-bottom:60px;max-width:700px;margin-left:auto;margin-right:auto}
-        .magic-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
-        .magic-card{background:#fff;padding:40px;border-radius:16px;border:1px solid #e8e8e8;text-align:center;transition:.3s}
+        .magic-title{font-size:3rem;font-weight:700;text-align:center;margin-bottom:22px;letter-spacing:-1.8px}
+        .magic-subtitle{text-align:center;font-size:1.35rem;color:#666;margin-bottom:70px;max-width:720px;margin-left:auto;margin-right:auto;line-height:1.65}
+        .magic-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:35px}
+        .magic-card{background:#fff;padding:45px;border-radius:16px;border:1px solid #e8e8e8;text-align:center;transition:.3s}
         .magic-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
-        .magic-card h3{font-size:1.8rem;margin-bottom:15px}
-        .magic-card p{color:#666;line-height:1.7;font-size:1.05rem}
+        .magic-card h3{font-size:1.9rem;margin-bottom:18px}
+        .magic-card p{color:#666;line-height:1.75;font-size:1.08rem}
 
         /* Calculator */
-        .calculator-section{padding:80px 30px;background:#fff;border-top:1px solid #eee}
-        .calculator-container{max-width:700px;margin:0 auto;background:linear-gradient(135deg,#f8f8f8 0%,#fafafa 100%);border-radius:24px;padding:50px;border:1px solid #e8e8e8;box-shadow:0 8px 30px rgba(0,0,0,.06)}
-        .calc-title{font-size:2rem;font-weight:700;margin-bottom:12px;text-align:center;letter-spacing:-1px}
-        .calc-subtitle{text-align:center;color:#666;margin-bottom:40px;font-size:1.05rem}
-        .calc-inputs{display:grid;gap:25px;margin-bottom:35px}
-        .calc-input-group{display:flex;flex-direction:column;gap:10px}
-        .calc-label{font-weight:600;font-size:.95rem;color:#333}
-        .calc-input{padding:16px;border:2px solid #e0e0e0;border-radius:10px;font-size:1.1rem;font-weight:600;background:#fff;transition:border-color .2s}
+        .calculator-section{padding:100px 30px;background:#fff;border-top:1px solid #eee}
+        .calculator-container{max-width:700px;margin:0 auto;background:linear-gradient(135deg,#f8f8f8 0%,#fafafa 100%);border-radius:24px;padding:55px;border:1px solid #e8e8e8;box-shadow:0 8px 30px rgba(0,0,0,.06)}
+        .calc-title{font-size:2.2rem;font-weight:700;margin-bottom:14px;text-align:center;letter-spacing:-1.2px}
+        .calc-subtitle{text-align:center;color:#666;margin-bottom:45px;font-size:1.1rem;line-height:1.65}
+        .calc-inputs{display:grid;gap:28px;margin-bottom:40px}
+        .calc-input-group{display:flex;flex-direction:column;gap:12px}
+        .calc-label{font-weight:600;font-size:1rem;color:#333}
+        .calc-input{padding:18px;border:2px solid #e0e0e0;border-radius:10px;font-size:1.15rem;font-weight:600;background:#fff;transition:border-color .2s}
         .calc-input:focus{outline:none;border-color:#000}
-        .calc-button{width:100%;padding:18px;background:#000;color:#fff;border:none;border-radius:12px;font-size:1.1rem;font-weight:700;cursor:pointer;transition:.3s}
+        .calc-button{width:100%;padding:20px;background:#000;color:#fff;border:none;border-radius:12px;font-size:1.15rem;font-weight:700;cursor:pointer;transition:.3s}
         .calc-button:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
-        .calc-result{display:none;margin-top:30px;padding:30px;background:#000;color:#fff;border-radius:16px;text-align:center}
+        .calc-result{display:none;margin-top:35px;padding:35px;background:#000;color:#fff;border-radius:16px;text-align:center}
         .calc-result.show{display:block}
-        .result-number{font-size:3.5rem;font-weight:700;color:#ef4444;margin-bottom:12px;line-height:1}
-        .result-text{font-size:1.2rem;margin-bottom:25px;color:#ccc}
-        .result-cta{display:inline-block;background:#4ade80;color:#000;padding:16px 40px;border-radius:10px;text-decoration:none;font-weight:700;font-size:1.05rem;transition:.3s}
+        .result-number{font-size:3.8rem;font-weight:700;color:#ef4444;margin-bottom:14px;line-height:1}
+        .result-text{font-size:1.25rem;margin-bottom:28px;color:#ccc;line-height:1.6}
+        .result-cta{display:inline-block;background:#4ade80;color:#000;padding:18px 45px;border-radius:10px;text-decoration:none;font-weight:700;font-size:1.1rem;transition:.3s}
         .result-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(74,222,128,.4)}
 
         /* Quick Testimonials */
-        .quick-testimonials{padding:80px 30px;background:#fafafa}
-        .quick-test-container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
-        .quick-test{background:#fff;padding:30px;border-radius:16px;border:1px solid #e8e8e8;font-size:1rem;color:#333;line-height:1.7;position:relative}
-        .quick-test:before{content:'"';font-size:4rem;position:absolute;top:10px;left:20px;color:#e8e8e8;font-family:Georgia,serif}
-        .quick-test-text{position:relative;z-index:1;padding-top:20px}
-        .quick-test-author{margin-top:15px;font-weight:600;color:#000;font-size:.9rem}
-        .quick-test-context{color:#666;font-size:.85rem;margin-top:5px;font-style:italic}
+        .quick-testimonials{padding:100px 30px;background:#fafafa}
+        .quick-test-container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:35px}
+        .quick-test{background:#fff;padding:35px;border-radius:16px;border:1px solid #e8e8e8;font-size:1.05rem;color:#333;line-height:1.75;position:relative}
+        .quick-test:before{content:'"';font-size:4.5rem;position:absolute;top:12px;left:22px;color:#e8e8e8;font-family:Georgia,serif}
+        .quick-test-text{position:relative;z-index:1;padding-top:25px}
+        .quick-test-author{margin-top:18px;font-weight:600;color:#000;font-size:.95rem}
+        .quick-test-context{color:#666;font-size:.88rem;margin-top:6px;font-style:italic}
 
         /* Problem Section */
-        .problem-section{padding:100px 30px;background:#fff}
+        .problem-section{padding:120px 30px;background:#fff}
         .section-container{max-width:1100px;margin:0 auto}
-        .section-eyebrow{display:inline-block;background:#f0f0f0;padding:6px 16px;border-radius:16px;font-size:.75rem;font-weight:700;color:#666;margin-bottom:20px;letter-spacing:1.5px;text-transform:uppercase}
-        .section-title{font-size:3.2rem;font-weight:700;margin-bottom:24px;line-height:1.2;letter-spacing:-1.5px}
-        .section-subtitle{font-size:1.35rem;color:#666;margin-bottom:60px;max-width:750px;line-height:1.6}
-        .problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:35px}
-        .problem-card{background:#fafafa;padding:40px;border-radius:16px;border:1px solid #eee;transition:.3s}
+        .section-eyebrow{display:inline-block;background:#f0f0f0;padding:7px 18px;border-radius:16px;font-size:.78rem;font-weight:700;color:#666;margin-bottom:22px;letter-spacing:1.5px;text-transform:uppercase}
+        .section-title{font-size:3.5rem;font-weight:700;margin-bottom:28px;line-height:1.2;letter-spacing:-2px}
+        .section-subtitle{font-size:1.4rem;color:#666;margin-bottom:70px;max-width:780px;line-height:1.65}
+        .problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px}
+        .problem-card{background:#fafafa;padding:45px;border-radius:16px;border:1px solid #eee;transition:.3s}
         .problem-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
-        .problem-icon{font-size:2.5rem;margin-bottom:20px}
-        .problem-title{font-size:1.4rem;font-weight:700;margin-bottom:12px}
-        .problem-text{color:#666;line-height:1.7;font-size:1.02rem}
+        .problem-icon{font-size:2.8rem;margin-bottom:22px}
+        .problem-title{font-size:1.5rem;font-weight:700;margin-bottom:14px}
+        .problem-text{color:#666;line-height:1.75;font-size:1.08rem}
 
-        /* Autonomy Section (NEW) */
-        .autonomy-section{padding:100px 30px;background:#fafafa}
-        .autonomy-container{max-width:900px;margin:0 auto;text-align:center}
-        .autonomy-title{font-size:3rem;font-weight:700;margin-bottom:40px;letter-spacing:-1.5px}
-        .autonomy-comparison{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:60px}
-        .autonomy-col{background:#fff;padding:40px;border-radius:16px;border:1px solid #e8e8e8}
-        .autonomy-col h3{font-size:1.3rem;margin-bottom:25px;font-weight:700}
+        /* Autonomy Section */
+        .autonomy-section{padding:120px 30px;background:#fafafa}
+        .autonomy-container{max-width:950px;margin:0 auto;text-align:center}
+        .autonomy-title{font-size:3.3rem;font-weight:700;margin-bottom:45px;letter-spacing:-2px}
+        .autonomy-comparison{display:grid;grid-template-columns:1fr 1fr;gap:45px;margin-top:70px}
+        .autonomy-col{background:#fff;padding:45px;border-radius:16px;border:1px solid #e8e8e8}
+        .autonomy-col h3{font-size:1.4rem;margin-bottom:28px;font-weight:700}
         .autonomy-col.bad{border-left:4px solid #ef4444}
         .autonomy-col.good{border-left:4px solid #4ade80}
-        .autonomy-item{padding:20px 0;border-bottom:1px solid #f0f0f0;text-align:left;font-size:1.05rem;line-height:1.7}
+        .autonomy-item{padding:22px 0;border-bottom:1px solid #f0f0f0;text-align:left;font-size:1.08rem;line-height:1.75}
         .autonomy-item:last-child{border-bottom:none}
-        .autonomy-item strong{display:block;margin-bottom:8px;color:#000}
-        .autonomy-tagline{margin-top:50px;font-size:1.4rem;font-weight:600;color:#000}
+        .autonomy-item strong{display:block;margin-bottom:10px;color:#000}
+        .autonomy-tagline{margin-top:55px;font-size:1.5rem;font-weight:600;color:#000}
 
         /* Product Showcase */
-        .product-showcase{padding:100px 30px;background:linear-gradient(135deg,#000 0%,#1a1a1a 100%);color:#fff}
+        .product-showcase{padding:120px 30px;background:linear-gradient(135deg,#000 0%,#1a1a1a 100%);color:#fff}
         .product-showcase .section-eyebrow{background:rgba(255,255,255,.1);color:#888}
         .product-showcase .section-title{color:#fff}
         .product-showcase .section-subtitle{color:#aaa}
 
         .dashboard-preview{
-            max-width:1100px;margin:40px auto 0;background:rgba(255,255,255,.05);
-            border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:26px 26px 30px;position:relative
+            max-width:1100px;margin:50px auto 0;background:rgba(255,255,255,.05);
+            border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:30px 30px 35px;position:relative
         }
-        .preview-label{position:absolute;top:16px;right:16px;background:rgba(74,222,128,.2);color:#4ade80;padding:6px 12px;border-radius:10px;font-size:.72rem;font-weight:800;letter-spacing:.5px}
-        .preview-title{font-size:1.6rem;font-weight:800;margin-bottom:12px;color:#fff}
-        .snapshot-tabs{display:flex;gap:16px;margin-bottom:16px;font-size:.9rem;color:#c9d1e2}
+        .preview-label{position:absolute;top:18px;right:18px;background:rgba(74,222,128,.2);color:#4ade80;padding:7px 14px;border-radius:10px;font-size:.75rem;font-weight:800;letter-spacing:.5px}
+        .preview-title{font-size:1.7rem;font-weight:800;margin-bottom:14px;color:#fff}
+        .snapshot-tabs{display:flex;gap:18px;margin-bottom:18px;font-size:.95rem;color:#c9d1e2}
         .snapshot-tabs .on{color:#fff;position:relative}
-        .snapshot-tabs .on:after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:#4ade80;border-radius:2px}
+        .snapshot-tabs .on:after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:#4ade80;border-radius:2px}
 
-        .snapshot-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
-        .insight-col{display:flex;flex-direction:column;gap:14px}
+        .snapshot-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+        .insight-col{display:flex;flex-direction:column;gap:16px}
         .insight-box{
             background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));
-            padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,.12);position:relative;overflow:hidden
+            padding:25px;border-radius:14px;border:1px solid rgba(255,255,255,.12);position:relative;overflow:hidden
         }
         .insight-box:before{
             content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:#4ade80
         }
-        .insight-header{font-size:1.05rem;font-weight:800;margin-bottom:10px;color:#fff}
-        .insight-text{color:#cfd7e6;line-height:1.7;margin-bottom:16px}
-        .insight-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-        .metric{text-align:center;padding:12px;background:rgba(0,0,0,.25);border-radius:10px;border:1px solid rgba(255,255,255,.06)}
-        .metric-value{font-size:1.4rem;font-weight:800;color:#4ade80;margin-bottom:2px}
-        .metric-label{font-size:.78rem;color:#95a3bd}
+        .insight-header{font-size:1.1rem;font-weight:800;margin-bottom:12px;color:#fff}
+        .insight-text{color:#cfd7e6;line-height:1.75;margin-bottom:18px}
+        .insight-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+        .metric{text-align:center;padding:14px;background:rgba(0,0,0,.25);border-radius:10px;border:1px solid rgba(255,255,255,.06)}
+        .metric-value{font-size:1.5rem;font-weight:800;color:#4ade80;margin-bottom:3px}
+        .metric-label{font-size:.8rem;color:#95a3bd}
 
         .coach-panel{
             background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
-            border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px
+            border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:16px
         }
         .coach-head{display:flex;align-items:center;justify-content:space-between}
         .coach-title{font-weight:800}
         .gauge{
-            width:84px;height:84px;border-radius:50%;
+            width:90px;height:90px;border-radius:50%;
             background:conic-gradient(#4ade80 0 330deg, rgba(255,255,255,.15) 330deg 360deg);
             display:grid;place-items:center;border:6px solid rgba(255,255,255,.08)
         }
-        .gauge span{font-weight:800;font-size:.95rem;color:#e8f8ef}
-        .watchlist{border-top:1px solid rgba(255,255,255,.08);padding-top:12px}
-        .watch-item{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+        .gauge span{font-weight:800;font-size:1rem;color:#e8f8ef}
+        .watchlist{border-top:1px solid rgba(255,255,255,.08);padding-top:14px}
+        .watch-item{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06)}
         .watch-item:last-child{border-bottom:none}
-        .watch-meta{font-size:.82rem;color:#aab7cf}
-        .pill{background:rgba(74,222,128,.18);border:1px solid rgba(74,222,128,.35);color:#d5ffe7;padding:4px 8px;border-radius:999px;font-size:.75rem;font-weight:700}
-        .guardrails{border-top:1px solid rgba(255,255,255,.08);padding-top:12px}
-        .rail{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
-        .toggle{width:38px;height:22px;border-radius:999px;background:#0e1522;border:1px solid rgba(255,255,255,.2);position:relative}
-        .toggle:after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}
+        .watch-meta{font-size:.85rem;color:#aab7cf}
+        .pill{background:rgba(74,222,128,.18);border:1px solid rgba(74,222,128,.35);color:#d5ffe7;padding:5px 10px;border-radius:999px;font-size:.78rem;font-weight:700}
+        .guardrails{border-top:1px solid rgba(255,255,255,.08);padding-top:14px}
+        .rail{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+        .toggle{width:40px;height:24px;border-radius:999px;background:#0e1522;border:1px solid rgba(255,255,255,.2);position:relative}
+        .toggle:after{content:"";position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.2s}
         .on .toggle{background:#4ade80;border-color:#4ade80}
         .on .toggle:after{left:18px}
 
         .showcase-cta{
-            margin-top:16px;display:flex;justify-content:center
+            margin-top:20px;display:flex;justify-content:center
         }
         .showcase-cta a{
-            display:inline-block;background:#4ade80;color:#000;padding:14px 26px;border-radius:12px;text-decoration:none;font-weight:800;box-shadow:0 6px 24px rgba(74,222,128,.25)
+            display:inline-block;background:#4ade80;color:#000;padding:16px 30px;border-radius:12px;text-decoration:none;font-weight:800;box-shadow:0 6px 24px rgba(74,222,128,.25);transition:.3s
         }
+        .showcase-cta a:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(74,222,128,.35)}
 
         /* What happens next strip */
         .next-strip{
-            max-width:1100px;margin:22px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px
+            max-width:1100px;margin:25px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px
         }
         .next-card{
-            background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px
+            background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px
         }
-        .next-title{font-weight:800;margin-bottom:4px;color:#fff}
-        .next-sub{color:#c8d2e8;font-size:.95rem}
+        .next-title{font-weight:800;margin-bottom:5px;color:#fff}
+        .next-sub{color:#c8d2e8;font-size:1rem}
 
         /* Pillars */
-        .pillars-section{padding:100px 30px;background:#fff}
-        .pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;margin-top:60px}
-        .pillar{position:relative;background:#fafafa;padding:45px 35px;border-radius:16px;border:1px solid #eee}
-        .pillar-number{position:absolute;top:-15px;left:-15px;width:50px;height:50px;background:#000;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;box-shadow:0 4px 12px rgba(0,0,0,.15)}
-        .pillar-icon{font-size:2.5rem;margin-bottom:20px}
-        .pillar-title{font-size:1.5rem;font-weight:700;margin-bottom:12px}
-        .pillar-text{color:#666;line-height:1.7;margin-bottom:20px}
+        .pillars-section{padding:120px 30px;background:#fff}
+        .pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:45px;margin-top:70px}
+        .pillar{position:relative;background:#fafafa;padding:50px 40px;border-radius:16px;border:1px solid #eee}
+        .pillar-number{position:absolute;top:-16px;left:-16px;width:54px;height:54px;background:#000;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.4rem;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+        .pillar-icon{font-size:2.8rem;margin-bottom:22px}
+        .pillar-title{font-size:1.6rem;font-weight:700;margin-bottom:14px}
+        .pillar-text{color:#666;line-height:1.75;margin-bottom:22px;font-size:1.05rem}
         .pillar-features{list-style:none}
-        .pillar-features li{padding:10px 0;padding-left:25px;position:relative;color:#444;font-size:.95rem;border-bottom:1px solid #e8e8e8}
+        .pillar-features li{padding:12px 0;padding-left:28px;position:relative;color:#444;font-size:1rem;border-bottom:1px solid #e8e8e8}
         .pillar-features li:last-child{border-bottom:none}
         .pillar-features li:before{content:"→";position:absolute;left:0;font-weight:bold;color:#000}
 
         /* Final CTA & Footer */
-        .final-cta{padding:120px 30px;background:linear-gradient(135deg,#000 0%,#1a1a1a 100%);color:#fff;text-align:center}
-        .final-cta h2{font-size:3.5rem;font-weight:700;margin-bottom:24px;line-height:1.2;letter-spacing:-2px}
-        .final-cta p{font-size:1.5rem;color:#aaa;margin-bottom:40px;max-width:700px;margin-left:auto;margin-right:auto;line-height:1.6}
-        .final-cta-button{display:inline-block;background:#4ade80;color:#000;padding:20px 50px;border-radius:12px;text-decoration:none;font-weight:700;font-size:1.2rem;transition:.3s;box-shadow:0 4px 14px rgba(74,222,128,.3)}
+        .final-cta{padding:140px 30px;background:linear-gradient(135deg,#000 0%,#1a1a1a 100%);color:#fff;text-align:center}
+        .final-cta h2{font-size:3.8rem;font-weight:700;margin-bottom:28px;line-height:1.2;letter-spacing:-2.2px}
+        .final-cta p{font-size:1.6rem;color:#aaa;margin-bottom:45px;max-width:750px;margin-left:auto;margin-right:auto;line-height:1.65}
+        .final-cta-button{display:inline-block;background:#4ade80;color:#000;padding:22px 55px;border-radius:12px;text-decoration:none;font-weight:700;font-size:1.25rem;transition:.3s;box-shadow:0 4px 14px rgba(74,222,128,.3)}
         .final-cta-button:hover{transform:translateY(-4px);box-shadow:0 12px 35px rgba(74,222,128,.4)}
-        .final-subtext{margin-top:18px;color:#888;font-size:.9rem}
-        footer{background:#000;color:#666;padding:40px 30px;text-align:center;font-size:.9rem}
-        .footer-links{margin-bottom:20px}
-        footer a{color:#999;text-decoration:none;margin:0 15px}
+        .final-subtext{margin-top:20px;color:#888;font-size:.95rem}
+        footer{background:#000;color:#666;padding:45px 30px;text-align:center;font-size:.95rem}
+        .footer-links{margin-bottom:22px}
+        footer a{color:#999;text-decoration:none;margin:0 18px;transition:.2s}
         footer a:hover{color:#fff}
 
         @media (max-width:768px){
-            .hero h1{font-size:2.5rem}
-            .section-title{font-size:2rem}
+            .hero h1{font-size:2.8rem;letter-spacing:-1.5px}
+            .hero-hook{font-size:1.4rem}
+            .hero-outcome{font-size:1.1rem}
+            .section-title{font-size:2.2rem}
             .nav-trust{display:none}
-            .calculator-container{padding:35px 25px}
-            .truth-example{grid-template-columns:1fr;gap:20px}
+            .calculator-container{padding:40px 28px}
+            .truth-example{grid-template-columns:1fr;gap:22px}
             .truth-arrow{display:none}
             .magic-features{grid-template-columns:1fr}
             .autonomy-comparison{grid-template-columns:1fr}
             .snapshot-grid{grid-template-columns:1fr}
-            .hero-features{flex-direction:column;gap:15px;align-items:center}
+            .hero-features{flex-direction:column;gap:18px;align-items:center}
         }
     </style>
 </head>
@@ -239,31 +248,40 @@
                     <span class="trust-item"><span class="trust-dot">●</span> Free during beta</span>
                     <span class="trust-item"><span class="trust-dot">●</span> Works with all sportsbooks</span>
                 </div>
-                <a href="#calculator" class="nav-cta">See My Patterns</a>
+                <a href="#paste" class="nav-cta">See My Edge</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-badge">Your Betting Truth</div>
-        <h1>You're Probably Losing on Bets You Think You're Winning</h1>
-        <p class="hero-subtitle">
-            BetterBet shows you exactly where you make money and where you don't—
-            then helps you bet smarter on both. <strong>See patterns in 60 seconds.</strong>
+        <div class="hero-badge">Built for Bettors</div>
+        <h1>Know What Actually Works</h1>
+        <p class="hero-hook">Most bettors guess. You'll know.</p>
+        <p class="hero-outcome">
+            See your edge in 60 seconds—then bet smarter all season.
         </p>
-        <a href="#calculator" class="hero-cta">Paste My Last 30 Days →</a>
-        <p class="hero-subtext">Free • No signup required • Instant insights</p>
+        <a href="#paste" class="hero-cta">Paste My Betting History →</a>
+        <p class="hero-subtext">Free • No signup • Instant insights</p>
         
         <div class="hero-features">
-            <span>We auto-detect outcomes (no manual tracking)</span>
-            <span>Shows patterns you can't see yourself</span>
-            <span>Suggests smarter sizing (doesn't tell you what to do)</span>
+            <span>Works with all sportsbooks</span>
+            <span>Auto-detects 80% of outcomes</span>
+            <span>Shows patterns you can't see</span>
+        </div>
+    </section>
+
+    <!-- Social Proof Strip -->
+    <section class="social-proof">
+        <div class="social-proof-content">
+            <strong>73%</strong> of bettors have an edge they don't know about • 
+            Average bettor loses <strong>$2,400/year</strong> to hidden patterns • 
+            Win rates vary <strong>40%+ by timing alone</strong>
         </div>
     </section>
 
     <!-- Truth Section -->
-    <section class="truth-section">
+    <section class="truth-section" id="paste">
         <div class="truth-container">
             <h2>Here's What BetterBet Actually Shows You</h2>
             
@@ -295,23 +313,23 @@
     <!-- Magic Features -->
     <section class="magic-section">
         <div class="magic-container">
-            <h2 class="magic-title">How BetterBet Actually Works</h2>
-            <p class="magic-subtitle">Three features that make this "magic, not work"</p>
+            <h2 class="magic-title">How It Works</h2>
+            <p class="magic-subtitle">Three features that make this effortless</p>
             
             <div class="magic-features">
                 <div class="magic-card">
-                    <h3>📋 Copy/Paste Import</h3>
-                    <p>Paste 30 days of bet history from any sportsbook. See patterns in 60 seconds. No connection needed—just copy/paste.</p>
+                    <h3>📋 Paste & See</h3>
+                    <p>Copy 30 days from any sportsbook. Paste. Get instant insights. No connection needed.</p>
                 </div>
                 
                 <div class="magic-card">
-                    <h3>🤖 Auto-Detection</h3>
-                    <p>We automatically check scores for you. 80% of outcomes marked automatically—zero manual tracking after you log the bet.</p>
+                    <h3>🤖 Auto-Tracking</h3>
+                    <p>We check scores automatically. 80% of outcomes marked for you—zero manual work.</p>
                 </div>
                 
                 <div class="magic-card">
-                    <h3>🎯 Smart Sizing</h3>
-                    <p>We suggest where to bet big (your edge) and where to bet small (your weaknesses). You always decide.</p>
+                    <h3>🎯 Smart Suggestions</h3>
+                    <p>Bet $50 on your edge. Bet $10-15 on your leaks. You decide—we just show the data.</p>
                 </div>
             </div>
         </div>
@@ -320,8 +338,8 @@
     <!-- Calculator -->
     <section class="calculator-section" id="calculator">
         <div class="calculator-container">
-            <h2 class="calc-title">How Much Are Hidden Patterns Costing You?</h2>
-            <p class="calc-subtitle">Most bettors lose $2,400+/year to patterns they can't see: betting the wrong teams, late-night bets, parlays.</p>
+            <h2 class="calc-title">What Are Hidden Patterns Costing You?</h2>
+            <p class="calc-subtitle">Most bettors lose $2,400+/year to patterns they can't see: wrong teams, late bets, parlays.</p>
 
             <div class="calc-inputs">
                 <div class="calc-input-group">
@@ -338,12 +356,11 @@
                 </div>
             </div>
 
-            <button class="calc-button" onclick="calculateLeaks()">Calculate My Hidden Losses →</button>
+            <button class="calc-button" onclick="calculateLeaks()">Calculate My Cost →</button>
 
             <div class="calc-result" id="result">
                 <div class="result-number" id="resultNumber">$0</div>
-                <p class="result-text">You're likely losing this much annually to hidden patterns like Cowboys bets (2-7), parlays (18% win rate), and late-night betting (42% lower win rate).</p>
-                <a href="#signup" class="result-cta">Show Me My Patterns →</a>
+                <p class="result-text">You're likely losing this much annually to hidden patterns. BetterBet shows you exactly where—then helps you fix it.</p><a href="#signup" class="result-cta">Show Me My Patterns →</a>
             </div>
         </div>
     </section>
@@ -378,14 +395,14 @@
     <!-- Problem -->
     <section class="problem-section">
         <div class="section-container">
-            <span class="section-eyebrow">The Gap</span>
+            <span class="section-eyebrow">The Hidden Patterns</span>
             <h2 class="section-title">You're sharper than your results show.</h2>
             <p class="section-subtitle">You research. You analyze. You follow sharp money. So why aren't you profitable?</p>
 
             <div class="problem-grid">
                 <div class="problem-card">
                     <div class="problem-icon">🏈</div>
-                    <h3 class="problem-title">The Cowboys Trap</h3>
+                    <h3 class="problem-title">The Team Trap</h3>
                     <p class="problem-text">You're 2-7 on Cowboys (-$280) but keep betting them because you "like the matchup." Meanwhile you're 18-7 on NBA (+$540). Without tracking, you chase feelings—not profits.</p>
                 </div>
                 <div class="problem-card">
@@ -395,7 +412,7 @@
                 </div>
                 <div class="problem-card">
                     <div class="problem-icon">🌙</div>
-                    <h3 class="problem-title">The Late Night Leak</h3>
+                    <h3 class="problem-title">The Timing Leak</h3>
                     <p class="problem-text">Your 9am bets: 58% win rate. Your 11pm bets: 31% win rate. Same bettor, different judgment. You can't fix patterns you can't see.</p>
                 </div>
             </div>
@@ -450,8 +467,8 @@
     <!-- Product Showcase -->
     <section class="product-showcase">
         <div class="section-container">
-            <span class="section-eyebrow">The Intelligence</span>
-            <h2 class="section-title">See your patterns in 60 seconds. Get coached all season.</h2>
+            <span class="section-eyebrow">The Dashboard</span>
+            <h2 class="section-title">See your edge in 60 seconds. Track it all season.</h2>
             <p class="section-subtitle">Instant insights are the start. Pattern alerts and smart suggestions keep you on track.</p>
 
             <div class="dashboard-preview">
@@ -620,13 +637,13 @@
 
     <!-- Final CTA -->
     <section class="final-cta" id="signup">
-        <h2>See Where You Actually Make Money</h2>
-        <p>Join the private beta. Free while we build. No credit card. Just paste and see the truth.</p>
+        <h2>Know What Actually Works</h2>
+        <p>Join the private beta. Free while we build. No credit card. Just paste and know.</p>
 
         <form action="https://formspree.io/f/manpdjqg" method="POST"
-              style="max-width:720px;margin:0 auto 16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+              style="max-width:720px;margin:0 auto 20px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
             <input type="email" name="email" placeholder="you@domain.com" required
-                   style="flex:1;min-width:260px;padding:16px;border-radius:12px;border:1px solid #2b2b2b;font-size:1rem"/>
+                   style="flex:1;min-width:260px;padding:18px;border-radius:12px;border:1px solid #2b2b2b;font-size:1.05rem;background:#fff;color:#000"/>
             <button type="submit" class="final-cta-button">Get Early Access</button>
             <input type="hidden" name="_subject" value="BetterBet waitlist signup"/>
             <input type="text" name="_gotcha" style="display:none"/>
